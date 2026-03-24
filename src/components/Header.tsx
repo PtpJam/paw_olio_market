@@ -1,0 +1,257 @@
+import "./css/Header.css"
+import Box from '@mui/material/Box';
+import Search from "../assets/svg/search.svg"
+import Balance from "../assets/svg/balans.svg"
+import WorkOutlineIcon from '../assets/svg/WorkOutlineIcon.svg';;
+import Login from '../assets/svg/login.svg';
+import Oui_arrowUp from '../assets/svg/oui_arrow-up.svg';
+import Follow from '../assets/svg/follow.svg';
+import Close from '../assets/svg/close.svg';
+import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Stack, Tab, Tabs, Typography } from "@mui/material";
+import { useState } from "react";
+import MenuIcon from '@mui/icons-material/Menu'
+import { useTranslation } from "react-i18next";
+
+interface HeaderProps {
+  value: number;
+  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
+}
+
+function Header({ value, handleChange }: HeaderProps){
+    const [open, setOpen] = useState(false);
+    const [mode, setMode] = useState('main'); // 'main' | 'search' | 'lang'
+    const languages = [
+        { label: "Eng", code: "en" },
+        { label: "УКР", code: "uk" },
+        { label: "РУ", code: "ru" },
+        { label: "DEU", code: "de" },
+        { label: "ESP", code: "es" },
+        { label: "ITA", code: "ita" },
+        { label: "POR", code: "pt" },
+        { label: "FR", code: "fr" },
+        { label: "عرب", code: "ar" },
+        { label: "中文", code: "zh" },
+        { label: "한", code: "ko" },
+        { label: "Ⴀმ", code: "ka" },
+        { label: "日本語", code: "ja" }
+    ];
+
+    const { i18n, t } = useTranslation("header");
+
+    const handleLanguageChange = (newLang : string) => {
+        i18n.changeLanguage(newLang); 
+        setMode("main"); 
+    };
+    return(
+        <>
+            <header>
+                {mode === 'main' && (
+                    <Box sx={{height: "48px", display: "flex", justifyContent:"space-between", padding:"40px 2rem", gap:"20px"}}>
+                        
+                        <Box sx={{
+                            display: "flex",
+                            flex: 1,
+                            justifyContent: "space-between"    
+                        }}>
+                            <Box sx={{
+                                display: { 
+                                    xs: 'none', 
+                                    '@media (min-width: 1039px)': { display: 'flex' } 
+                                } 
+                                }}>
+                                <Tabs value={value} onChange={handleChange} sx={{
+                                    '& .MuiTabs-flexContainer': {
+                                        gap: '2vw'
+                                    }, 
+                                    '& .MuiTabs-indicator': {
+                                        backgroundColor: "#fff",
+                                        transition: "none",
+                                        bottom: '12px',
+                                    },
+                                    '& .MuiTab-root': {
+                                        fontSize: {
+                                            xs: '0',  
+                                            sm: '10px',  
+                                            md: "12px",
+                                            lg: '15px'  
+                                        }
+                                    }
+                                    
+                                    }} >
+                                    <Tab value={0} className="hideElement"/>
+                                    <Tab disableRipple className="tab" value={1} label={t("TabsMenu.oil")}></Tab>
+                                    <Tab disableRipple className="tab" value={2} label={t("TabsMenu.cosmetics")}></Tab>
+                                    <Tab disableRipple className="tab" value={3} label={t("TabsMenu.dishes")}></Tab>
+                                    <Tab disableRipple className="tab" value={4} label={t("TabsMenu.DIetary")}></Tab>
+                                </Tabs>
+                            </Box>
+                            <Box sx={{ display: { xs: 'flex', '@media (min-width: 1039px)': { display: 'none' } } }}>
+                                <Box sx={{display: "flex", gap: "10px"}}>
+                                    {!open ? 
+                                        <IconButton onClick={() => setOpen(true)} sx={{ color: 'white', alignItems: "center" }}>
+                                            <MenuIcon />
+                                        </IconButton> 
+                                        :
+                                        <IconButton onClick={() => setOpen(false)} sx={{ color: 'white', alignItems: "center" }}>
+                                            <Box 
+                                            component="img" 
+                                            src={Close} 
+                                            alt="arrow" 
+                                            sx={{ width: '24px', height: '12px' }} 
+                                            />
+                                        </IconButton> 
+                                    }
+                                    <IconButton disableRipple sx={{p: 0}}>
+                                        <Box component={"img"} src={Search} alt="serch" onClick={(_e) => setMode("search")}/>
+                                    </IconButton>
+                                </Box>
+
+
+                            </Box>
+                        </Box>
+                        <Box   
+                            sx={{
+                                '& .MuiTabs-indicator': { display: 'none'},
+                                display: "flex",
+                                alignItems:"center",
+                                flexShrink: 0,
+                                cursor: "pointer",
+                            }}
+                            onClick={(event) => handleChange(event, 0)}
+                        >
+                                <Typography 
+                                    sx={{  fontSize: { 
+                                        xs: '16px',  
+                                        sm: '20px',  
+                                        md: "28px",
+                                        lg: '32px',
+                                    },
+                                    display: "flex",
+                                    ignItems: "baseline",
+                                    alignItems: "baseline", 
+                                    lineHeight: 1,
+                                }}
+                                    className="logoTipe"
+                                >
+                                    <Box component="span">Vivo</Box>
+                                    <Box component="span" sx={{ color: '#73843D'}}>
+                                        Olio Market
+                                    </Box>
+
+                                </Typography>
+                        </Box>
+                        <Box sx={{display:"flex", alignItems:"center", gap: "50px", flex: 1, justifyContent: "flex-end"}}>
+                            <Box>
+                                <Stack direction="row" spacing="1px" sx={{ gap: '25px', display:"flex"}}>
+                                    <IconButton disableRipple sx={{ p: 0, display: { '@media (max-width: 1039px)': { display: 'none' }, md: "flex" } }}>
+                                        <Box component={"img"} src={Search} alt="serch" onClick={(_e) => setMode("search")}/>
+                                    </IconButton>
+                                    <IconButton disableRipple sx={{ p: 0}}>
+                                        <Box component={"img"} src={Balance} alt="balance" />
+                                    </IconButton>
+                                    <IconButton disableRipple sx={{ p: 0, display: { '@media (max-width: 1039px)': { display: 'none' }, md: "flex" } }}>
+                                        <Box component={"img"} src={Follow} alt="follow" />
+                                    </IconButton>
+                                    <IconButton disableRipple sx={{ p: 0 }}>
+                                        <Box component={"img"} src={WorkOutlineIcon} alt="work" />
+                                    </IconButton>
+                                    <IconButton disableRipple sx={{ p: 0, display: { '@media (max-width: 1039px)': { display: 'none' }, md: "flex" } }}>
+                                        <Box component={"img"} src={Login} alt="login" />
+                                    </IconButton>
+                                </Stack>
+                            </Box>
+
+                            <Box
+                                onClick = {(_e) => setMode("lang")}
+                                sx={{ 
+                                display: { 
+                                    '@media (max-width: 1039px)': { display: 'none' }, 
+                                    md: "flex"
+                                },
+                                cursor: "pointer" 
+                                }}
+                            >
+                                <Box sx={{color:"#fff", gap: "10px", display:"flex"}}>
+                                    <Box component={"span"} sx={{textTransform: "uppercase" }}>{t('lable')}</Box>
+                                    <Box sx={{width:"12px", height:"12px"}}>
+                                        <Box component={"img"} src={Oui_arrowUp}/>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Box>
+                )}
+                {mode === 'search' && (
+                    <Box sx={{padding: "40px 2rem"}} onMouseLeave={() => setMode("main")}>
+                        <label className="serch">
+                            <Box className="search-button">
+                                <Box component={"img"} src={Search}/>
+                            </Box>
+                            <input type="text" placeholder="Search"/>
+                        </label>
+                    </Box>
+                    )
+                }
+                {mode === 'lang' && (
+                    <Box 
+                        onMouseLeave={() => setMode("main")}
+                        sx={{
+                        padding: "40px 2rem",
+                        display:"flex",
+                        color: "#fff",
+                        gap: '5.5vw',
+                        justifyContent: "center",
+                        alignItems:"center",
+                    }}>
+                        {languages.map((item) => (
+                            <>
+                            <Box sx={{
+                                cursor: "pointer",
+                                color: "#ccc",
+                                alignItems: "center",
+                                fontSize: "16px",
+                                display: "flex",
+                                flexWrap: "nowrap",
+                                textWrap: "nowrap",
+                                '&:hover': { color: "#fff" }
+                            }} 
+                                onClick={() => handleLanguageChange(item.code)}
+                                key={item.code}
+                            >
+                                {item.label}
+                            </Box>
+                            </>
+                        ))}
+                    </Box>
+                )}
+                <Drawer anchor="left" open={open} onClose={() => setOpen(false)}
+                    sx={{
+                        mt: '328px',
+                        '& .MuiDrawer-paper': {
+                            width: "100vw",
+                            marginTop: '135px', 
+                            boxShadow: 'none',
+                        },
+                        }}>
+                    <List sx={{ width: "100vw"}} >
+                        {[t("TabsMenu.oil"), t("TabsMenu.cosmetics"), t("TabsMenu.dishes"), t("TabsMenu.DIetary")].map((text, index) => (
+                            <ListItem key={text} disablePadding>
+                                <ListItemButton 
+                                        selected={value === index++} 
+                                        onClick={(event) => {
+                                            handleChange(event as React.SyntheticEvent, index++); 
+                                            setOpen(false);
+                                        }}
+                                > 
+                                    <ListItemText primary={text} />
+                                </ListItemButton>
+                            </ListItem>
+                        ))}
+                    </List>
+                </Drawer>
+            </header>
+
+        </>
+    )
+}
+export default Header

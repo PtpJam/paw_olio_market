@@ -1,9 +1,19 @@
+import { Box } from '@mui/material';
 import './App.css'
+import "../i18n"
+import { useTranslation } from 'react-i18next';
+import Header from './components/Header';
+import { useState } from 'react';
 
 function App() {
+  const [headerMenu, headerMenuSet] = useState(0)
+
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    headerMenuSet(newValue);
+  };
   return (
     <>
-      <div className='main'>Hello C++ with love from Ts</div>
+      <Header value={headerMenu} handleChange={handleChange}></Header>  
     </>
   )
 }
