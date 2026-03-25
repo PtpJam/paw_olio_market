@@ -17,7 +17,7 @@ header{
     }
 }
 header input, footer input{
-    background: rgba(121, 121, 121, 0.2);;
+    background: rgba(121, 121, 121, 0.2);
     border: 1px solid #FFFF;
     border-radius: 125.84px;
     width: 100%;
@@ -59,9 +59,6 @@ header .tab{
     display: flex;
     min-width: 0 !important;
     padding: 0 !important;
-}
-header .css-1usuzwp-MuiButtonBase-root-MuiTab-root.Mui-selected, footer .css-1usuzwp-MuiButtonBase-root-MuiTab-root.Mui-selected{
-    color: #FFFF !important;
 }
 .ouiArrowHeader{
     width: 12px;

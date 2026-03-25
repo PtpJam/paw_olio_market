@@ -78,9 +78,14 @@ function Header({ value, handleChange }: HeaderProps){
                                             sm: '10px',  
                                             md: "12px",
                                             lg: '15px'  
-                                        }
+                                        },
+                                        '&:focus': {
+                                            outline: 'none !important',
+                                        },
+                                        '&.Mui-selected': {
+                                            color: '#fff !important', 
+                                        },
                                     }
-                                    
                                     }} >
                                     <Tab value={0} className="hideElement"/>
                                     <Tab disableRipple className="tab" value={1} label={t("TabsMenu.oil")}></Tab>
