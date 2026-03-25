@@ -11,7 +11,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
     fallbackLng: "en",
     ns: ["header", "footer"],
     backend: {
-        loadPath: "./public/lang//{{lng}}/{{ns}}.json"
+        loadPath: "./lang/{{lng}}/{{ns}}.json"
     },
     detection: {
       order: ['localStorage', 'cookie', 'htmlTag', 'path', 'subdomain'],

@@ -8,6 +8,13 @@ header{
     justify-content: center;
     z-index: 1300;
     position: relative;
+    transition: height 0.3s ease; 
+}
+@media (max-width: 1035px) {
+    header {
+        height: 60px; 
+        gap: 5px;     
+    }
 }
 header input, footer input{
     background: rgba(121, 121, 121, 0.2);;

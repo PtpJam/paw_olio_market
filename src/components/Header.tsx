@@ -46,7 +46,7 @@ function Header({ value, handleChange }: HeaderProps){
         <>
             <header>
                 {mode === 'main' && (
-                    <Box sx={{height: "48px", display: "flex", justifyContent:"space-between", padding:"40px 2rem", gap:"20px"}}>
+                    <Box sx={{height: "48px", display: "flex", justifyContent:"space-between", padding:"0 2rem", gap:"20px"}}>
                         
                         <Box sx={{
                             display: "flex",
@@ -86,10 +86,10 @@ function Header({ value, handleChange }: HeaderProps){
                                 </Tabs>
                             </Box>
                             <Box sx={{ display: { xs: 'flex', '@media (min-width: 1039px)': { display: 'none' } } }}>
-                                <Box sx={{display: "flex", gap: "10px"}}>
+                                <Box sx={{display: "flex", gap: {md: "10px", sx: "5px"}}}>
                                     {!open ? 
                                         <IconButton onClick={() => setOpen(true)} sx={{ color: 'white', alignItems: "center" }}>
-                                            <MenuIcon />
+                                            <MenuIcon sx={{ width: { xs: '14px', sm: '20px', md: '24px' }, height: {xs: "14px", small:"15px", md: "24px"} }}/>
                                         </IconButton> 
                                         :
                                         <IconButton onClick={() => setOpen(false)} sx={{ color: 'white', alignItems: "center" }}>
@@ -97,12 +97,12 @@ function Header({ value, handleChange }: HeaderProps){
                                             component="img" 
                                             src={Close} 
                                             alt="arrow" 
-                                            sx={{ width: '24px', height: '12px' }} 
+                                            sx={{ width: { xs: '14px', sm: '20px', md: '24px' },height: {xs: "14px", small:"15px", md: "24px"} }}
                                             />
                                         </IconButton> 
                                     }
                                     <IconButton disableRipple sx={{p: 0}}>
-                                        <Box component={"img"} src={Search} alt="serch" onClick={(_e) => setMode("search")}/>
+                                        <Box component={"img"} src={Search} alt="serch" onClick={(_e) => setMode("search")} sx={{ width: { xs: '14px', sm: '15px', md: '24px' }, height: {xs: "14px", small:"20px", md: "24px"} }}/>
                                     </IconButton>
                                 </Box>
 
@@ -117,11 +117,11 @@ function Header({ value, handleChange }: HeaderProps){
                                 flexShrink: 0,
                                 cursor: "pointer",
                             }}
-                            onClick={(event) => handleChange(event, 0)}
+                            onClick={(event) => {handleChange(event, 0), setOpen(false)}}
                         >
-                                <Typography 
+                                <Typography
                                     sx={{  fontSize: { 
-                                        xs: '16px',  
+                                        xs: '20px',  
                                         sm: '20px',  
                                         md: "28px",
                                         lg: '32px',
@@ -142,18 +142,19 @@ function Header({ value, handleChange }: HeaderProps){
                         </Box>
                         <Box sx={{display:"flex", alignItems:"center", gap: "50px", flex: 1, justifyContent: "flex-end"}}>
                             <Box>
-                                <Stack direction="row" spacing="1px" sx={{ gap: '25px', display:"flex"}}>
+                                <Stack direction="row" spacing="1px" sx={{ gap: {xs: "12px", sm: "12px", md: '25px', }, display:"flex"}}>
                                     <IconButton disableRipple sx={{ p: 0, display: { '@media (max-width: 1039px)': { display: 'none' }, md: "flex" } }}>
-                                        <Box component={"img"} src={Search} alt="serch" onClick={(_e) => setMode("search")}/>
+                                        <Box component={"img"} src={Search} alt="serch" onClick={(_e) => setMode("search")} />
                                     </IconButton>
-                                    <IconButton disableRipple sx={{ p: 0}}>
-                                        <Box component={"img"} src={Balance} alt="balance" />
+                                    <IconButton disableRipple sx={{ p: 0}} >
+                                        <Box component={"img"} src={Balance} alt="balance" sx={{ width: { xs: '14px', sm: '20px', md: '24px' }, height: {xs: "14px", small:"15px", md: "24px"} }}
+ />
                                     </IconButton>
                                     <IconButton disableRipple sx={{ p: 0, display: { '@media (max-width: 1039px)': { display: 'none' }, md: "flex" } }}>
                                         <Box component={"img"} src={Follow} alt="follow" />
                                     </IconButton>
                                     <IconButton disableRipple sx={{ p: 0 }}>
-                                        <Box component={"img"} src={WorkOutlineIcon} alt="work" />
+                                        <Box component={"img"} src={WorkOutlineIcon} alt="work" sx={{ width: { xs: '14px', sm: '20px', md: '24px' }, height: {xs: "14px", small:"15px", md: "24px"} }} />
                                     </IconButton>
                                     <IconButton disableRipple sx={{ p: 0, display: { '@media (max-width: 1039px)': { display: 'none' }, md: "flex" } }}>
                                         <Box component={"img"} src={Login} alt="login" />
@@ -182,7 +183,7 @@ function Header({ value, handleChange }: HeaderProps){
                     </Box>
                 )}
                 {mode === 'search' && (
-                    <Box sx={{padding: "40px 2rem"}} onMouseLeave={() => setMode("main")}>
+                    <Box sx={{padding: "0 2rem", zIndex: 1300 }} onMouseLeave={() => setMode("main")}>
                         <label className="serch">
                             <Box className="search-button">
                                 <Box component={"img"} src={Search}/>
@@ -224,29 +225,43 @@ function Header({ value, handleChange }: HeaderProps){
                         ))}
                     </Box>
                 )}
-                <Drawer anchor="left" open={open} onClose={() => setOpen(false)}
+                <Drawer 
+                    anchor="left"
+                    open={open} onClose={() => setOpen(false)}
+                    hideBackdrop
+                    disableEnforceFocus
                     sx={{
                         mt: '328px',
                         '& .MuiDrawer-paper': {
+                            top: { xs: '60px', md: '134px' },
+                            height: '100%', 
                             width: "100vw",
-                            marginTop: '135px', 
-                            boxShadow: 'none',
+                            boxShadow: 'none', 
+                            padding:"1.25rem 1.875rem",
+                            boxSizing: 'border-box'
                         },
                         }}>
-                    <List sx={{ width: "100vw"}} >
-                        {[t("TabsMenu.oil"), t("TabsMenu.cosmetics"), t("TabsMenu.dishes"), t("TabsMenu.DIetary")].map((text, index) => (
-                            <ListItem key={text} disablePadding>
+                    <List>
+                        {[t("TabsMenu.oil"), t("TabsMenu.cosmetics"), t("TabsMenu.dishes"), t("TabsMenu.DIetary")].map((text, index) => {
+                           const tabValue = index + 1;
+                           return(
+                              <ListItem key={text} disablePadding sx={{borderBottom: "1px solid #0000004D"}}>
                                 <ListItemButton 
-                                        selected={value === index++} 
+                                        sx={{ pl: 0}}
+                                        selected={value === tabValue} 
                                         onClick={(event) => {
-                                            handleChange(event as React.SyntheticEvent, index++); 
+                                            handleChange(event as React.SyntheticEvent, tabValue); 
                                             setOpen(false);
                                         }}
                                 > 
-                                    <ListItemText primary={text} />
+                                    <ListItemText 
+                                        sx={{textTransform: "uppercase"}} 
+                                        primary={text}
+                                    />
                                 </ListItemButton>
-                            </ListItem>
-                        ))}
+                              </ListItem>
+                            )
+                        })}
                     </List>
                 </Drawer>
             </header>
