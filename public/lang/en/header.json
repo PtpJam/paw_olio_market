@@ -5,5 +5,7 @@
         "dishes": "dishes",
         "DIetary": "DIetary supplements"
     },
-    "lable": "Eng"
+    "lable": "Eng",
+    "profile": "profile",
+    "saved": "Saved"
 }

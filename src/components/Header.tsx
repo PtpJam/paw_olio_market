@@ -7,7 +7,9 @@ import Login from '../assets/svg/login.svg';
 import Oui_arrowUp from '../assets/svg/oui_arrow-up.svg';
 import Follow from '../assets/svg/follow.svg';
 import Close from '../assets/svg/close.svg';
-import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Stack, Tab, Tabs, Typography } from "@mui/material";
+import Next from '../assets/svg/next.svg';
+import Beak from '../assets/svg/beak.svg';
+import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu'
 import { useTranslation } from "react-i18next";
@@ -19,6 +21,8 @@ interface HeaderProps {
 
 function Header({ value, handleChange }: HeaderProps){
     const [open, setOpen] = useState(false);
+    const [openLanguage, setOpenLanguage] = useState(false);
+
     const [mode, setMode] = useState('main'); // 'main' | 'search' | 'lang'
     const languages = [
         { label: "Eng", code: "en" },
@@ -92,7 +96,7 @@ function Header({ value, handleChange }: HeaderProps){
                                             <MenuIcon sx={{ width: { xs: '14px', sm: '20px', md: '24px' }, height: {xs: "14px", small:"15px", md: "24px"} }}/>
                                         </IconButton> 
                                         :
-                                        <IconButton onClick={() => setOpen(false)} sx={{ color: 'white', alignItems: "center" }}>
+                                        <IconButton onClick={() => {setOpen(false), setOpenLanguage(false)}} sx={{ color: 'white', alignItems: "center" }}>
                                             <Box 
                                             component="img" 
                                             src={Close} 
@@ -117,7 +121,13 @@ function Header({ value, handleChange }: HeaderProps){
                                 flexShrink: 0,
                                 cursor: "pointer",
                             }}
-                            onClick={(event) => {handleChange(event, 0), setOpen(false)}}
+                            onClick={(event) => 
+                                {
+                                    setOpenLanguage(false);
+                                    handleChange(event, 0);
+                                    setOpen(false);
+                                }
+                            }
                         >
                                 <Typography
                                     sx={{  fontSize: { 
@@ -257,6 +267,153 @@ function Header({ value, handleChange }: HeaderProps){
                                     <ListItemText 
                                         sx={{textTransform: "uppercase"}} 
                                         primary={text}
+                                        primaryTypographyProps={{sx: {fontSize:"12px", fontWeight: 600}}}
+                                    />
+                                    <ListItemIcon sx={{ minWidth: '20px' }}>
+                                        <Box 
+                                            component="img" 
+                                            src={Next} 
+                                            alt="profile" 
+                                            sx={{ width: '12px', height: '10px', filter: 'invert(1) brightness(0)', }} 
+                                        />
+                                </ListItemIcon>
+                                </ListItemButton>
+                              </ListItem>
+                            )
+                        })}
+                        <ListItem disablePadding sx={{borderBottom: "1px solid #0000004D"}}>
+                            <ListItemButton 
+                                    sx={{ pl: 0}}
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                            > 
+                                <ListItemIcon sx={{ minWidth: '20px' }}>
+                                    <Box 
+                                        component="img" 
+                                        src={Login} 
+                                        alt="profile" 
+                                        sx={{ width: '12px', height: '10px', filter: 'invert(1) brightness(0)', }} 
+                                    />
+                                </ListItemIcon>
+                                <ListItemText 
+                                    sx={{textTransform: "uppercase"}} 
+                                    primary={t('profile')}
+                                    primaryTypographyProps={{sx: {fontSize:"12px", fontWeight: 600}}}
+                                />
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemButton 
+                                    sx={{ pl: 0}}
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                            > 
+                                <ListItemIcon sx={{ minWidth: '20px' }}>
+                                    <Box 
+                                        component="img" 
+                                        src={Follow} 
+                                        alt="profile" 
+                                        sx={{ width: '12px', height: '10px', filter: 'invert(1) brightness(0)', }} 
+                                    />
+                                </ListItemIcon>
+                                <ListItemText 
+                                    sx={{textTransform: "uppercase"}} 
+                                    primary={t('saved')}
+                                    primaryTypographyProps={{sx: {fontSize:"12px", fontWeight: 600}}}
+                                />
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemButton 
+                                sx={{ 
+                                    pl: 0, 
+                                    justifyContent: "center",
+                                    display: "flex",
+                                    alignItems: "center"
+                                }}
+                                onClick={() => setOpenLanguage(true)}
+                            > 
+                                <ListItemText 
+                                    primary={t('lable')}
+                                    sx={{ 
+                                        textTransform: "uppercase", 
+                                        flex: "none",
+                                        mr: "8px"   
+                                    }} 
+                                    primaryTypographyProps={{ sx: { fontSize: "12px", fontWeight: 600 } }}
+                                />
+                                <ListItemIcon sx={{ minWidth: 'auto' }}>
+                                    <Box 
+                                        component="img" 
+                                        src={Oui_arrowUp} 
+                                        alt="arrow" 
+                                        sx={{ 
+                                            width: '12px', 
+                                            height: '10px', 
+                                            filter: 'invert(1) brightness(0)',
+                                            display: 'block' 
+                                        }} 
+                                    />
+                                </ListItemIcon>
+                            </ListItemButton>
+                        </ListItem>
+                    </List>
+                </Drawer>
+                <Drawer 
+                    anchor="left"
+                    open={openLanguage}
+                    onClose={() => setOpenLanguage(false)}
+                    hideBackdrop
+                    disableEnforceFocus
+                    sx={{
+                        zIndex: 1400, 
+                        mt: '328px',
+                        '& .MuiDrawer-paper': {
+                            top: { xs: '60px', md: '134px' },
+                            height: '100%', 
+                            width: "100vw",
+                            boxShadow: 'none', 
+                            padding:"1.25rem 1.875rem",
+                            boxSizing: 'border-box'
+                        },
+                    }}
+                >
+                    <Box 
+                        display="flex"
+                        alignItems="center"
+                        gap="6px"
+                        sx={{cursor:"pointer"}} 
+                        onClick={() => setOpenLanguage(false)}
+                    >
+                        <Box 
+                            component="img" 
+                            src={Beak}
+                            sx={{ width: '13px', height: '10px', filter: 'invert(1) brightness(0)'}}
+                        />
+                        <Typography sx={{ fontSize: '13px', fontWeight: 600, textTransform: "uppercase"}}> 
+                            Language
+                        </Typography>
+                    </Box>
+                    <List>
+                        {languages.map((text, index) => {
+                           return(
+                              <ListItem 
+                                key={text.code+(index+1)}
+                                disablePadding 
+                                sx={{borderBottom: index + 1 !== languages.length ? "1px solid #0000004D" : "none"}}>
+                                <ListItemButton 
+                                        sx={{ pl: 0}}
+                                        onClick={(_event) => {
+                                            setOpenLanguage(false);
+                                            handleLanguageChange(text.code)
+                                        }}
+                                > 
+                                    <ListItemText 
+                                        sx={{textTransform: "uppercase"}} 
+                                        primary={text.label}
+                                        primaryTypographyProps={{sx: {fontSize:"12px", fontWeight: 600}}}
                                     />
                                 </ListItemButton>
                               </ListItem>
