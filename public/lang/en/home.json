@@ -3,5 +3,32 @@
         "title": "About us",
         "text": "With VivoOlio, you'll learn everything about a product: its authenticity, quality, and origin. Olive oil is among the top 10 most counterfeited products in the world, so choosing wisely is crucial. Our tool provides user ratings, sommelier advice, and nutritionist recommendations to ensure you always make the right choice. VivoOlio is your trusted guide to high-quality, genuine olive oil.",
         "btnMore": "Learn more"
-    }
+    },
+    "functions": "Functions",
+    "features": [
+        {
+            "title": "Product recognition",
+            "description": "Scan products to get detailed information instantly"
+        },
+        {
+            "title": "Reviews, ratings, certificates and awards",
+            "description": "Choose the best products using user reviews, ratings, certificates, and awards"
+        },
+        {
+            "title": "Personalized recommendations",
+            "description": "Receive personalized product suggestions based on your preferences and purchase history"
+        },
+        {
+            "title": "Food Pairings",
+            "description": "Discover foods that pair perfectly with different dishes"
+        },
+        {
+            "title": "Your nutritionist in the app",
+            "description": "Get access to personalized nutrition advice and tips right in the app"
+        },
+        {
+            "title": "Detailed Ingredients and Specifications",
+            "description": "Receive personalized product suggestions based on your preferences and purchase history"
+        }
+    ]
 }

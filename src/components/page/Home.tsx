@@ -110,10 +110,30 @@ function Home(){
                         lg: "129px",
                         md: "104px",
                         xs: "79px"
-                    }
+                    },
+                    fontSize:{
+                        lg: "40px",
+                        md: "36px",
+                        xs: "32px"    
+                    },
+                    color: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
                 }
             }>
-
+                {t('functions')}
+            </Box>
+            <Box 
+                sx={{
+                    margin: {
+                        lg: "25px 65px",
+                        md: "25px 42.5px",
+                        xs: "25px 20px"   
+                    }
+                }}
+            >
+                
             </Box>
         </>
     )
