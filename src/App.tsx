@@ -1,7 +1,5 @@
-import { Box } from '@mui/material';
 import './App.css'
 import "../i18n"
-import { useTranslation } from 'react-i18next';
 import Header from './components/Header';
 import { useState } from 'react';
 
