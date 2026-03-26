@@ -1,25 +1,34 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import AboutUs from '../../assets/oilAboutUs.jpg';
-import Detailed from '../../assets/functionImg/detailed.svg';
-import Food from '../../assets/functionImg/food.svg';
-import ListIco from '../../assets/functionImg/list.svg';
-import Nutritionist from '../../assets/functionImg/nutritionist.svg';
+
 import Oil from '../../assets/functionImg/oil.svg';
 import Scroll from '../../assets/functionImg/scroll.svg';
+import ListIco from '../../assets/functionImg/list.svg';
+import Food from '../../assets/functionImg/food.svg';
+import Nutritionist from '../../assets/functionImg/nutritionist.svg';
+import Detailed from '../../assets/functionImg/detailed.svg';
+
 import Time from '../../assets/choose/time.svg';
 import Quality from '../../assets/choose/quality.svg';
 import Book from '../../assets/choose/book.svg';
 import Info from '../../assets/choose/info.svg';
 
-const icons = [Oil, Scroll, ListIco, Food,Nutritionist, Detailed]
+import Pay from '../../assets/iphonIcon/pay.svg';
+import Scanner from '../../assets/iphonIcon/scanner.svg';
+import PlayMarket from '../../assets/iphonIcon/playMarket.svg';
+import Rate from '../../assets/iphonIcon/rate.svg';
+
+const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
+const iconsIphone = [PlayMarket, Scanner, Pay, Rate]
 
 function Home(){
     
     const {t} = useTranslation("home");
     const features = t('features', { returnObjects: true });
     const choose = t('chooseInfo', { returnObjects: true });
+    const useInfo = t('useInfo', { returnObjects: true });
     
     return(
         <>
@@ -374,6 +383,85 @@ function Home(){
                             </Box>
                         </Box>
                      ))}
+                </Box>
+            </Box>
+            <Box 
+                sx={{
+                    padding:{
+                        lg: "40px 49px",
+                        md: "30px 39.25px",
+                        xs: "20px 29.5px"
+                    },
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "40px"
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: {
+                            lg: "100px",
+                            md: "62px",
+                            sm: "43px",
+                            xs: "24px"
+                        },
+                        textAlign: "center",
+                        textTransform: "uppercase"
+                    }}
+                >
+                    {t("use")}
+                </Typography>
+                <Box sx={{
+                    display: "grid",
+                    gridTemplateColumns: {
+                        lg: "repeat(4, 1fr)", 
+                        md: "repeat(4, 1fr)", 
+                        xs: "repeat(2, 1fr)"
+                    },
+                    rowGap: "10px"
+                }}>
+                    {Array.isArray(useInfo) && useInfo.map((item, index) => (
+                        <Box 
+                            key={index+"use"}
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                gap: "30px"
+                            }}
+                        >
+                            <Box 
+                                component={"img"}
+                                src={iconsIphone[index]}
+                                sx={{
+                                    width:{
+                                        lg: "256px",
+                                        md: "201.5px",
+                                        sm: "250.5px",
+                                        xs: "147px"
+                                    }
+                                }}    
+                            />
+                            <Typography
+                                sx={{
+                                    fontWeight: 400,
+                                    letterSpacing: "-6%",
+                                    fontSize: {
+                                        lg: "24px",
+                                        md: "18px",
+                                        sm: "24px",
+                                        xs: "12px"
+                                    },
+                                    textAlign: "center",
+                                    width:{
+                                        lg: "240px"
+                                    }
+                                }}
+                            >
+                                {item.title}
+                            </Typography>
+                        </Box>
+                    ))}
                 </Box>
             </Box>
         </>
