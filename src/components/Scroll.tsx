@@ -3,10 +3,16 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 import Next from "../assets/svg/next.svg"
 import Beak from "../assets/svg/beak.svg"
+import News, { type NewsProps } from "./News";
+import type CardProps  from "./interface/ICard";
+import Card from "./Card";
 
 interface Iscroll{
     team: boolean; //true - black, false - white
     title?: string;
+    type: string; // news, сosmetics, product
+    items: (NewsProps | CardProps)[];
+
 }
 interface Props{
     scroll: Iscroll;
@@ -98,19 +104,31 @@ function Scroll({scroll} : Props){
         <Box sx={{ position: "relative" }}>
             <Box ref={emblaRef} sx={{ overflow: "hidden" }}>
                 <Box sx={{ display: "flex", gap: 2 }}>
-                {[1,2,3,4,5,6,7].map(i => (
-                    <Box
-                    key={i}
-                    sx={{
-                        minWidth: 300,
-                        height: 200,
-                        background: "#111",
-                        flexShrink: 0
-                    }}
-                    >
-                    Slide {i}
-                    </Box>
-                ))}
+                    {scroll.items.map((item, index) => {
+                        const renderCard = () => {
+                            switch (scroll.type) {
+                                case 'news':
+                                    return <News {...item as NewsProps} ></News>;
+                                
+                                case 'product':
+                                    return <Card {...item as CardProps} ></Card>;
+                                
+                                case 'cosmetics':
+                                    return null;
+                                
+                                default:
+                                    return null;
+                            }
+                        };
+
+                        return (
+                            <Box 
+                                key={index + scroll.type}
+                            >
+                                {renderCard()}
+                            </Box>
+                        );
+                    })}
                 </Box>
             </Box>
         </Box>

@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import AboutUs from '../../assets/oilAboutUs.jpg';
@@ -20,10 +20,32 @@ import Scanner from '../../assets/iphonIcon/scanner.svg';
 import PlayMarket from '../../assets/iphonIcon/playMarket.svg';
 import Rate from '../../assets/iphonIcon/rate.svg';
 import ScrollBar from '../Scroll';
+import China from '../../assets/china.png';
+import Farm from '../../assets/farm.png';
+import { type NewsProps } from "../News";
 
 const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
 const iconsIphone = [PlayMarket, Scanner, Pay, Rate]
+
+const itemsNews : NewsProps[] = [
+    {
+        text: "EU Moves to Streamline Farm Rules and Help Farmers Compete",
+        src: Farm
+    },
+    {
+        text: "China’s Olive Oil Sector Alleviates Poverty but Struggles to Compete",
+        src: China
+    },
+    {
+        text: "EU Moves to Streamline Farm Rules and Help Farmers Compete",
+        src: Farm
+    },
+    {
+        text: "China’s Olive Oil Sector Alleviates Poverty but Struggles to Compete",
+        src: China
+    } 
+]
 
 function Home(){
     
@@ -478,7 +500,7 @@ function Home(){
                     }}
                 >
 
-                    <ScrollBar scroll={{ team: false, title: t('news') }}></ScrollBar>    
+                    <ScrollBar scroll={{ team: false, title: t('news'), type:"news", items: itemsNews}}></ScrollBar>    
                 </Box>
 
                 <Box></Box>
