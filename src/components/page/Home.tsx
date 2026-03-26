@@ -1,5 +1,6 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+
 import AboutUs from '../../assets/oilAboutUs.jpg';
 
 import Oil from '../../assets/functionImg/oil.svg';
@@ -18,6 +19,7 @@ import Pay from '../../assets/iphonIcon/pay.svg';
 import Scanner from '../../assets/iphonIcon/scanner.svg';
 import PlayMarket from '../../assets/iphonIcon/playMarket.svg';
 import Rate from '../../assets/iphonIcon/rate.svg';
+import ScrollBar from '../Scroll';
 
 const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
@@ -30,6 +32,7 @@ function Home(){
     const choose = t('chooseInfo', { returnObjects: true });
     const useInfo = t('useInfo', { returnObjects: true });
     
+
     return(
         <>
             <Box sx={{
@@ -463,6 +466,22 @@ function Home(){
                         </Box>
                     ))}
                 </Box>
+            </Box>
+            <Box>
+                <Box
+                    sx={{
+                        backgroundColor: "#000000",
+                        padding: {
+                            lg: "62px 32px 62px 102px",
+                            xs: "41px 20px"
+                        }
+                    }}
+                >
+
+                    <ScrollBar scroll={{ team: false, title: t('news') }}></ScrollBar>    
+                </Box>
+
+                <Box></Box>
             </Box>
         </>
     )
