@@ -7,13 +7,19 @@ import ListIco from '../../assets/functionImg/list.svg';
 import Nutritionist from '../../assets/functionImg/nutritionist.svg';
 import Oil from '../../assets/functionImg/oil.svg';
 import Scroll from '../../assets/functionImg/scroll.svg';
+import Time from '../../assets/choose/time.svg';
+import Quality from '../../assets/choose/quality.svg';
+import Book from '../../assets/choose/book.svg';
+import Info from '../../assets/choose/info.svg';
 
 const icons = [Oil, Scroll, ListIco, Food,Nutritionist, Detailed]
+const iconsСhoose = [Time, Quality, Book, Info]
 
 function Home(){
     
     const {t} = useTranslation("home");
     const features = t('features', { returnObjects: true });
+    const choose = t('chooseInfo', { returnObjects: true });
     
     return(
         <>
@@ -156,15 +162,16 @@ function Home(){
                     rowGap: "20px"
 
                 }}
-            >
+ >
                 {Array.isArray(features) && features.map((item, index) => (
                         <Box key={index} sx={{
-                            width:{
+                            minWidthWidth:{
                                 lg: "363px",
                                 md: "265.5px",
                                 sm: "207.75px",
                                 xs: "150px"
                             },
+                            width: "100%",
                             display: "flex",
                             flexDirection: "column",
                             textAlign: {
@@ -174,6 +181,8 @@ function Home(){
                             },
                             rowGap: {
                                 lg: "24px",
+                                md: "16px",
+                                sm: "14px",
                                 xs: "12px" 
                             },
                         }}>
@@ -205,6 +214,7 @@ function Home(){
                                 fontWeight: 700,
                                 fontSize: {
                                     lg: "24px",
+                                    md: '22px',
                                     sm: "20px",
                                     xs: "12px",
                                 },
@@ -228,6 +238,143 @@ function Home(){
                     )
                   )
                 }
+            </Box>
+            <Box
+                sx={
+                    {
+                        backgroundColor:"#000000",
+                        padding: {
+                            lg: "80px 65px ",
+                            xs: "20px 30px"
+                        },
+                        borderRadius:"32px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap:{
+                            lg: "60px",
+                            md: "50px",
+                            xs: "40px"
+                        }
+                    }
+                }
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center", 
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            color: "#fff",
+                            display: "flex",
+                            flexWrap: "wrap",
+                            justifyContent: "center",
+                            textAlign: "center",
+                            fontSize: {
+                                lg: "40px",
+                                md: "36px",
+                                xs: "32px"
+                            },
+                            width:{
+                                lg: "100%",
+                                md: "100%",
+                                xs: "201px"
+                            },
+                            lineHeight: {
+                                lg: "1.4",
+                                xs: "1.5"
+                            },
+                        }}    
+                    >
+                        {t('choose')}
+                    </Typography>
+                </Box>
+                <Box sx={{
+                    display: "grid",
+                    gridTemplateColumns: {
+                        lg: "repeat(4, 1fr)", 
+                        md: "repeat(4, 1fr)", 
+                        xs: "repeat(2, 1fr)"
+                    },
+                    gap:{
+                        lg: "56.84px",
+                    },
+                    columnGap:{
+                        xs: "7px"
+                    },
+                    rowGap:{
+                        xs: "20px"
+                    }
+                }}>
+                     {Array.isArray(choose) && choose.map((item, index) => (
+                        <Box key={index + "choose"}
+                            sx={{
+                                display: "flex",
+                                gap: {
+                                    lg: "20px",
+                                    md: "15px",
+                                    sm: "12.5px",
+                                    xs: "10px"
+                                },
+                                alignItems: "start",
+                            }}
+                            >
+                            <Box 
+                                component={"img"}
+                                src={iconsСhoose[index]}
+                                sx={{
+                                    width: {
+                                        lg: "67px",
+                                        md: "57px",
+                                        sm: "47px",
+                                        xs: "37px"
+                                    },
+                                }}
+                            />
+                            <Box 
+                                sx={{
+                                    color:"#fff",
+
+                                }}>
+                                <Typography 
+                                    sx={{
+                                        textTransform: "uppercase",
+                                        fontWeight: 400,
+                                        fontSize:{
+                                            lg: "21px",
+                                            md: "16.5px",
+                                            sm: "21px",
+                                            xs: "11px"
+                                        },
+                                        padding:{
+                                            xs: "0 1px"
+                                        },
+                                        letterSpacing: "-5%"
+                                        
+                                    }}
+                                >
+                                    {item.title}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontWeight: 300,
+                                        fontSize:{
+                                            lg: "15px",
+                                            md: "12.5px",
+                                            sm: "15px",
+                                            xs: "8px"
+                                        },
+                                        letterSpacing: "-2%",
+                                        
+                                    }}
+                                >
+                                    {item.description}
+                                </Typography>
+                            </Box>
+                        </Box>
+                     ))}
+                </Box>
             </Box>
         </>
     )

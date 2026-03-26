@@ -30,5 +30,24 @@
             "title": "Detailed Ingredients and Specifications",
             "description": "View detailed ingredients, nutritional information, and product specifications"
         }
+    ],
+    "choose":  "Why choose VivoOlio?",
+    "chooseInfo": [
+        {
+            "title": "Save time",
+            "description": "choose your oil in seconds"
+        },
+        {
+            "title": "Quality assurance",
+            "description": "only verified data"
+        },
+        {
+            "title": "Personalized advice",
+            "description": "perfect for your goals"
+        },
+        {
+            "title": "Access to expert knowledge",
+            "description": "sommeliers and nutritionists in your pocket"
+        }
     ]
 }
