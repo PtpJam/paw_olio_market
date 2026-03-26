@@ -49,5 +49,20 @@
             "title": "Access to expert knowledge",
             "description": "sommeliers and nutritionists in your pocket"
         }
+    ],
+    "use": "How to use VivoOlio?",
+    "useInfo": [
+        {
+            "title": "Download the application"
+        },
+        {
+            "title": "Scan the bottle"
+        },
+        {
+            "title": "Get detailed information and advice"
+        },
+        {
+            "title": "Choose the best oiland enjoy"
+        }
     ]
 }
