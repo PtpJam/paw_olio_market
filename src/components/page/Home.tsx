@@ -24,6 +24,7 @@ import ScrollBar from '../Scroll';
 import itemsMegaCard from "../Data/MegaCardData"
 import itemsNews from "../Data/NewsData"
 import cards from "../Data/CardData"
+import OilText from "../OilText";
 
 const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
@@ -478,6 +479,7 @@ function Home(){
                         backgroundColor: "#000000",
                         padding: {
                             lg: "62px 32px 62px 102px",
+                            md: "50px 26px 50px 60px",
                             xs: "41px 20px"
                         }
                     }}
@@ -492,6 +494,7 @@ function Home(){
                 sx={{
                     padding: {
                         lg: "40px 25px 40px 98px",
+                        md: "40px 25px 40px 60px",
                         xs: "40px 25px"
                     },   
                     display: "flex",
@@ -505,6 +508,17 @@ function Home(){
                 <Box>
                     <ScrollBar scroll={{ team: true, title: t('populProd'), type:"product", items: cards}}></ScrollBar>
                 </Box>
+            </Box>
+            <Box 
+                 sx={{
+                    padding: {
+                        lg: "40px 97ppx",
+                        md: "40px 61px",
+                        xs: "40px 25px"
+                    },   
+                }}
+            >
+                <OilText></OilText>
             </Box>
         </>
     )

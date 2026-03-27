@@ -1,0 +1,35 @@
+{
+    "title": "Olive Oil: Liquid Gold of the Mediterranean on Your Table",
+    "desacription":{
+        "paragraph": "Olive oil is more than just an ingredient. It is the soul of Mediterranean cuisine, the elixir of longevity, and the result of the painstaking work of farmers passionate about their craft. In the VivoOlio catalog, we have compiled a collection of benchmark oils, where each bottle tells the story of its region, sun, and land",
+        "bold1": "The Art of Selection: Only Extra Virgin Olive Oil.",
+        "text1": "We do not compromise on quality. The core of our collection is",
+        "bold2": "Extra Virgin Olive Oil (EVOO)",
+        "text2": "We do not compromise on quality. The core of our collection is Extra Virgin Olive Oil (EVOO) – the juice of the first cold-pressed olives, preserving the pristine flavor and healing power of nature. Whether it's a piquant Picual from Andalusia, a fruity Arbequina, or a noble Italian Coratina, you receive a product with a proven \"biography.\"",
+        "list":{
+            "title": "In our collection, you will find:",
+            "listDesk": [
+                {
+                    "title": "Single-varietal masterpieces:",
+                    "description": "Single-varietal masterpieces: The pure taste of a single olive variety, allowing you to experience the unique character of the terroir."
+                },
+                {
+                    "title": "Signature Blends:",
+                    "description": "Complex, multifaceted oils crafted by masters for the perfect balance of bitterness and aroma."
+                },
+                {
+                    "title": "Organic Oil (Bio/Organic):",
+                    "description": "A product born in harmony with nature, without the use of pesticides or chemicals."
+                },
+                {
+                    "title": "High-phenolic oils:",
+                    "description": "True superfoods with powerful antioxidant properties for those who view nutrition as an investment in health."
+                }
+            ]
+        },
+        "lastText":{
+            "title": "VivoOlio Guarantee.",
+            "description": "Forget about doubts at the store shelf. Every oil in our marketplace undergoes a rigorous selection process: we check acidity, taste tests, and laboratory analysis. By purchasing oil here, you choose proven quality, confirmed by experts and our global community."
+        }
+    }
+}
