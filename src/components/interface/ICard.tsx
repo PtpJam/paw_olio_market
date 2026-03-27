@@ -11,4 +11,5 @@ export default interface card{
     id: number;
     code: string;
     src: string;
+    scroll: boolean; 
 } 

@@ -41,8 +41,8 @@ function Scroll({scroll} : Props){
                         color: scroll.team ? "#000000" : "#ffffff",
                         fontSize: {
                             lg: "40px",
-                            md: "36px",
-                            xs: "32px"
+                            md: "35px",
+                            xs: "30px"
                         }
                     }}>
                         {scroll.title}
@@ -104,13 +104,32 @@ function Scroll({scroll} : Props){
 
         <Box sx={{ position: "relative" }}>
             <Box ref={emblaRef} sx={{ overflow: "hidden" }}>
-                <Box sx={{
+                <Box 
+                  sx={{
                     display: "flex",
+                    flexDirection: {
+                        lg: "row",
+                        md: "row",
+                        xs: scroll.type === "product" ? "column" : "row"
+                    },
+                    flexWrap: {
+                        lg: "nowrap",
+                        md: "nowrap",
+                        xs: scroll.type === "product" ? "wrap" : "nowrap"
+                    },
+
+                    height: {
+                        lg: "auto",
+                        md: "auto",
+                        xs: scroll.type === "product" ? "600px" : "auto" 
+                    },
                     gap: {
                         lg: "10px",
                         md: "7.5px",
                         xs: "5px"
-                    } 
+                    },
+
+      
                 }}>
                     {scroll.items.map((item, index) => {
                         const renderCard = () => {
@@ -119,7 +138,7 @@ function Scroll({scroll} : Props){
                                     return <News {...item as NewsProps} ></News>;
                                 
                                 case 'product':
-                                    return <Card {...item as CardProps} ></Card>;
+                                    return <Card {...item as CardProps}></Card>;
                                 
                                 case 'cosmetics':
                                     return <MegaCard {...item as IMegaCard}></MegaCard>

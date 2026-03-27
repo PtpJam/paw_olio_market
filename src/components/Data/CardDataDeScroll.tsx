@@ -18,7 +18,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil1,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Monini Classico Extra Virgin Olive Oil for Salads 1L',
@@ -29,7 +29,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil2,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Borges Classic Olive Oil for frying and stewing',
@@ -44,7 +44,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil3,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Extra Virgin Olive Oil Planeta Val di Mazara - 500ml',
@@ -59,7 +59,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil1,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Monini Classico Extra Virgin Olive Oil for Salads 1L',
@@ -70,7 +70,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil2,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Borges Classic Olive Oil for frying and stewing',
@@ -85,7 +85,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil3,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Extra Virgin Olive Oil Planeta Val di Mazara - 500ml',
@@ -100,7 +100,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil1,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Monini Classico Extra Virgin Olive Oil for Salads 1L',
@@ -111,7 +111,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil2,
-        scroll: true
+        scroll: false
     },
     {
         name: 'Borges Classic Olive Oil for frying and stewing',
@@ -126,7 +126,7 @@ const cards : ICard[] = [
         id: 12345689,
         code: "000086213",
         src: oil3,
-        scroll: true
+        scroll: false
     }
 ]
 export default cards;

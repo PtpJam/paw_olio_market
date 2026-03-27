@@ -11,7 +11,7 @@ import Card from "../Card";
 import Down from "../../assets/svg/downIco.svg"
 import Filter from '../../assets/svg/filter.svg';
 import React from 'react';
-import cards from "../Data/CardData"
+import cards from "../Data/CardDataDeScroll"
 import itemsMegaCard from "../Data/MegaCardData"
 
 type SelectedFilters = Record<string, string[]>;

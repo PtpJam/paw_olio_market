@@ -1,5 +1,4 @@
 import { Box, Chip, Divider, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
-import Botl from "../assets/botl.png";
 import pointerUp from "../assets/svg/pointerUp.svg";
 import pointerUpSmall from "../assets/svg/pointerUpSmall.svg";
 import type ICard from "./interface/IMegaCard"
