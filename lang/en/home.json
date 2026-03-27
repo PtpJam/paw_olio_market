@@ -67,6 +67,19 @@
     ],
     "news": "NEWS",
     "cosmetics": "Cosmetics",
-    "populProd": "Popular products" 
+    "populProd": "Popular products", 
+    "naturcompos": {
+        "small": "natural composition",
+        "title": "A new level natural oils marketplace",
+        "description": "Edible, cosmetic and functional oils — from trusted manufacturers",
+        "button": "Go to the directory" 
+    },
+    "scanAndLearn":{
+        "title": "Scan and learn all about olive oil",
+        "discription": "Ratings and awards, reviews and professional sommelier recommendations, food pairing tips, and nutritionist advice.",
+        "learnMore": "Learn more",
+        "try": "Try Vivoolio",
+        "download": "Download the app"
+    }
 
 }
