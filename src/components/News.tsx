@@ -1,4 +1,5 @@
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
+import pointerUpSmall from "../assets/svg/pointerUpSmall.svg"
 import pointerUp from "../assets/svg/pointerUp.svg"
 
 export interface NewsProps {
@@ -7,6 +8,9 @@ export interface NewsProps {
 }
 
 function News({text, src} : NewsProps){
+    const theme = useTheme();
+    const isLg = useMediaQuery(theme.breakpoints.up('lg'));
+    
     return(
         <Box sx={{
             backgroundImage: `url(${src})`,
@@ -33,9 +37,29 @@ function News({text, src} : NewsProps){
             flexDirection: "column",
             justifyContent: "space-between"
         }}>
-            <Box>
-                <Box></Box>
-                <Box></Box>
+            <Box sx={
+                {
+                    display: "flex",
+                    gap: "10px"
+                }
+            }>
+                <Box sx={{
+                    color: "#fff",
+                    backgroundColor: "#73843D",
+                    padding: "10px 24px",
+                    borderRadius: "50px"
+                }}>
+                    Agriculture
+                </Box>
+                <Box sx={{
+                    color: "#fff",
+                    backgroundColor: "#73843D80",
+                    padding: "10px 24px",
+                    borderRadius: "50px",
+                    border: "1px solid #fff"
+                }}>
+                    Farm
+                </Box>
             </Box>
             <Box sx={{
                 display: "flex",
@@ -66,8 +90,19 @@ function News({text, src} : NewsProps){
                 }}>
                     <IconButton 
                         sx={{
-                            width: '50px',
-                            height: '50px',
+                            display: "flex",
+                            alignItems: "center",
+                            width: {
+                                lg: "79px",
+                                md: "69px",
+                                xs: "59px"
+                            },
+
+                            height: {
+                                lg: "79px",
+                                md: "69px",
+                                xs: "59px"
+                            },
                             backgroundColor: '#fff', 
                             color: '#0000',
                             zIndex: 2,
@@ -76,7 +111,7 @@ function News({text, src} : NewsProps){
                     >
                         <Box 
                             component={"img"}
-                            src={pointerUp}
+                            src={isLg ? pointerUp : pointerUpSmall}
                             alt="up"
                             sx={{ 
                                 filter: 'brightness(0)'

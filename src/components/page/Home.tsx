@@ -20,32 +20,15 @@ import Scanner from '../../assets/iphonIcon/scanner.svg';
 import PlayMarket from '../../assets/iphonIcon/playMarket.svg';
 import Rate from '../../assets/iphonIcon/rate.svg';
 import ScrollBar from '../Scroll';
-import China from '../../assets/china.png';
-import Farm from '../../assets/farm.png';
-import { type NewsProps } from "../News";
+
+import itemsMegaCard from "../Data/MegaCardData"
+import itemsNews from "../Data/NewsData"
+import cards from "../Data/CardData"
 
 const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
 const iconsIphone = [PlayMarket, Scanner, Pay, Rate]
 
-const itemsNews : NewsProps[] = [
-    {
-        text: "EU Moves to Streamline Farm Rules and Help Farmers Compete",
-        src: Farm
-    },
-    {
-        text: "China’s Olive Oil Sector Alleviates Poverty but Struggles to Compete",
-        src: China
-    },
-    {
-        text: "EU Moves to Streamline Farm Rules and Help Farmers Compete",
-        src: Farm
-    },
-    {
-        text: "China’s Olive Oil Sector Alleviates Poverty but Struggles to Compete",
-        src: China
-    } 
-]
 
 function Home(){
     
@@ -504,6 +487,24 @@ function Home(){
                 </Box>
 
                 <Box></Box>
+            </Box>
+            <Box 
+                sx={{
+                    padding: {
+                        lg: "40px 25px 40px 98px",
+                        xs: "40px 25px"
+                    },   
+                    display: "flex",
+                    flexDirection: "column",
+                    rowGap: "40px"
+                }} 
+            >
+                <Box>
+                    <ScrollBar scroll={{ team: true, title: t('cosmetics'), type:"cosmetics", items: itemsMegaCard}}></ScrollBar>
+                </Box>
+                <Box>
+                    <ScrollBar scroll={{ team: true, title: t('populProd'), type:"product", items: cards}}></ScrollBar>
+                </Box>
             </Box>
         </>
     )

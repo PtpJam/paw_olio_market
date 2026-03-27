@@ -1,61 +1,18 @@
 import {useEffect, useState } from 'react'
 import { Box, Drawer, FormControl, MenuItem, Pagination, PaginationItem,  Select,  Typography, useMediaQuery, useTheme, type SelectChangeEvent} from '@mui/material';
 
-import MegaCard from "../MegaCard";
+import ScrollBar from "../Scroll";
 import ReclamBlock from "../Reclam";
 import TabPanel from "../TabPanel";
 import type ICard from "../interface/ICard";
 import sideBarData from "../sideBarData";
 import SideBar from "../SideBar";
-import country from "../../assets/country.png"
-import oil1 from "../../assets/oil1.png"
-import oil2 from "../../assets/oil2.png"
-import oil3 from "../../assets/oil3.png"
 import Card from "../Card";
 import Down from "../../assets/svg/downIco.svg"
 import Filter from '../../assets/svg/filter.svg';
 import React from 'react';
-
-const cards : ICard[] = [
-  {
-  name: 'Extra Virgin Olive Oil Planeta Val di Mazara - 500ml',
-  star: 4,
-  comentary: 97,
-  isStoce: true,
-  country: {
-    name: "Val di Mazara",
-    src: country
-  },
-  price: 699,
-  id: 12345689,
-  code: "000086213",
-  src: oil1
-},
-{
-  name: 'Monini Classico Extra Virgin Olive Oil for Salads 1L',
-  star: 4,
-  comentary: 97,
-  isStoce: true,
-  price: 699,
-  id: 12345689,
-  code: "000086213",
-  src: oil2
-},
-{
-  name: 'Borges Classic Olive Oil for frying and stewing',
-  star: 4,
-  comentary: 97,
-  isStoce: true,
-  country: {
-    name: "Val di Mazara",
-    src: country
-  },
-  price: 499,
-  id: 12345689,
-  code: "000086213",
-  src: oil3
-  }
-]
+import cards from "../Data/CardData"
+import itemsMegaCard from "../Data/MegaCardData"
 
 type SelectedFilters = Record<string, string[]>;
 
@@ -172,20 +129,20 @@ function Oil(){
                 {sideBarContent}
               </Box> 
             <Box sx={{
-                      justifyContent: "flex-start",
-                      '@media (max-width:719px)': {
-                        justifyContent: 'center'
-                      }      
+              justifyContent: "flex-start",
+              '@media (max-width:719px)': {
+                justifyContent: 'center'
+              },
+              flex: 1,
+              minWidth: 0,
             }}>
-          <Box sx={{
-            display: "flex",
-            flexWrap:"wrap",
-            gap: "10px",
-            margin: "20px 0"
-          }}>
-            <MegaCard></MegaCard>
-            <MegaCard></MegaCard>
-          </Box>
+              <Box sx={{
+                gap: "10px",
+                margin: "20px 0",
+                pr: "20px"
+              }}>
+                <ScrollBar scroll={{ team: true, type:"cosmetics", items: itemsMegaCard}}></ScrollBar>
+              </Box>
 
               <Box sx={{display: 'flex', alignItems:"center"}}>
                 
@@ -253,10 +210,15 @@ function Oil(){
                     />
                   )}
                 />
-                <Typography sx={{display:"flex", gap: 1, alignItems:"center"}}>
-                  <Typography sx={{display:"flex", gap: 3}}>Result per page <Typography>{totalPages}</Typography></Typography>
-                  <img width={8} height={4.5} src={Down}/>
+              <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+                <Typography sx={{ display: "flex", gap: 3, alignItems: "center" }}>
+                  Result per page 
+                  <Typography component="span" sx={{ fontWeight: 'bold' }}>
+                    {totalPages}
+                  </Typography>
                 </Typography>
+                <img width={8} height={4.5} src={Down} alt="down arrow" />
+              </Box>
               </Box>
             </Box>
 

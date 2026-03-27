@@ -6,13 +6,14 @@ import Beak from "../assets/svg/beak.svg"
 import News, { type NewsProps } from "./News";
 import type CardProps  from "./interface/ICard";
 import Card from "./Card";
+import MegaCard from "./MegaCard";
+import type IMegaCard from "./interface/IMegaCard";
 
 interface Iscroll{
     team: boolean; //true - black, false - white
     title?: string;
     type: string; // news, сosmetics, product
-    items: (NewsProps | CardProps)[];
-
+    items: (NewsProps | CardProps | IMegaCard)[];
 }
 interface Props{
     scroll: Iscroll;
@@ -37,7 +38,7 @@ function Scroll({scroll} : Props){
             }}>
                 {scroll.title && 
                     <Typography sx={{
-                        color: scroll.team ? "#0000" : "#fff",
+                        color: scroll.team ? "#000000" : "#ffffff",
                         fontSize: {
                             lg: "40px",
                             md: "36px",
@@ -47,7 +48,7 @@ function Scroll({scroll} : Props){
                         {scroll.title}
                     </Typography>
                 }
-                <Box sx={{ display: "flex", gap: "10px",}}>
+                <Box sx={{ display: "flex", gap: "10px", alignItems: "end"}}>
                     <Box 
                         component={"img"}
                         src={Beak}
@@ -103,7 +104,14 @@ function Scroll({scroll} : Props){
 
         <Box sx={{ position: "relative" }}>
             <Box ref={emblaRef} sx={{ overflow: "hidden" }}>
-                <Box sx={{ display: "flex", gap: 2 }}>
+                <Box sx={{
+                    display: "flex",
+                    gap: {
+                        lg: "10px",
+                        md: "7.5px",
+                        xs: "5px"
+                    } 
+                }}>
                     {scroll.items.map((item, index) => {
                         const renderCard = () => {
                             switch (scroll.type) {
@@ -114,7 +122,7 @@ function Scroll({scroll} : Props){
                                     return <Card {...item as CardProps} ></Card>;
                                 
                                 case 'cosmetics':
-                                    return null;
+                                    return <MegaCard {...item as IMegaCard}></MegaCard>
                                 
                                 default:
                                     return null;
