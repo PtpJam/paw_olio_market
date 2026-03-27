@@ -239,10 +239,10 @@ function Home(){
                                 rotate: "12deg",
                                 width: "60%",
                                 height: "100%",
-                                objectFit: "cover",
+                                objectFit: "contain", 
                                 borderRadius: "inherit",
                                 position: "absolute",
-                                top: "-14%",
+                                top: "-26%",
                                 left: "38%",
                                 zIndex: 1,
                             }}
@@ -251,24 +251,25 @@ function Home(){
                         <Box sx={{
                             position: "relative",
                             zIndex: 2,
-                            padding:{
+                            height: "75%", 
+                            
+                            padding: {
                                 lg: "59.7px 31.2px 29.65px 50px",
                                 md: "40px 25px 20px 35px",
                                 xs: "11.47px 14.27px 13.57px 20px"
-                            }
+                            },
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between"
                         }}>
                             <Typography sx={{
                                 width: {lg: "450px", md:"350px", xs:"200px"},
-                                fontSize: {lg: "48px", md: "36px", xs: "24px"},
+                                fontSize: {lg: "39.1px", md: "30.1px", xs: "19px"},
                                 textShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", 
                                 letterSpacing: "-2%",
                                 lineHeight: "120%",
                                 fontWeight: 300,
-                                mb: {
-                                    lg: "36px",
-                                    md: "21px",
-                                    xs: "6px"
-                                }
+
                             }}>
                                 {t("scanAndLearn.title")}
                             </Typography>
