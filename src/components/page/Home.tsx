@@ -28,6 +28,7 @@ import OilText from "../OilText";
 import Tree from "../../assets/tree.png";
 import Olives from "../../assets/olives.png";
 import Logo from "../../assets/logo.png";
+import Drop from "../../assets/svg/drop.svg";
 
 const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
@@ -101,300 +102,402 @@ function Home(){
                         xs: "20px 23px 24.03px 24px"
                          
                     },
-                    display: {
-                        md: "flex",
-                        xs: "block"
-                    },
+                    display: "flex",
+                    flexDirection: "column",
                     justifyContent: "space-between",
-                    position: {md: "relative", xs: "static"},
-                    bottom: {lg: "150px", md: "170px"}
+                    position: "relative",
+                    bottom: {lg: "360px", md: "260px", xs: "160px"},
                 }}>
-                    {/*Block A new Level*/}
-                    <Box   
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "end",
-                            width: {
-                                lg: "356px",
-                                md: "275px",
-                                xs: "177px"
-                            },
-                            gap: {
-                                lg: "10px",
-                                md: "7.5",
-                                xs: "5px"
-                            },
-                            color: "#fff"
-                        }}
-                    >   
+                    <Box>
+                        {/*"Block Blur Edible Oils"*/}
                         <Box sx={{
-                            textTransform: "uppercase",
+                            position: "relative", 
+                            bottom: {
+                                lg: "70px",
+                                md: "100px",
+                                xs: "10px"
+                            },
+                            zIndex: 2,
+                            width:{
+                                lg: "171.41px",
+                                md: "115.83px",
+                                xs: "60.26px"
+                            },
+                            height:{
+                                lg: "369.8px",
+                                md: "261.9px",
+                                xs: "154px"
+                            },
+                            backdropFilter: "blur(54.2px)", 
+                            borderRadius: {
+                                lg: "32px",
+                                md: "24px",
+                                xs: "16px"
+                            },
+                            padding:{
+                                lg: "53.4px 40.41px 93.4px 35px",
+                                md: "39px 25px 60px 20px",
+                                xs: "25px 5.26px 23px 5px"
+                            },
+                            justifyContent: "center",
+                            textAlign: "center",
                             display: "flex",
-                            flexDirection: "column",
+                            flexWrap: "wrap",
+                            boxSizing: "border-box",    
+                            color: "white",
                             gap: {
                                 lg: "20px",
                                 md: "15px",
                                 xs: "10px"
                             }
                         }}>
-                            {/*"Small Text"*/}
-
-                            <Typography
+                            <Box 
+                                component={"img"}
+                                src={Drop}
                                 sx={{
-                                    fontSize: {
+                                    width:{
                                         lg: "12px",
-                                        md: "10px",
-                                        xs: "8px"
-                                    }
-                                }}
-                            >
-                                {t("naturcompos.small")}
-                            </Typography>
-
-                            {/*"Title Text"*/}
-                            <Typography
-                                sx={{
-                                    fontSize: {
-                                        lg: "32.65px",
-                                        md: "24,325px",
-                                        xs: "16px"
-                                    },
-                                    lineHeight: "120%",
-                                    letterSpacing: "-0.03em",
-                                    fontWeight: 300,
-                                    
-                                }}
-                            >
-                                {t("naturcompos.title")}
-                            </Typography>
-                        </Box>
-                        <Box sx={{
-                            display: {
-                                md: "flex",
-                                xs: "block"
-                            },
-                            gap:{
-                                md: "25px",
-                                xs: "10px"
-                            }
-                        }}>
-                            {/*"Description Text"*/}
-                            <Typography sx={{
-                                fontWeight: 400,
-                                fontSize: {
-                                    lg: "18px",
-                                    md: "13px",
-                                    xs: "8px"
-                                },
-                                color: "#FFFFFF",
-                                lineHeight: "18px",
-                                textAlign: "justify"
-                            }}>
-                                {t("naturcompos.description")}
-                            </Typography>
-                            {/*"Button"*/}
-                            <Chip 
-                                label={t("naturcompos.button")} 
-                                sx={{
-                                    width: {
-                                        lg: "169px",
-                                        xs: "177px"
+                                        md: "9px",
+                                        xs: "6px"
                                     },
                                     height:{
-                                        lg: "54px",
-                                        md: "43px",  
-                                        xs: "32px"
+                                        lg: "14.49px",
+                                        md: "10.86px",
+                                        xs: "7.24px"
                                     },
-                                    fontSize: {
-                                        lg: "12px",
-                                        md: "10px",
-                                        sx: "8px"
+                                    background: "#fff",
+                                    padding: {
+                                        lg: "7.18px 9px",
+                                        md: "6px 8px",
+                                        xs: "5.09px 6.5px"
                                     },
-                                    mixBlendMode: 'difference',
-                                    border: "2px solid #FFFFFF80",
-                                    color: '#fff',
-                                    background: "#73843D4D",
-                                    borderRadius: '50px',
-                                }} 
+                                    borderRadius: "38px"
+                                }}
+ 
                             />
+                            <Typography 
+                                sx={{
+                                    fontSize: {
+                                        lg: "18px",
+                                        md: "14.5px",
+                                        xs: "9px"
+                                    },
+                                    textTransform: "uppercase"
+                                }}
+                            >
+                                {t("edibleOils.title")}
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize:{
+                                        lg: "14px",
+                                        md: "11px",
+                                        xs: "5px"
+                                    },
+                                    fontWeight: 300,
+                                    letterSpacing:  "4%"
+                                }}    
+                            >
+                                {t("edibleOils.description")}
+                            </Typography>
                         </Box>
                     </Box>
-                    {/*"Wite Block"*/}
                     <Box sx={{
-                        mt: "12.3px",
-                        width: {lg: "750px", md: "550px",xs: "100%"},
-                        height: {lg: "344px", md: "250px",xs: "157px"},
-                        borderRadius: {lg: "60px", md:"40px", xs: "20px"},
-                        backgroundColor: "#fff",
-                        position: "relative",
-                        overflow: "visible", 
-                        
+                        justifyContent: "space-between",
+                        position: {md: "relative", xs: "static"},
+                        bottom: {lg: "150px", md: "180px"},
+                        display: {
+                            md: "flex",
+                            xs: "block"
+                        },
                     }}>
-                        {/*"Foto Olives"*/}
-                        <Box 
-                            component="img"
-                            src={Olives}
+                        {/*Block A new Level*/}
+                        <Box   
                             sx={{
-                                rotate: "12deg",
-                                width: "60%",
-                                height: "100%",
-                                objectFit: "contain", 
-                                borderRadius: "inherit",
-                                position: "absolute",
-                                top: "-26%",
-                                left: "38%",
-                                zIndex: 1,
-                            }}
-                        />
-                        {/*"Content"*/}
-                        <Box sx={{
-                            position: "relative",
-                            zIndex: 2,
-                            height: "75%", 
-                            
-                            padding: {
-                                lg: "59.7px 31.2px 29.65px 50px",
-                                md: "40px 25px 20px 35px",
-                                xs: "11.47px 14.27px 13.57px 20px"
-                            },
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "space-between"
-                        }}>
-                            <Typography sx={{
-                                width: {lg: "450px", md:"350px", xs:"200px"},
-                                fontSize: {lg: "39.1px", md: "30.1px", xs: "19px"},
-                                textShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", 
-                                letterSpacing: "-2%",
-                                lineHeight: "120%",
-                                fontWeight: 300,
-
-                            }}>
-                                {t("scanAndLearn.title")}
-                            </Typography>
-                            <Box sx={{
                                 display: "flex",
-                                justifyContent: "space-between"
+                                flexDirection: "column",
+                                justifyContent: "end",
+                                width: {
+                                    lg: "356px",
+                                    md: "275px",
+                                    xs: "177px"
+                                },
+                                gap: {
+                                    lg: "10px",
+                                    md: "7.5",
+                                    xs: "5px"
+                                },
+                                color: "#fff"
+                            }}
+                        >   
+                            <Box sx={{
+                                textTransform: "uppercase",
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: {
+                                    lg: "20px",
+                                    md: "15px",
+                                    xs: "10px"
+                                }
                             }}>
-                                <Box sx={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "10px"
-                                }}>
-                                    <Typography sx={{
-                                        width:{
-                                          lg: "268px",
-                                          md: "190.5px",
-                                          xs: "113px"  
-                                        },
+                                {/*"Small Text"*/}
+
+                                <Typography
+                                    sx={{
                                         fontSize: {
-                                            lg: "14px",
-                                            md: "10.5px",
-                                            xs: "8px"
-                                        },
-                                        color: "#848484",
-                                        lineHeight: "100%",
-                                        textAlign: "justify"
-                                    }}>
-                                        {t("scanAndLearn.discription")}
-                                    </Typography>
-                                    <Typography sx={{
-                                        textDecoration: "underline",
-                                        color:"#73843D",
-                                        letterSpacing: "-2%",
-                                        lineHeight: "120%",
-                                        textTransform: "Uppercase",
-                                        textUnderlineOffset: "2px",
-                                        fontSize:{
-                                            lg: "14px",
-                                            md: "11px",
+                                            lg: "12px",
+                                            md: "10px",
                                             xs: "8px"
                                         }
+                                    }}
+                                >
+                                    {t("naturcompos.small")}
+                                </Typography>
+
+                                {/*"Title Text"*/}
+                                <Typography
+                                    sx={{
+                                        fontSize: {
+                                            lg: "32.65px",
+                                            md: "24,325px",
+                                            xs: "16px"
+                                        },
+                                        lineHeight: "120%",
+                                        letterSpacing: "-0.03em",
+                                        fontWeight: 300,
+                                        
+                                    }}
+                                >
+                                    {t("naturcompos.title")}
+                                </Typography>
+                            </Box>
+                            <Box sx={{
+                                display: {
+                                    md: "flex",
+                                    xs: "block"
+                                },
+                                gap:{
+                                    md: "25px",
+                                    xs: "10px"
+                                }
+                            }}>
+                                {/*"Description Text"*/}
+                                <Typography sx={{
+                                    fontWeight: 400,
+                                    fontSize: {
+                                        lg: "18px",
+                                        md: "13px",
+                                        xs: "8px"
+                                    },
+                                    color: "#FFFFFF",
+                                    lineHeight: "18px",
+                                    textAlign: "justify"
+                                }}>
+                                    {t("naturcompos.description")}
+                                </Typography>
+                                {/*"Button"*/}
+                                <Chip 
+                                    label={t("naturcompos.button")} 
+                                    sx={{
+                                        width: {
+                                            lg: "169px",
+                                            xs: "177px"
+                                        },
+                                        height:{
+                                            lg: "54px",
+                                            md: "43px",  
+                                            xs: "32px"
+                                        },
+                                        fontSize: {
+                                            lg: "12px",
+                                            md: "10px",
+                                            sx: "8px"
+                                        },
+                                        mixBlendMode: 'difference',
+                                        border: "2px solid #FFFFFF80",
+                                        color: '#fff',
+                                        background: "#73843D4D",
+                                        borderRadius: '50px',
                                     }} 
-                                    >
-                                        {t("scanAndLearn.learnMore")}
-                                    </Typography>
-                                </Box>
+                                />
+                            </Box>
+                        </Box>
+                        {/*"Wite Block"*/}
+                        <Box sx={{
+                            mt: "12.3px",
+                            width: {lg: "750px", md: "550px",xs: "100%"},
+                            height: {lg: "344px", md: "250px",xs: "157px"},
+                            borderRadius: {lg: "60px", md:"40px", xs: "20px"},
+                            backgroundColor: "#fff",
+                            position: "relative",
+                            overflow: "visible", 
+                            
+                        }}>
+                            {/*"Foto Olives"*/}
+                            <Box 
+                                component="img"
+                                src={Olives}
+                                sx={{
+                                    rotate: "12deg",
+                                    width: "60%",
+                                    height: "100%",
+                                    objectFit: "contain", 
+                                    borderRadius: "inherit",
+                                    position: "absolute",
+                                    top: "-26%",
+                                    left: "38%",
+                                    zIndex: 1,
+                                }}
+                            />
+                            {/*"Content"*/}
+                            <Box sx={{
+                                position: "relative",
+                                zIndex: 2,
+                                height: "75%", 
+                                
+                                padding: {
+                                    lg: "59.7px 31.2px 29.65px 50px",
+                                    md: "40px 25px 20px 35px",
+                                    xs: "11.47px 14.27px 13.57px 20px"
+                                },
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between"
+                            }}>
+                                <Typography sx={{
+                                    width: {lg: "450px", md:"350px", xs:"200px"},
+                                    fontSize: {lg: "39.1px", md: "30.1px", xs: "19px"},
+                                    textShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)", 
+                                    letterSpacing: "-2%",
+                                    lineHeight: "120%",
+                                    fontWeight: 300,
+
+                                }}>
+                                    {t("scanAndLearn.title")}
+                                </Typography>
                                 <Box sx={{
                                     display: "flex",
-                                    flexDirection: "row",
-                                    background: "#000000",
-                                    color: "#fff",
-                                    width:{
-                                        lg: "375.46px",
-                                        md: "273.58px",
-                                        xs: "171.71px"
-                                    },
-                                    height:{
-                                        lg: "102.04px",
-                                        md: "74.35px",
-                                        xs: "46.67px"
-                                    },
-                                    borderRadius: "51.02px",
-                                    alignItems: "center",
-                                    gap:{
-                                        lg: "35px",
-                                        md: "22.5px",
-                                        xs: "10px"
-                                    }
+                                    justifyContent: "space-between"
                                 }}>
-                                    <Box 
-                                        component={"img"}
-                                        src={Logo}
-                                        sx={{
-                                            width:{
-                                                lg: '53px',
-                                                md: '44px',
-                                                xs: '35px'
-                                            },
-                                            height:{
-                                                lg: '53px',
-                                                md: '44px',
-                                                xs: '35px'
-                                            },
-                                            background: "#FFFFFF",
-                                            borderRadius: "35.66px",
-                                            padding: {
-                                                lg: "9.67px",
-                                                md: "5.67px",
-                                            },
-                                            ml:{
-                                                lg: "20px",
-                                                md: "15px",
-                                                xs: "10px"
-                                            }
-                                        }}
-                                    />
                                     <Box sx={{
-                                        textTransform: "uppercase",
-                                        letterSpacing: "-2%",
-                                        lineHeight: "120%",
-                                        fontWeight: 700
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "10px"
                                     }}>
                                         <Typography sx={{
+                                            width:{
+                                            lg: "268px",
+                                            md: "190.5px",
+                                            xs: "113px"  
+                                            },
                                             fontSize: {
                                                 lg: "14px",
-                                                md: "11px",
+                                                md: "10.5px",
                                                 xs: "8px"
                                             },
+                                            color: "#848484",
+                                            lineHeight: "100%",
+                                            textAlign: "justify"
                                         }}>
-                                            {t("scanAndLearn.try")}
+                                            {t("scanAndLearn.discription")}
                                         </Typography>
                                         <Typography sx={{
-                                            fontSize: {
+                                            textDecoration: "underline",
+                                            color:"#73843D",
+                                            letterSpacing: "-2%",
+                                            lineHeight: "120%",
+                                            textTransform: "Uppercase",
+                                            textUnderlineOffset: "2px",
+                                            fontSize:{
                                                 lg: "14px",
                                                 md: "11px",
                                                 xs: "8px"
-                                            },
-                                        }}>
-                                            {t("scanAndLearn.download")}
+                                            }
+                                        }} 
+                                        >
+                                            {t("scanAndLearn.learnMore")}
                                         </Typography>
+                                    </Box>
+                                    <Box sx={{
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        background: "#000000",
+                                        color: "#fff",
+                                        width:{
+                                            lg: "375.46px",
+                                            md: "273.58px",
+                                            xs: "171.71px"
+                                        },
+                                        height:{
+                                            lg: "102.04px",
+                                            md: "74.35px",
+                                            xs: "46.67px"
+                                        },
+                                        borderRadius: "51.02px",
+                                        alignItems: "center",
+                                        gap:{
+                                            lg: "35px",
+                                            md: "22.5px",
+                                            xs: "10px"
+                                        }
+                                    }}>
+                                        <Box 
+                                            component={"img"}
+                                            src={Logo}
+                                            sx={{
+                                                width:{
+                                                    lg: '53px',
+                                                    md: '44px',
+                                                    xs: '35px'
+                                                },
+                                                height:{
+                                                    lg: '53px',
+                                                    md: '44px',
+                                                    xs: '35px'
+                                                },
+                                                background: "#FFFFFF",
+                                                borderRadius: "35.66px",
+                                                padding: {
+                                                    lg: "9.67px",
+                                                    md: "5.67px",
+                                                },
+                                                ml:{
+                                                    lg: "20px",
+                                                    md: "15px",
+                                                    xs: "10px"
+                                                }
+                                            }}
+                                        />
+                                        <Box sx={{
+                                            textTransform: "uppercase",
+                                            letterSpacing: "-2%",
+                                            lineHeight: "120%",
+                                            fontWeight: 700
+                                        }}>
+                                            <Typography sx={{
+                                                fontSize: {
+                                                    lg: "14px",
+                                                    md: "11px",
+                                                    xs: "8px"
+                                                },
+                                            }}>
+                                                {t("scanAndLearn.try")}
+                                            </Typography>
+                                            <Typography sx={{
+                                                fontSize: {
+                                                    lg: "14px",
+                                                    md: "11px",
+                                                    xs: "8px"
+                                                },
+                                            }}>
+                                                {t("scanAndLearn.download")}
+                                            </Typography>
+                                        </Box>
                                     </Box>
                                 </Box>
                             </Box>
+                            
                         </Box>
-                        
                     </Box>
                 </Box>
             </Box>
@@ -869,9 +972,9 @@ function Home(){
             <Box 
                  sx={{
                     padding: {
-                        lg: "40px 97ppx",
-                        md: "40px 61px",
-                        xs: "40px 25px"
+                        lg: "0px 97ppx 40px",
+                        md: "0px 61px 40px",
+                        xs: "0px 25px 40px"
                     },   
                 }}
             >

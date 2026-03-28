@@ -20,7 +20,16 @@ interface Props{
 }
 
 function Scroll({scroll} : Props){
-    const [emblaRef, emblaApi] = useEmblaCarousel();
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        align: "start",
+        containScroll: "trimSnaps",
+        slidesToScroll: 1, 
+        breakpoints: {
+            '(max-width: 899px)': { 
+                slidesToScroll: scroll.type === "product" ? 2 : 1 
+            }
+        }
+    });
 
     const scrollNext = useCallback(() => {
         emblaApi?.scrollNext();
@@ -121,7 +130,7 @@ function Scroll({scroll} : Props){
                     height: {
                         lg: "auto",
                         md: "auto",
-                        xs: scroll.type === "product" ? "600px" : "auto" 
+                        xs: scroll.type === "product" ? "515px" : "auto" 
                     },
                     gap: {
                         lg: "10px",

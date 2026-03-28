@@ -80,6 +80,14 @@
         "learnMore": "Learn more",
         "try": "Try Vivoolio",
         "download": "Download the app"
+    },
+    "edibleOils":{
+        "title": "Edible oils",
+        "description": "For daily diet, cooking and healthy eating"
+    },
+    "cosmeticOils":{
+        "title": "Cosmetic oils",
+        "description": "Skin, hair and body care – in its purest form"
     }
 
 }
