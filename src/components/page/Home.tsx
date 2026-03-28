@@ -29,6 +29,7 @@ import Tree from "../../assets/tree.png";
 import Olives from "../../assets/olives.png";
 import Logo from "../../assets/logo.png";
 import Drop from "../../assets/svg/drop.svg";
+import BotlOli from "../../assets/botlOil.png";
 
 const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
@@ -43,7 +44,19 @@ function Home(){
     const useInfo = t('useInfo', { returnObjects: true });
     
     const widths = 4;
-
+    const createMask = (gap: string) => {
+        const g = gap === "10px" ? 0.8 : 0.4; 
+  const w = (100 - g * 3) / 4; // ширина однієї колони
+  
+  return `linear-gradient(to right, 
+    black 0% ${w}%, 
+    transparent ${w}% ${w + g}%, 
+    black ${w + g}% ${2 * w + g}%, 
+    transparent ${2 * w + g}% ${2 * w + 2 * g}%, 
+    black ${2 * w + 2 * g}% ${3 * w + 2 * g}%, 
+    transparent ${3 * w + 2 * g}% ${3 * w + 3 * g}%, 
+    black ${3 * w + 3 * g}% 100%)`;
+    };
     return(
         <>
             <Box 
@@ -58,7 +71,7 @@ function Home(){
                         lg: "0 15px",
                         md: "0 11.425px",
                         xs: "0 7.87px"
-                    }
+                    },position: 'relative',
                 }}
             >   
                 <Box 
@@ -70,32 +83,84 @@ function Home(){
                             md: "5px",
                             xs: 0
                         }
-                    }}>
+                }}>
                     {[496, 572, 572, 496].map((h, index) => (
                     <Box
                         key={index}
                         sx={{
-                        width: "100%",
-                        height: {
-                            lg: `${h}px`,
-                            md: `${(h+155)/2}px`,
-                            xs: "155px"
-                        },
-                        borderRadius: {
-                            lg: "0 0 100px 100px",
-                            md: "0 0 100px 100px",
-                            xs: index == 0 ? "0 0 0 15px" : (index == 3 ? "0 0 15px 0" : 0) 
-                        },
-
-                        backgroundImage: `url(${Tree})`,
-                        backgroundSize: `${widths * 100}% auto`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: `${(index * 100) / (widths - 1)}% 0`,
+                            width: "100%",
+                            height: { lg: `${h}px`, md: `${(h + 155) / 2}px`, xs: "155px" },
+                            borderRadius: {
+                                lg: "0 0 100px 100px",
+                                md: "0 0 100px 100px",
+                                xs: index === 0 ? "0 0 0 15px" : (index === 3 ? "0 0 15px 0" : 0)
+                            },
+                            backgroundImage: `url(${Tree})`,
+                            backgroundSize: `${widths * 100}% auto`,
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: `${(index * 100) / (widths - 1)}% 0`,
+                            
+                            position: 'relative', 
+                            overflow: 'hidden',
                         }}
-                    />
-                    ))}
-                </Box>
+                    >
+                        {/*img Botl*/}
+                        <Box 
+                            sx={{
+                                display: {
+                                    md: "block",
+                                    xs: "none"
+                                },
+                                position: 'absolute',
+                                width: {
+                                    lg: `calc(${widths * 100}% + ${(widths - 1) * 10}px)`, 
+                                    md: `calc(${widths * 100}% + ${(widths - 1) * 5}px)`,
+                                    xs: '100%' 
+                                },
+                                height: '100%',
+                                backgroundImage: `url(${BotlOli})`,
+                                backgroundSize: '14%',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center',
+                                
+                                left: {
+                                    lg: `calc(-${index * 100}% - ${index * 10}px - 70px)`,
+                                    md: `calc(-${index * 100}% - ${index * 5}px + 30px)`,
+                                },
+                                top: {
+                                    lg: "50px",
+                                    md: "50px",
+                                    xs: "20px"
+                                },
 
+                                transform: "rotate(-27.12deg) scale(1.7)",
+                                pointerEvents: 'none',
+                                zIndex: 0,
+                            }}
+                        />
+                    </Box>
+                ))}
+
+                </Box>
+                {/*Oil botl Block xs */}
+                <Box 
+                    component={'img'}
+                    src={BotlOli}
+                    sx={{
+                        position: "absolute",
+                        display: {
+                            md: "none",
+                            xs: "block"
+                        },
+                        width:{
+                            xs: "150px"
+                        },
+                        top: "3%",
+                        right: 11,
+                    }}    
+                />
+                
+                {/*all Block top*/}
                 <Box sx={{
                     padding: {
                         lg: "0 37px 30px 62px",
