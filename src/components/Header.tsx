@@ -162,8 +162,7 @@ function Header({ value, handleChange }: HeaderProps){
                                         <Box component={"img"} src={Search} alt="serch" onClick={(_e) => setMode("search")} />
                                     </IconButton>
                                     <IconButton disableRipple sx={{ p: 0}} >
-                                        <Box component={"img"} src={Balance} alt="balance" sx={{ width: { xs: '14px', sm: '20px', md: '24px' }, height: {xs: "14px", small:"15px", md: "24px"} }}
- />
+                                        <Box component={"img"} src={Balance} alt="balance" sx={{ width: { xs: '14px', sm: '20px', md: '24px' }, height: {xs: "14px", small:"15px", md: "24px"} }}/>
                                     </IconButton>
                                     <IconButton disableRipple sx={{ p: 0, display: { '@media (max-width: 1039px)': { display: 'none' }, md: "flex" } }}>
                                         <Box component={"img"} src={Follow} alt="follow" />
@@ -248,7 +247,7 @@ function Header({ value, handleChange }: HeaderProps){
                     sx={{
                         mt: '328px',
                         '& .MuiDrawer-paper': {
-                            top: { xs: '60px', md: '134px' },
+                            top: { xs: '60px', md: '60px', lg: "134px" },
                             height: '100%', 
                             width: "100vw",
                             boxShadow: 'none', 
@@ -376,7 +375,7 @@ function Header({ value, handleChange }: HeaderProps){
                         zIndex: 1400, 
                         mt: '328px',
                         '& .MuiDrawer-paper': {
-                            top: { xs: '60px', md: '134px' },
+                            top: { xs: '60px', md: '60px', lg: "134px"},
                             height: '100%', 
                             width: "100vw",
                             boxShadow: 'none', 

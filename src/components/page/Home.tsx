@@ -100,7 +100,6 @@ function Home(){
                     padding: {
                         lg: "0 37px 30px 62px",
                         xs: "20px 23px 24.03px 24px"
-                         
                     },
                     display: "flex",
                     flexDirection: "column",
@@ -109,97 +108,161 @@ function Home(){
                     bottom: {lg: "360px", md: "260px", xs: "160px"},
                 }}>
                     <Box>
-                        {/*"Block Blur Edible Oils"*/}
-                        <Box sx={{
-                            position: "relative", 
-                            bottom: {
-                                lg: "70px",
-                                md: "100px",
-                                xs: "10px"
-                            },
-                            zIndex: 2,
-                            width:{
-                                lg: "171.41px",
-                                md: "115.83px",
-                                xs: "60.26px"
-                            },
-                            height:{
-                                lg: "369.8px",
-                                md: "261.9px",
-                                xs: "154px"
-                            },
-                            backdropFilter: "blur(54.2px)", 
-                            borderRadius: {
-                                lg: "32px",
-                                md: "24px",
-                                xs: "16px"
-                            },
-                            padding:{
-                                lg: "53.4px 40.41px 93.4px 35px",
-                                md: "39px 25px 60px 20px",
-                                xs: "25px 5.26px 23px 5px"
-                            },
-                            justifyContent: "center",
-                            textAlign: "center",
-                            display: "flex",
-                            flexWrap: "wrap",
-                            boxSizing: "border-box",    
-                            color: "white",
-                            gap: {
-                                lg: "20px",
-                                md: "15px",
-                                xs: "10px"
-                            }
-                        }}>
-                            <Box 
-                                component={"img"}
-                                src={Drop}
-                                sx={{
-                                    width:{
-                                        lg: "12px",
-                                        md: "9px",
-                                        xs: "6px"
-                                    },
-                                    height:{
-                                        lg: "14.49px",
-                                        md: "10.86px",
-                                        xs: "7.24px"
-                                    },
-                                    background: "#fff",
-                                    padding: {
-                                        lg: "7.18px 9px",
-                                        md: "6px 8px",
-                                        xs: "5.09px 6.5px"
-                                    },
-                                    borderRadius: "38px"
-                                }}
- 
-                            />
-                            <Typography 
-                                sx={{
-                                    fontSize: {
-                                        lg: "18px",
-                                        md: "14.5px",
-                                        xs: "9px"
-                                    },
-                                    textTransform: "uppercase"
-                                }}
-                            >
-                                {t("edibleOils.title")}
-                            </Typography>
-                            <Typography
-                                sx={{
-                                    fontSize:{
-                                        lg: "14px",
-                                        md: "11px",
-                                        xs: "5px"
-                                    },
-                                    fontWeight: 300,
-                                    letterSpacing:  "4%"
-                                }}    
-                            >
-                                {t("edibleOils.description")}
-                            </Typography>
+                        {/*"Block Blur Cosmetic oils"*/}
+                        <Box>
+                            <Box sx={{
+                                display: {
+                                    md: "flex",
+                                    xs: "none"
+                                },
+                                width:{
+                                    lg: "335.2px",
+                                    md: "235.2px",
+                                },
+                                height:{
+                                    lg: "134px",
+                                    md: "84px"
+                                },
+                                backdropFilter: "blur(54.2px)", 
+                                borderRadius: {
+                                    lg: "32px",
+                                    md: "24px",
+                                    xs: "16px"
+                                },
+                                position: "absolute",
+                                right: "100px",
+                                bottom: "auto",
+                                top: {
+                                    lg: "-150px",
+                                    md: "-80px"
+                                },
+                                flexDirection: "column",
+                                color: "#fff",
+                                padding: {
+                                    lg: "29.15px 74.2px 29.15px 62px",
+                                    md: "13.15px 25.2px 13.15px 25px"
+                                },
+                                boxSizing: "border-box",
+                                justifyContent: "space-between",
+                                border: "2px solid #FFFFFF33"
+                            }}>
+                                <Typography
+                                    sx={{
+                                        fontSize: {
+                                            lg: "18px",
+                                            md: "15px"
+                                        },
+                                        letterSpacing:"2%",
+                                        fontWeight:"550"
+                                    }}
+                                >
+                                    {t("cosmeticOils.title")}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: {
+                                            lg: "13px",
+                                            md: "10px"
+                                        }
+                                    }}>
+                                    {t("cosmeticOils.description")}
+                                </Typography>
+                            </Box>
+                        </Box>
+                        <Box>
+                            {/*"Block Blur Edible Oils"*/}
+                            <Box sx={{
+                                position: "relative", 
+                                bottom: {
+                                    lg: "70px",
+                                    md: "100px",
+                                    xs: "10px"
+                                },
+                                zIndex: 2,
+                                width:{
+                                    lg: "171.41px",
+                                    md: "115.83px",
+                                    xs: "60.26px"
+                                },
+                                height:{
+                                    lg: "369.8px",
+                                    md: "261.9px",
+                                    xs: "154px"
+                                },
+                                backdropFilter: "blur(54.2px)", 
+                                borderRadius: {
+                                    lg: "32px",
+                                    md: "24px",
+                                    xs: "16px"
+                                },
+                                padding:{
+                                    lg: "40.4px 40.41px 93.4px 35px",
+                                    md: "28px 25px 60px 20px",
+                                    xs: "20px 5.26px 23px 5px"
+                                },
+                                justifyContent: "center",
+                                textAlign: "center",
+                                display: "flex",
+                                flexWrap: "wrap",
+                                boxSizing: "border-box",    
+                                color: "white",
+                                gap: {
+                                    lg: "20px",
+                                    md: "15px",
+                                    xs: "10px"
+                                },
+                                border: "2px solid #FFFFFF33"
+                            }}>
+                                <Box 
+                                    component={"img"}
+                                    src={Drop}
+                                    sx={{
+                                        width:{
+                                            lg: "12px",
+                                            md: "9px",
+                                            xs: "6px"
+                                        },
+                                        height:{
+                                            lg: "14.49px",
+                                            md: "10.86px",
+                                            xs: "7.24px"
+                                        },
+                                        background: "#fff",
+                                        padding: {
+                                            lg: "7.18px 9px",
+                                            md: "6px 8px",
+                                            xs: "5.09px 6.5px"
+                                        },
+                                        borderRadius: "38px"
+                                    }}
+    
+                                />
+                                <Typography 
+                                    sx={{
+                                        fontSize: {
+                                            lg: "18px",
+                                            md: "14.5px",
+                                            xs: "9px"
+                                        },
+                                        textTransform: "uppercase"
+                                    }}
+                                >
+                                    {t("edibleOils.title")}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize:{
+                                            lg: "14px",
+                                            md: "11px",
+                                            xs: "5px"
+                                        },
+                                        fontWeight: 300,
+                                        letterSpacing:  "4%"
+                                    }}    
+                                >
+                                    {t("edibleOils.description")}
+                                </Typography>
+                            </Box>
                         </Box>
                     </Box>
                     <Box sx={{
@@ -211,6 +274,7 @@ function Home(){
                             xs: "block"
                         },
                     }}>
+  
                         {/*Block A new Level*/}
                         <Box   
                             sx={{
