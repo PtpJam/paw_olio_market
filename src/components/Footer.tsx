@@ -1,0 +1,399 @@
+import { Box, Tab, Tabs, Typography, useMediaQuery, useTheme } from "@mui/material";
+import "./css/Footer.css"
+import Visa from "../assets/svg/visa.svg"
+import Master from "../assets/svg/logos_mastercard.svg"
+import Aple from "../assets/svg/logos_apple-pay.svg"
+import Google from "../assets/svg/logos_google-pay.svg"
+
+import ApleStore from "../assets/svg/appStore.svg"
+import GooglePlay from "../assets/svg/googlePlay.svg"
+import ApleStoreText from "../assets/svg/appStoreText.svg"
+import GooglePlayText from "../assets/svg/googlePlayText.svg"
+
+import YouTube from "../assets/svg/icomoon-free_youtube.svg"
+import TickTok from "../assets/svg/mingcute_tiktok-fill.svg"
+import Instagram from "../assets/svg/formkit_instagram.svg"
+import FaceBook from "../assets/svg/ic_outline-facebook.svg"
+import { useTranslation } from "react-i18next";
+
+interface HeaderProps {
+  value: number;
+  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
+}
+
+
+
+function Footer({ value, handleChange }: HeaderProps){
+    const { t } = useTranslation("header");
+    const { t: tFooter } = useTranslation("footer"); 
+
+    const theme = useTheme();
+    const isSm = useMediaQuery(theme.breakpoints.only('sm'));
+    const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+
+    function PayAndDoun(){
+        return(
+            <Box sx={{
+                display:"flex",
+                flexDirection:"column",
+                gap: "40px",
+                m: { xs: "60.5px 0", sm: "60.5px 0", md: "0"}
+            }}>
+                <Box sx={{
+                    display:"flex",
+                    gap: {
+                        lg: "24.35px",
+                        md: "22.175px",
+                        xs: "20px"
+                    },
+                    '& .MuiBox-root': {
+                        height: {
+                            lg: "23px",
+                            md: "15.98px",
+                            xs: "8.97px"
+                        },
+                        '& img': {
+                            height: "100%",
+                            display: "block"
+                        }
+                    }
+                }}>
+                    <Box><img src={Visa} alt="" /></Box>
+                    <Box><img src={Master} alt="" /></Box>
+                    <Box><img src={Aple} alt="" /></Box>
+                    <Box><img src={Google} alt="" /></Box>
+                </Box>
+                <Box sx={{
+                    display:"flex",
+                    gap: 2.5,
+                    flexWrap: "wrap"
+                }}>
+                    <Box sx={{
+                        background: "#FFFFFF33",
+                        display: "flex",
+                        borderRadius: "50px",
+                        width: {
+                            lg: "210px",
+                            md: "172.5px",
+                            xs: "135px"
+                        },
+                        height: {
+                            lg: "61px",
+                            md: "49.5px",
+                            xs: "38px"
+                        },
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap:{
+                            lg: "11.33px",
+                            md: "10.65px",
+                            xs: "10px"
+                        }
+                    }}>
+                        <Box 
+                            component={"img"}
+                            src={GooglePlay}
+                            sx={{
+                                height:{
+                                    lg:"27px",
+                                    md: "24px",
+                                    xs:"21px"
+                                }
+                            }}
+                        />
+                        <Box sx={{display: "flex", flexDirection: "column", gap: "5px"}}>
+                            <Typography
+                                sx={{
+                                    fontSize: "7px",
+                                    fontWeight: 700,
+                                    lineHeight: "100%"
+                                }}
+                            >
+                                {tFooter("Download")}
+                            </Typography>
+                            <Box 
+                                component={"img"}
+                                src={GooglePlayText}
+                                sx={{
+                                    width:{
+                                        lg: "107.67px",
+                                        md: "88.835px",
+                                        xs: "70px"
+                                    },
+
+                                }}
+                            />
+                        </Box>
+                    </Box>
+                    <Box sx={{
+                        background: "#FFFFFF33",
+                        display: "flex",
+                        borderRadius: "50px",
+                        width: {
+                            lg: "210px",
+                            md: "172.5px",
+                            xs: "135px"
+                        },
+                        height: {
+                            lg: "61px",
+                            md: "49.5px",
+                            xs: "38px"
+                        },
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap:{
+                            lg: "11.33px",
+                            md: "10.65px",
+                            xs: "10px"
+                        }
+                    }}>
+                        <Box 
+                            component={"img"}
+                            src={ApleStore}
+                            sx={{
+                                height:{
+                                    lg:"27px",
+                                    md: "24px",
+                                    xs:"21px"
+                                }
+                            }}
+                        />
+                        <Box sx={{display: "flex", flexDirection: "column", gap: "5px"}}>
+                            <Typography
+                                sx={{
+                                    fontSize: "7px",
+                                    fontWeight: 700,
+                                    lineHeight: "100%"
+                                }}
+                            >
+                                {tFooter("Download")}
+                            </Typography>
+                            <Box 
+                                component={"img"}
+                                src={ApleStoreText}
+                                sx={{
+                                    width:{
+                                        lg: "107.67px",
+                                        md: "88.835px",
+                                        xs: "70px"
+                                    },
+
+                                }}
+                            />
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
+        )
+    }
+
+    return(
+        <>
+            <footer>
+                <Box sx={{
+                    padding: {
+                        lg: "40px 64px 56px 40px",
+                        md: "30px 40px",
+                        xs: "20px 30px"
+                    },
+                    display:{sm: "block", md: "flex"},
+                    justifyContent: "space-between",
+                }}>
+                  <Box sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    gap: {
+                        lg: "185px",
+                        md: "117px",
+                        xs: "49px"
+                    },
+                  }}>
+                    <Box sx={{
+                        display:"flex",
+                        flexDirection:"column",
+                        gap: "32px"
+                    }}>
+                        <Box 
+                            sx={{
+                                '& .MuiTabs-indicator': { display: 'flex' },
+
+                                alignItems:"center",
+                                display: { 
+                                    xs: 'flex', 
+                                    '@media (min-width: 825px)': { display: 'flex' } 
+                                }
+                            }}
+                            
+                        >
+                            <Typography  
+                                onClick={(event) => {
+                                        handleChange(event, 0);
+                                    }
+                                }
+                                sx={{
+                                    cursor: "pointer",
+                                    fontSize: { 
+                                        lg: '32px',  
+                                        md: "28px",
+                                        xs: '24px',  
+                                    },
+                                    fontWeight: "700",
+                                }}
+                            >
+                                VivoOlio
+                            </Typography>
+                        </Box>
+                        <Box sx={{
+                                display: "flex",
+                                mb: {md: 0, sm:"32px", xs: "32px"} 
+                            }}>
+                                <Tabs 
+                                    value={value}
+                                    TabIndicatorProps={{style: { display: 'none' }}}
+                                    onChange={handleChange}
+                                    sx={{
+                                        '& .MuiTabs-flexContainer': {
+                                            flexWrap: 'wrap', 
+                                            columnGap: {
+                                                lg: "41px",
+                                                md: "30.5px",
+                                                xs: "20px"
+                                            }
+                                        }, 
+                                        '& .MuiTab-root': {
+                                            fontSize: {
+                                                lg: '16px',  
+                                                md: "14px",
+                                                xs: '10.5px',  
+                                            },
+                                            '&:focus': {
+                                                outline: 'none !important',
+                                            },
+                                            '&.Mui-selected': {
+                                                color: '#fff !important', 
+                                            },
+                                            color: "#fff",
+                                            lineHeight: "140%", 
+                                            flexWrap: "wrap"
+                                        },
+                                    }} >
+                                        <Tab  value={0} className="hideElement"/>
+                                        <Tab disableRipple className="tab" value={1} label={t("TabsMenu.oil")}></Tab>
+                                        <Tab disableRipple className="tab" value={2} label={t("TabsMenu.cosmetics")}></Tab>
+                                        <Tab disableRipple className="tab" value={3} label={t("TabsMenu.dishes")}></Tab>
+                                        <Tab disableRipple className="tab" value={4} label={t("TabsMenu.DIetary")}></Tab>
+                                </Tabs>
+                        </Box>
+                    </Box>
+                    {(!isSm && !isXs) && PayAndDoun()}
+                  </Box>
+                  <Box 
+                  sx={
+                    {
+                        display: {
+                            sm: "block",
+                            md: "flex"
+                        },
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        flex: 1,
+                        minWidth: 0,
+                    }
+                  }> 
+                    <Box sx={{
+                        display: {
+                            md: "flex",
+                            sm: "grid",
+                            xs: "flex",
+                        },
+                        flexWrap: "wrap",
+                        gridTemplateColumns: {
+                            lg: "repeat(4, 1fr)", 
+                            md: "repeat(3, 1fr)",
+                            sm: "repeat(4, 1fr)",
+                        },
+                        rowGap: "10px",
+                        columnGap: {
+                            lg: "57px",
+                            md: "34.3px",
+                            xs: "11.67px"
+                        },
+                        fontWeight: 400,
+                        '& .MuiTypography-root': {
+                            fontSize: {
+                                lg: "16px",
+                                md: "14px",
+                                xs: "12px"
+                            },
+                            whiteSpace: "nowrap",
+                            color: "#FFFFFF"
+                        },
+                        lineHeight: "100%"
+                    }}>
+                        <Typography>{tFooter("AboutUs")}</Typography>
+                        <Typography>{tFooter("NewsBlog")}</Typography>
+                        <Typography>{tFooter("PrivacyPolicy")}</Typography>
+                        <Typography>{tFooter("CurrentPolicy")}</Typography>
+                        <Typography>{tFooter("Contacts")}</Typography>
+                        <Typography>{tFooter("TermOfSale")}</Typography>
+                        <Typography>{tFooter("TermOfUse")}</Typography>
+                    </Box>
+                    {(isSm || isXs) && PayAndDoun()}
+                    <Box sx={{display: "flex", justifyContent:"space-between"}}>
+                        <Box sx={{display: "flex", flexDirection: "column", gap: "8px"}}>
+                            <Typography sx={{
+                                color:"#FFFFFF8C",
+                                fontSize: {
+                                    lg: "20px",
+                                    md: "16px",
+                                    xs: "12px"
+                                },
+                                lineHeight: "130%",
+                                letterSpacing: "4%",
+                                textTransform: "uppercase"
+
+                            }}>
+                                {tFooter("SocialMedias")}
+                            </Typography>
+                            <Box sx={{
+                                display: "flex",
+                                height: "20px",
+                                gap: {
+                                    lg: "38.67px",
+                                    md: "26.835px",
+                                    xs: "15px"
+                                }
+                                
+                            }}>
+                                <img src={FaceBook} alt="" />
+                                <img src={YouTube} alt="" />
+                                <img src={Instagram} alt="" />
+                                <img src={TickTok} alt="" />
+                            </Box>
+                        </Box>
+                        <Box sx={
+                            {
+                                display: "flex",
+                                textAlign: "end",
+                                flexDirection: "column",
+                                color: "#FFFFFF8C",
+                                fontWeight: 400,
+                                fontSize: {
+                                    lg: "15px",
+                                    md: "13.5px",
+                                    xs: "12px"
+                                }
+                            }
+                        }>
+                            <Typography>©VivoOlio 2024</Typography>
+                            <Typography>Усі права захищені</Typography>
+                        </Box>
+                    </Box>
+                  </Box>
+                </Box>
+            </footer>
+        </>
+    )
+}
+export default Footer;

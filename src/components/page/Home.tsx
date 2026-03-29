@@ -44,19 +44,7 @@ function Home(){
     const useInfo = t('useInfo', { returnObjects: true });
     
     const widths = 4;
-    const createMask = (gap: string) => {
-        const g = gap === "10px" ? 0.8 : 0.4; 
-  const w = (100 - g * 3) / 4; // ширина однієї колони
-  
-  return `linear-gradient(to right, 
-    black 0% ${w}%, 
-    transparent ${w}% ${w + g}%, 
-    black ${w + g}% ${2 * w + g}%, 
-    transparent ${2 * w + g}% ${2 * w + 2 * g}%, 
-    black ${2 * w + 2 * g}% ${3 * w + 2 * g}%, 
-    transparent ${3 * w + 2 * g}% ${3 * w + 3 * g}%, 
-    black ${3 * w + 3 * g}% 100%)`;
-    };
+
     return(
         <>
             <Box 
