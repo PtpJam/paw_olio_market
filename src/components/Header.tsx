@@ -13,7 +13,7 @@ import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListI
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu'
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 
 function Header(){
@@ -37,6 +37,8 @@ function Header(){
         { label: "日本語", code: "ja" }
     ];
     const path = ["/oil", "/cosmetics", "/dishes", "/dietary_supplements"] 
+    
+    const location = useLocation();
     const currentTab = location.pathname;
 
     const { i18n, t } = useTranslation("header");
@@ -44,11 +46,6 @@ function Header(){
     const handleLanguageChange = (newLang : string) => {
         i18n.changeLanguage(newLang); 
         setMode("main"); 
-    };
-
-    const [headerMenu, headerMenuSet] = useState(0)
-    const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-        headerMenuSet(newValue);
     };
 
     return(
@@ -68,7 +65,7 @@ function Header(){
                                     '@media (min-width: 1039px)': { display: 'flex' } 
                                 } 
                                 }}>
-                                <Tabs value={headerMenu} onChange={handleChange}  sx={{
+                                <Tabs  value={currentTab}  sx={{
                                     '& .MuiTabs-flexContainer': {
                                         gap: '2vw'
                                     }, 
@@ -136,7 +133,6 @@ function Header(){
                             onClick={() => 
                                 {
                                     setOpenLanguage(false);
-                                    headerMenuSet(0);
                                     setOpen(false);
                                 }
                             }

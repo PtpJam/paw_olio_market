@@ -2,12 +2,12 @@ import './App.css'
 import "../i18n"
 import Header from './components/Header';
 import Home from './components/page/Home'
-import { useState, type Dispatch, type SetStateAction } from 'react';
-import TabPanel from './components/TabPanel';
+import {type Dispatch, type SetStateAction } from 'react';
 import Oil from './components/page/Oil';
 import Footer from './components/Footer';
-import { createContext, useContext } from 'react';
+import { createContext} from 'react';
 import { Route, Routes } from 'react-router';
+import Product from './components/page/Product';
 
 
 interface MenuContextType {
@@ -16,24 +16,19 @@ interface MenuContextType {
 export const MenuContext = createContext<MenuContextType | undefined>(undefined);
 
 function App() {
-  const [menu, menuSet] = useState(0)
-  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    menuSet(newValue);
-  };
-  
+
   return (
     <>
-      <MenuContext.Provider value={{ setTab: menuSet }}>
         <Header></Header>  
         <main>
           <Routes>
               <Route index element={<Home />} />
               <Route path='/oil' element={<Oil/>} />
+              <Route path='/product/:id' element={<Product/>} />
           </Routes>
         </main>
         <Footer></Footer>
-      </MenuContext.Provider>
-    </>
+\    </>
   )
 }
 
