@@ -1,4 +1,5 @@
 export default interface card{
+    id: number;
     name: string;
     star: number; //param 1-5
     comentary: number;
@@ -8,7 +9,6 @@ export default interface card{
     }
     isStoce: boolean;
     price: number;
-    id: number;
     code: string;
     src: string;
     scroll: boolean; 

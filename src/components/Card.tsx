@@ -12,6 +12,7 @@ function Card(_card : ICard){
     // flex: "1 1 320px",
     const {t} = useTranslation("card");
 
+    
     return(
         <>
             <Box sx={{
@@ -337,6 +338,7 @@ function Card(_card : ICard){
                             <Box component={"img"} src={Hert} width={"16.88px"} height={"18px"}/>
                         </Box>
                     </Box>
+                    {/*
                     <Typography 
                         sx={{
                             display: "flex",
@@ -353,6 +355,7 @@ function Card(_card : ICard){
                         >
                             id: {_card.id}
                     </Typography>
+                    */}
                 </Box>
             </Box>
         </>

@@ -15,21 +15,43 @@ import TickTok from "../assets/svg/mingcute_tiktok-fill.svg"
 import Instagram from "../assets/svg/formkit_instagram.svg"
 import FaceBook from "../assets/svg/ic_outline-facebook.svg"
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
-interface HeaderProps {
-  value: number;
-  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
+interface SocialMediaItem {
+  icon: string;
+  url: string;
 }
 
+const socialMedias : SocialMediaItem[] = [
+    {
+        icon: FaceBook,
+        url: "https://www.facebook.com/profile.php?id=61581609453105"
+    },
+    {
+        icon: YouTube,
+        url: "https://www.youtube.com/@VivoOlioEng",
+    },
+    {
+        icon: Instagram,
+        url: "https://www.instagram.com/vivoolioeng/"
+    },
+    {
+        icon: TickTok,
+        url: "https://www.tiktok.com/@vivoolio_eng"
+    }
+]
 
-
-function Footer({ value, handleChange }: HeaderProps){
+function Footer(){
     const { t } = useTranslation("header");
     const { t: tFooter } = useTranslation("footer"); 
 
     const theme = useTheme();
     const isSm = useMediaQuery(theme.breakpoints.only('sm'));
     const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+
+    const path = ["/oil", "/cosmetics", "/dishes", "/dietary_supplements"]
+
+    const currentTab = location.pathname;
 
     function PayAndDoun(){
         return(
@@ -226,11 +248,9 @@ function Footer({ value, handleChange }: HeaderProps){
                             }}
                             
                         >
-                            <Typography  
-                                onClick={(event) => {
-                                        handleChange(event, 0);
-                                    }
-                                }
+                            <Typography
+                                component={Link}
+                                to={"/"}
                                 sx={{
                                     cursor: "pointer",
                                     fontSize: { 
@@ -239,6 +259,8 @@ function Footer({ value, handleChange }: HeaderProps){
                                         xs: '24px',  
                                     },
                                     fontWeight: "700",
+                                    textDecoration: "none",
+                                    color: "#fff"
                                 }}
                             >
                                 VivoOlio
@@ -249,9 +271,8 @@ function Footer({ value, handleChange }: HeaderProps){
                                 mb: {md: 0, sm:"32px", xs: "32px"} 
                             }}>
                                 <Tabs 
-                                    value={value}
+                                    value={currentTab}
                                     TabIndicatorProps={{style: { display: 'none' }}}
-                                    onChange={handleChange}
                                     sx={{
                                         '& .MuiTabs-flexContainer': {
                                             flexWrap: 'wrap', 
@@ -278,11 +299,11 @@ function Footer({ value, handleChange }: HeaderProps){
                                             flexWrap: "wrap"
                                         },
                                     }} >
-                                        <Tab  value={0} className="hideElement"/>
-                                        <Tab disableRipple className="tab" value={1} label={t("TabsMenu.oil")}></Tab>
-                                        <Tab disableRipple className="tab" value={2} label={t("TabsMenu.cosmetics")}></Tab>
-                                        <Tab disableRipple className="tab" value={3} label={t("TabsMenu.dishes")}></Tab>
-                                        <Tab disableRipple className="tab" value={4} label={t("TabsMenu.DIetary")}></Tab>
+                                    <Tab value={0} className="hideElement"/>    
+                                    <Tab component={Link} to={path[0]} value={path[0]} disableRipple className="tab" label={t("TabsMenu.oil")}></Tab>
+                                    <Tab component={Link} to={path[1]} value={path[1]} disableRipple className="tab" label={t("TabsMenu.cosmetics")}></Tab>
+                                    <Tab component={Link} to={path[2]} value={path[2]} disableRipple className="tab" label={t("TabsMenu.dishes")}></Tab>
+                                    <Tab component={Link} to={path[3]} value={path[3]} disableRipple className="tab" label={t("TabsMenu.DIetary")}></Tab>
                                 </Tabs>
                         </Box>
                     </Box>
@@ -366,10 +387,11 @@ function Footer({ value, handleChange }: HeaderProps){
                                 }
                                 
                             }}>
-                                <img src={FaceBook} alt="" />
-                                <img src={YouTube} alt="" />
-                                <img src={Instagram} alt="" />
-                                <img src={TickTok} alt="" />
+                                {socialMedias.map((item) => (
+                                    <Box component={"a"} target="_blank" href={item.url}>
+                                        <Box component={"img"} src={item.icon} />
+                                    </Box>
+                                ))}
                             </Box>
                         </Box>
                         <Box sx={

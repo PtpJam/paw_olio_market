@@ -13,13 +13,10 @@ import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListI
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu'
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
-interface HeaderProps {
-  value: number;
-  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
-}
 
-function Header({ value, handleChange }: HeaderProps){
+function Header(){
     const [open, setOpen] = useState(false);
     const [openLanguage, setOpenLanguage] = useState(false);
 
@@ -39,6 +36,8 @@ function Header({ value, handleChange }: HeaderProps){
         { label: "Ⴀმ", code: "ka" },
         { label: "日本語", code: "ja" }
     ];
+    const path = ["/oil", "/cosmetics", "/dishes", "/dietary_supplements"] 
+    const currentTab = location.pathname;
 
     const { i18n, t } = useTranslation("header");
 
@@ -46,6 +45,12 @@ function Header({ value, handleChange }: HeaderProps){
         i18n.changeLanguage(newLang); 
         setMode("main"); 
     };
+
+    const [headerMenu, headerMenuSet] = useState(0)
+    const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+        headerMenuSet(newValue);
+    };
+
     return(
         <>
             <header>
@@ -63,7 +68,7 @@ function Header({ value, handleChange }: HeaderProps){
                                     '@media (min-width: 1039px)': { display: 'flex' } 
                                 } 
                                 }}>
-                                <Tabs value={value} onChange={handleChange} sx={{
+                                <Tabs value={headerMenu} onChange={handleChange}  sx={{
                                     '& .MuiTabs-flexContainer': {
                                         gap: '2vw'
                                     }, 
@@ -87,11 +92,11 @@ function Header({ value, handleChange }: HeaderProps){
                                         },
                                     }
                                     }} >
-                                    <Tab value={0} className="hideElement"/>
-                                    <Tab disableRipple className="tab" value={1} label={t("TabsMenu.oil")}></Tab>
-                                    <Tab disableRipple className="tab" value={2} label={t("TabsMenu.cosmetics")}></Tab>
-                                    <Tab disableRipple className="tab" value={3} label={t("TabsMenu.dishes")}></Tab>
-                                    <Tab disableRipple className="tab" value={4} label={t("TabsMenu.DIetary")}></Tab>
+                                    <Tab value={0} className="hideElement"/>    
+                                    <Tab component={Link} to={path[0]} value={path[0]} disableRipple className="tab" label={t("TabsMenu.oil")}></Tab>
+                                    <Tab component={Link} to={path[1]} value={path[1]} disableRipple className="tab" label={t("TabsMenu.cosmetics")}></Tab>
+                                    <Tab component={Link} to={path[2]} value={path[2]} disableRipple className="tab" label={t("TabsMenu.dishes")}></Tab>
+                                    <Tab component={Link} to={path[3]} value={path[3]} disableRipple className="tab" label={t("TabsMenu.DIetary")}></Tab>
                                 </Tabs>
                             </Box>
                             <Box sx={{ display: { xs: 'flex', '@media (min-width: 1039px)': { display: 'none' } } }}>
@@ -119,17 +124,19 @@ function Header({ value, handleChange }: HeaderProps){
                             </Box>
                         </Box>
                         <Box   
+                            component={Link} to="/"
                             sx={{
                                 '& .MuiTabs-indicator': { display: 'none'},
                                 display: "flex",
                                 alignItems:"center",
                                 flexShrink: 0,
                                 cursor: "pointer",
+                                textDecoration: 'none' 
                             }}
-                            onClick={(event) => 
+                            onClick={() => 
                                 {
                                     setOpenLanguage(false);
-                                    handleChange(event, 0);
+                                    headerMenuSet(0);
                                     setOpen(false);
                                 }
                             }
@@ -257,14 +264,14 @@ function Header({ value, handleChange }: HeaderProps){
                         }}>
                     <List>
                         {[t("TabsMenu.oil"), t("TabsMenu.cosmetics"), t("TabsMenu.dishes"), t("TabsMenu.DIetary")].map((text, index) => {
-                           const tabValue = index + 1;
+                           const tabValue = index;
                            return(
                               <ListItem key={text} disablePadding sx={{borderBottom: "1px solid #0000004D"}}>
                                 <ListItemButton 
+                                        component={Link} to={path[tabValue]}
+
                                         sx={{ pl: 0}}
-                                        selected={value === tabValue} 
-                                        onClick={(event) => {
-                                            handleChange(event as React.SyntheticEvent, tabValue); 
+                                        onClick={() => {
                                             setOpen(false);
                                         }}
                                 > 
