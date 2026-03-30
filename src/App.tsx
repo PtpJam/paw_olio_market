@@ -24,11 +24,14 @@ function App() {
           <Routes>
               <Route index element={<Home />} />
               <Route path='/oil' element={<Oil/>} />
+              <Route path='/cosmetics' element={<div>132</div>} />
+              <Route path='/dishes' element={<div>132</div>} />
+              <Route path='/dietary_supplements' element={<div>132</div>} />
               <Route path='/product/:id' element={<Product/>} />
           </Routes>
         </main>
         <Footer></Footer>
-\    </>
+    </>
   )
 }
 

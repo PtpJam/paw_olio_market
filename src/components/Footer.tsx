@@ -15,7 +15,7 @@ import TickTok from "../assets/svg/mingcute_tiktok-fill.svg"
 import Instagram from "../assets/svg/formkit_instagram.svg"
 import FaceBook from "../assets/svg/ic_outline-facebook.svg"
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 interface SocialMediaItem {
   icon: string;
@@ -51,8 +51,10 @@ function Footer(){
 
     const path = ["/oil", "/cosmetics", "/dishes", "/dietary_supplements"]
 
+    const location = useLocation();
     const currentTab = location.pathname;
-
+    const tabValue = path.includes(currentTab) ? currentTab : false
+    
     function PayAndDoun(){
         return(
             <Box sx={{
@@ -237,7 +239,10 @@ function Footer(){
                         gap: "32px"
                     }}>
                         <Box 
+                            component={Link}
+                            to={"/"}
                             sx={{
+                                textDecoration: "none",
                                 '& .MuiTabs-indicator': { display: 'flex' },
 
                                 alignItems:"center",
@@ -249,8 +254,6 @@ function Footer(){
                             
                         >
                             <Typography
-                                component={Link}
-                                to={"/"}
                                 sx={{
                                     cursor: "pointer",
                                     fontSize: { 
@@ -259,7 +262,6 @@ function Footer(){
                                         xs: '24px',  
                                     },
                                     fontWeight: "700",
-                                    textDecoration: "none",
                                     color: "#fff"
                                 }}
                             >
@@ -271,7 +273,7 @@ function Footer(){
                                 mb: {md: 0, sm:"32px", xs: "32px"} 
                             }}>
                                 <Tabs 
-                                    value={currentTab}
+                                    value={tabValue}
                                     TabIndicatorProps={{style: { display: 'none' }}}
                                     sx={{
                                         '& .MuiTabs-flexContainer': {
@@ -299,7 +301,7 @@ function Footer(){
                                             flexWrap: "wrap"
                                         },
                                     }} >
-                                    <Tab value={0} className="hideElement"/>    
+                                    <Tab component={Link} to={"/"} value={"/"} className="hideElement"/>
                                     <Tab component={Link} to={path[0]} value={path[0]} disableRipple className="tab" label={t("TabsMenu.oil")}></Tab>
                                     <Tab component={Link} to={path[1]} value={path[1]} disableRipple className="tab" label={t("TabsMenu.cosmetics")}></Tab>
                                     <Tab component={Link} to={path[2]} value={path[2]} disableRipple className="tab" label={t("TabsMenu.dishes")}></Tab>
@@ -387,8 +389,8 @@ function Footer(){
                                 }
                                 
                             }}>
-                                {socialMedias.map((item) => (
-                                    <Box component={"a"} target="_blank" href={item.url}>
+                                {socialMedias.map((item, index) => (
+                                    <Box key={index} component={"a"} target="_blank" href={item.url}>
                                         <Box component={"img"} src={item.icon} />
                                     </Box>
                                 ))}

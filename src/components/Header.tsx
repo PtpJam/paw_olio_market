@@ -40,7 +40,8 @@ function Header(){
     
     const location = useLocation();
     const currentTab = location.pathname;
-
+    const tabValue = path.includes(currentTab) ? currentTab : false;
+    
     const { i18n, t } = useTranslation("header");
 
     const handleLanguageChange = (newLang : string) => {
@@ -65,7 +66,7 @@ function Header(){
                                     '@media (min-width: 1039px)': { display: 'flex' } 
                                 } 
                                 }}>
-                                <Tabs  value={currentTab}  sx={{
+                                <Tabs  value={tabValue}  sx={{
                                     '& .MuiTabs-flexContainer': {
                                         gap: '2vw'
                                     }, 
@@ -89,7 +90,6 @@ function Header(){
                                         },
                                     }
                                     }} >
-                                    <Tab value={0} className="hideElement"/>    
                                     <Tab component={Link} to={path[0]} value={path[0]} disableRipple className="tab" label={t("TabsMenu.oil")}></Tab>
                                     <Tab component={Link} to={path[1]} value={path[1]} disableRipple className="tab" label={t("TabsMenu.cosmetics")}></Tab>
                                     <Tab component={Link} to={path[2]} value={path[2]} disableRipple className="tab" label={t("TabsMenu.dishes")}></Tab>

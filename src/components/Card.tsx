@@ -7,15 +7,17 @@ import Cart from "../assets/svg/shopping-cart.svg"
 import Hert from "../assets/svg/hert.svg"
 import Balance from "../assets/svg/balans.svg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 function Card(_card : ICard){
     // flex: "1 1 320px",
     const {t} = useTranslation("card");
-
     
     return(
-        <>
+        <>  
+ 
             <Box sx={{
+                    position: "relative",
                     border: "1px solid #00000033",
                     width:{
                         lg: "374px",
@@ -36,7 +38,33 @@ function Card(_card : ICard){
                     justifyContent: "space-between",
                     flexDirection: "column",
                 }}>
-                    <Box 
+                <Link 
+                    to={`/product/${_card.id}`} 
+                    style={{ 
+                        position: "absolute", 
+                        top: 0, 
+                        left: 0, 
+                        right: 0, 
+                        bottom: 0, 
+                        zIndex: 1 
+                    }} 
+                />
+                <Box
+                    component={Link}
+                    to={`product/${_card.id}`}
+                    sx={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        zIndex: 1, 
+                        '&:hover': {
+                            backgroundColor: "rgba(0,0,0,0.5)" 
+                        }
+                    }}
+                />
+                <Box 
                         sx={{
                             padding:{
                                 lg: "15px 20.62px 5px 22.5px",
@@ -150,7 +178,8 @@ function Card(_card : ICard){
                                                         lg: "12px",
                                                         md: "10px",
                                                         xs: "8px"
-                                                    }
+                                                    },
+                                                    
                                                 }}
                                             >
                                                 {_card.country.name}
@@ -216,7 +245,8 @@ function Card(_card : ICard){
                                                 lg: "48px",
                                                 md: "43px",
                                                 xs: "30px"
-                                            }  
+                                            },
+                                            zIndex: 2
                                         }}
                                         >
                                         <Box component={"img"} src={Cart} width={"15px"}/>
@@ -244,7 +274,8 @@ function Card(_card : ICard){
                                     lg: "48px",
                                     md: "43px",
                                     xs: "38px"
-                                }  
+                                },  
+                                zIndex: 2
                             }}
                             >
                             <Box component={"img"} src={Cart} />
@@ -323,6 +354,7 @@ function Card(_card : ICard){
                             borderRadius:"24px",
                             width: "34px",
                             height: "34px",
+                            zIndex:2
                         }}>
                             <Box component={"img"} src={Balance} width={"16.88px"} height={"18px"}/>
                         </Box>
@@ -334,6 +366,7 @@ function Card(_card : ICard){
                             borderRadius:"24px",
                             width: "34px",
                             height: "34px",
+                            zIndex:2
                         }}>
                             <Box component={"img"} src={Hert} width={"16.88px"} height={"18px"}/>
                         </Box>

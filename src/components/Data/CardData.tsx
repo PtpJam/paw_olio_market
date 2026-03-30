@@ -26,7 +26,7 @@ const cards : ICard[] = [
         comentary: 97,
         isStoce: true,
         price: 699,
-        id: 12345689,
+        id: 987654321,
         code: "000086213",
         src: oil2,
         scroll: true
@@ -41,7 +41,7 @@ const cards : ICard[] = [
             src: country
         },
         price: 499,
-        id: 12345689,
+        id: 25534,
         code: "000086213",
         src: oil3,
         scroll: true
