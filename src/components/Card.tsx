@@ -38,20 +38,10 @@ function Card(_card : ICard){
                     justifyContent: "space-between",
                     flexDirection: "column",
                 }}>
-                <Link 
-                    to={`/product/${_card.id}`} 
-                    style={{ 
-                        position: "absolute", 
-                        top: 0, 
-                        left: 0, 
-                        right: 0, 
-                        bottom: 0, 
-                        zIndex: 1 
-                    }} 
-                />
+
                 <Box
                     component={Link}
-                    to={`product/${_card.id}`}
+                    to={`/product/${_card.id}`}
                     sx={{
                         position: "absolute",
                         top: 0,

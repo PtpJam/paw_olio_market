@@ -10,6 +10,6 @@ export default interface card{
     isStoce: boolean;
     price: number;
     code: string;
-    src: string;
+    src?: string;
     scroll: boolean; 
 } 

@@ -17,7 +17,6 @@ const cards : ICard[] = [
         price: 699,
         id: 12345689,
         code: "000086213",
-        src: oil1,
         scroll: true
     },
     {
