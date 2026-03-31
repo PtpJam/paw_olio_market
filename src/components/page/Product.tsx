@@ -1,18 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import сardsData from "../Data/CardData"
+import cardsData from "../Data/CardData"
 import { useParams } from "react-router";
 import Botl from "../../assets/studBotl.png"
 import ProductBtn from "../ProductBtn";
 import ScrollBar from "../Scroll"
 import cards from "../Data/CardDataDeScroll"
 import cardInfoData from "../Data/CardInfoData"
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Map, Marker } from "pigeon-maps"
 
 function Product(){
     const { id } = useParams<{ id: string }>();
     const {t} = useTranslation("product")
-    const product = сardsData.find(item => item.id.toString() === id);
+    const product = cardsData.find(item => item.id.toString() === id);
 
     return(
         <>
@@ -156,8 +156,28 @@ function Product(){
                 </Box>
                 {/**/}
                 {/*Map*/}
-                <Box>
+                <Box 
+                    sx={{
+                        height: {
+                            lg: "475px",
+                            md: "301.5px",
+                            xs: "128px"
+                        },
 
+                        '& > div': { 
+                            height: '100% !important' 
+                        },  
+                    }}>
+                    <Map 
+                        
+                        defaultCenter={[cardInfoData.map.x, cardInfoData.map.y]}
+                        defaultZoom={10}
+                        mouseEvents={false}
+                        touchEvents={false}
+                        metaWheelZoom={false}
+                    >
+                        <Marker  width={40} anchor={[cardInfoData.map.x, cardInfoData.map.y]} />
+                    </Map>
                 </Box>
                 {/*block For you*/}
                 <Box sx={{
