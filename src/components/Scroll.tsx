@@ -14,6 +14,7 @@ interface Iscroll{
     title?: string;
     type: string; // news, сosmetics, product
     items: (NewsProps | CardProps | IMegaCard)[];
+    row?: number; 
 }
 interface Props{
     scroll: Iscroll;
@@ -26,7 +27,7 @@ function Scroll({scroll} : Props){
         slidesToScroll: 1, 
         breakpoints: {
             '(max-width: 899px)': { 
-                slidesToScroll: scroll.type === "product" ? 2 : 1 
+                slidesToScroll: (scroll.row && scroll.row > 1) ? 2 : 1 
             }
         }
     });
@@ -119,18 +120,18 @@ function Scroll({scroll} : Props){
                     flexDirection: {
                         lg: "row",
                         md: "row",
-                        xs: scroll.type === "product" ? "column" : "row"
+                        xs: (scroll.row && scroll.row > 1) ? "column" : "row"
                     },
                     flexWrap: {
                         lg: "nowrap",
                         md: "nowrap",
-                        xs: scroll.type === "product" ? "wrap" : "nowrap"
+                        xs: (scroll.row && scroll.row > 1) ? "wrap" : "nowrap"
                     },
 
                     height: {
                         lg: "auto",
                         md: "auto",
-                        xs: scroll.type === "product" ? "515px" : "auto" 
+                        xs: (scroll.row && scroll.row > 1) ? "515px" : "auto" 
                     },
                     gap: {
                         lg: "10px",

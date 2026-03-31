@@ -1083,7 +1083,7 @@ function Home(){
                     <ScrollBar scroll={{ team: true, title: t('cosmetics'), type:"cosmetics", items: itemsMegaCard}}></ScrollBar>
                 </Box>
                 <Box>
-                    <ScrollBar scroll={{ team: true, title: t('populProd'), type:"product", items: cards}}></ScrollBar>
+                    <ScrollBar scroll={{ team: true, title: t('populProd'), type:"product", items: cards, row: 2}}></ScrollBar>
                 </Box>
             </Box>
             <Box 

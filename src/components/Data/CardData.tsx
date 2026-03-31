@@ -1,4 +1,3 @@
-import country from "../../assets/country.png"
 import oil1 from "../../assets/oil1.png"
 import oil2 from "../../assets/oil2.png"
 import oil3 from "../../assets/oil3.png"
@@ -12,7 +11,7 @@ const cards : ICard[] = [
         isStoce: true,
         country: {
             name: "Val di Mazara",
-            src: country
+            codeCountry: "UA"
         },
         price: 699,
         id: 12345689,
@@ -37,7 +36,7 @@ const cards : ICard[] = [
         isStoce: true,
         country: {
             name: "Val di Mazara",
-            src: country
+            codeCountry: "UA"
         },
         price: 499,
         id: 25534,
@@ -52,7 +51,7 @@ const cards : ICard[] = [
         isStoce: true,
         country: {
             name: "Val di Mazara",
-            src: country
+            codeCountry: "UA"
         },
         price: 699,
         id: 12345689,
@@ -78,7 +77,7 @@ const cards : ICard[] = [
         isStoce: true,
         country: {
             name: "Val di Mazara",
-            src: country
+            codeCountry: "UA"
         },
         price: 499,
         id: 12345689,
@@ -93,7 +92,7 @@ const cards : ICard[] = [
         isStoce: true,
         country: {
             name: "Val di Mazara",
-            src: country
+            codeCountry: "UA"
         },
         price: 699,
         id: 12345689,
@@ -119,7 +118,7 @@ const cards : ICard[] = [
         isStoce: true,
         country: {
             name: "Val di Mazara",
-            src: country
+            codeCountry: "UA"
         },
         price: 499,
         id: 12345689,

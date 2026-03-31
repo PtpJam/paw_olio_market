@@ -1,8 +1,13 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import сardsData from "../Data/CardData"
 import { useParams } from "react-router";
 import Botl from "../../assets/studBotl.png"
+import ProductBtn from "../ProductBtn";
+import ScrollBar from "../Scroll"
+import cards from "../Data/CardDataDeScroll"
+import cardInfoData from "../Data/CardInfoData"
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
 function Product(){
     const { id } = useParams<{ id: string }>();
@@ -39,48 +44,7 @@ function Product(){
                                 xs: "10px"
                             }
                         }}>
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    gap: {
-                                        lg: "5px",
-                                        md: "3.5px",
-                                        xs: "2px"
-                                    },
-                                    height:{
-                                        lg: "38px",
-                                        md: "33px",
-                                        xs: "28px",
-                                    },
-                                    '& .MuiButton-root': {
-                                        borderRadius: "32px",
-                                        textTransform: "none",
-                                        alignItems: "center",
-                                        fontSize: {
-                                            md: "14px",
-                                            xs: "12px"
-                                        },
-                                        padding: {
-                                            xs: "5px 10px"
-                                        }
-
-                                    },
-                                    '& .MuiButton-contained': {
-                                        backgroundColor: '#73843D',
-                                        boxShadow: 'none',
-                                        },
-
-                                    '& .MuiButton-outlined': {
-                                        borderColor: '#000',
-                                        color: '#000',
-                                    },
-                                    
-                                }}
-                            >
-                                <Button sx={{widht: {lg: "133px", md: "122px", xs: "111px"}}} variant="contained">{t("AllAbout")}</Button>
-                                <Button sx={{widht: {lg: "116px", md: "97px", xs: "78px"}}} variant="outlined">{t("Sommelier")}</Button>
-                                <Button sx={{widht: {lg: "106px", md: "105.5px", xs: "95px"}}} variant="outlined">{t("AboutOil")}</Button>
-                            </Box>
+                            <ProductBtn active={0}></ProductBtn>
                             <Box>
                                 <Typography
                                     sx={{
@@ -108,7 +72,7 @@ function Product(){
                                         mixBlendMode: "difference",
                                     }}  
                                 >
-                                    Extra Virgin Olive Oil
+                                    {cardInfoData.name}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -152,7 +116,7 @@ function Product(){
                             }}>
                                 <Box 
                                     component="img" 
-                                    src={product?.src || Botl} 
+                                    src={cardInfoData?.src || Botl} 
                                     sx={{
                                         transform: {lg: "translateX(-40%)", md: "translateX(-30%)"},
                                         display: { md: "flex", xs: "none" },
@@ -160,7 +124,7 @@ function Product(){
                                 />
                                 <Box 
                                     component="img" 
-                                    src={product?.src || Botl} 
+                                    src={cardInfoData?.src || Botl} 
                                     sx={{
                                         transform: {lg: "translateX(40%)", md: "translateX(30%)", xs: "translateX(98%) scale(1.5)"},
                                     }} 
@@ -168,6 +132,7 @@ function Product(){
                         </Box>
                     </Box>
                 </Box>
+                {/*block info*/}
                 <Box sx={{
                     height:{
                         background: "#000",
@@ -177,6 +142,32 @@ function Product(){
                     }
                 }}>
 
+                </Box>
+                {/*block For you*/}
+                <Box sx={{
+                    background: "#000",
+                    padding: {
+                        lg: "62.5px 67px",
+                        md: "40px 30px",  
+                        xs: "20px 12.5px 20.5px"
+                    }
+                }}>
+                    <ScrollBar scroll={{team: false, title: t("ForYou"), type: "product", items: cards }}></ScrollBar>
+                </Box>
+                {/**/}
+                {/*Map*/}
+                <Box>
+
+                </Box>
+                {/*block For you*/}
+                <Box sx={{
+                    padding: {
+                        lg: "20.5px 67px 62.5px 67px",
+                        md: "20px 40px 65px",  
+                        xs: "20px 12.5px 71.9px"
+                    }
+                }}>
+                    <ScrollBar scroll={{team: true, title: t("ForYou"), type: "product", items: cards }}></ScrollBar>
                 </Box>
             </Box>
         </>

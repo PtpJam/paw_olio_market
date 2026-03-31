@@ -5,7 +5,7 @@ export default interface card{
     comentary: number;
     country?: {
         name: string;
-        src: string;
+        codeCountry: string;
     }
     isStoce: boolean;
     price: number;

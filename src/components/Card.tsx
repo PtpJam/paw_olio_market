@@ -8,6 +8,7 @@ import Hert from "../assets/svg/hert.svg"
 import Balance from "../assets/svg/balans.svg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import ReactCountryFlag from "react-country-flag"
 
 function Card(_card : ICard){
     // flex: "1 1 320px",
@@ -17,6 +18,7 @@ function Card(_card : ICard){
         <>  
  
             <Box sx={{
+                    background: "#fff",
                     position: "relative",
                     border: "1px solid #00000033",
                     width:{
@@ -161,7 +163,16 @@ function Card(_card : ICard){
                                     <Box sx={{display: "flex",alignItems:"center", gap:"5px"}}>
                                         {_card.country ? 
                                         <>
-                                            <Box component={"img"} src={_card.country.src} width="12px" height="12px" />
+                                            <Box 
+                                                component={ReactCountryFlag}
+                                                countryCode={_card.country.codeCountry}
+                                                svg 
+                                                width="12px" height="12px"
+                                                sx={{
+                                                    borderRadius: "100px",
+                                                    objectFit: 'cover'
+                                                }}    
+                                            />
                                             <Typography 
                                                 sx={{
                                                     fontSize: {
