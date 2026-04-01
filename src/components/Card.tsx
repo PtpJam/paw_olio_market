@@ -9,6 +9,7 @@ import Balance from "../assets/svg/balans.svg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import ReactCountryFlag from "react-country-flag"
+import CircleBtn from "./CircleBtn";
 
 function Card(_card : ICard){
     // flex: "1 1 320px",
@@ -347,30 +348,8 @@ function Card(_card : ICard){
                             gap: "5px"
                         }}
                     >
-                        <Box sx={{
-                            display: "flex",
-                            alignItems:"center",
-                            justifyContent:"center",
-                            backgroundColor:"#14141280",
-                            borderRadius:"24px",
-                            width: "34px",
-                            height: "34px",
-                            zIndex:2
-                        }}>
-                            <Box component={"img"} src={Balance} width={"16.88px"} height={"18px"}/>
-                        </Box>
-                        <Box sx={{
-                            display: "flex",
-                            alignItems:"center",
-                            justifyContent:"center",
-                            backgroundColor:"#14141280",
-                            borderRadius:"24px",
-                            width: "34px",
-                            height: "34px",
-                            zIndex:2
-                        }}>
-                            <Box component={"img"} src={Hert} width={"16.88px"} height={"18px"}/>
-                        </Box>
+                        <CircleBtn src={Balance} backg={"#14141280"}></CircleBtn>
+                        <CircleBtn src={Hert} backg={"#14141280"}></CircleBtn>
                     </Box>
                     {/*
                     <Typography 

@@ -1,7 +1,5 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import cardsData from "../Data/CardData"
-import { useParams } from "react-router";
 import Botl from "../../assets/studBotl.png"
 import ProductBtn from "../ProductBtn";
 import ScrollBar from "../Scroll"
@@ -11,11 +9,14 @@ import { Map, Marker } from "pigeon-maps"
 import ButtonNextBeak from "../ButtonNextBeak";
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import ReactCountryFlag from "react-country-flag";
+import CircleBtn from "../CircleBtn";
+import Hert from "../../assets/svg/hert.svg"
+import Balance from "../../assets/svg/balans.svg";
+import Sofa from "../../assets/svg/sofa.svg";
+import Ratings from "../Ratings";
 
 function Product(){
-    const { id } = useParams<{ id: string }>();
     const {t} = useTranslation("product")
-    const product = cardsData.find(item => item.id.toString() === id);
 
     return(
         <>
@@ -139,13 +140,161 @@ function Product(){
                 <Box sx={{
                     background: "#000",
 
-                    height:{
-                        lg: "448px",
-                        md: "397.25px",
-                        xs: "346.5px"
+                    padding: {
+                        lg: "30px 101px",
+                        md: "25px 60px",
+                        xs: "20px"
                     }
                 }}>
+                    <Box sx={{color: "#FFFFFF"}}>
+                        {/* {folow and } */}
+                        <Box sx={{
+                            display: "flex",
+                            gap: "5px",
+                            mb: {lg: "29px", md: "23,5px", xs:"18px"}
+                        }}>
+                            <CircleBtn src={Sofa} backg={"#A1ABFF4D"} sx={{display: {md: "flex", xs: "none"}}}></CircleBtn>
+                            <CircleBtn src={Balance} backg={"#A1ABFF4D"}></CircleBtn>
+                            <CircleBtn src={Hert} backg={"#A1ABFF4D"}></CircleBtn>
+                        </Box>
+                        <Box sx={{display: "flex", justifyContent: "space-between", flexDirection: {md: "row", xs:"column"}}}>
+                            {/* {price and rate} */}
+                            <Box 
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: {md: "column", xs: "row"},
+                                    gap:'52px',
+                                    justifyContent: "space-between",                                
+                                }}>
+                                <Box sx={{
+                                        display: "flex",
+                                        flexDirection:  "column",
+                                        gap:{lg: "15px", md:"16.5", xs: "18px"},
+                                        width: "fit-content"
+                                    }}
+                                    >
+                                    <Box
+                                        sx={{
+                                            background: "#A1ABFF",
+                                            padding: "23px 41.43px 24.43px 27px",
+                                            display: "flex",
+                                            width: "fit-content",
+                                            alignItems: "center",
+                                            boxSizing: "border-box",
+                                            borderRadius: '12px', 
+                                            border: "1px solid white",
+                                            height: {
+                                                lg: "85.43px",
+                                                md: "66.465px",
+                                                xs: "47.5px"
+                                            },      
+                                        }}>
+                                        <Typography
+                                            sx={{
+                                                fontSize:{
+                                                    lg: "48px",
+                                                    md: "36px",
+                                                    xs: "24px"
+                                                }
+                                            }}
+                                        >
+                                            ${cardInfoData.infoProduct.averagePriceUSD}
+                                        </Typography>
+                                    </Box>
+                                    <Typography sx={{wordBreak: "break-word", whiteSpace: "normal", fontSize:{lg: "20px", md: "16px", xs:"12px"}}}>
+                                        {t("AveragePrice")} {cardInfoData.infoProduct.volume.value} {cardInfoData.infoProduct.volume.unit}.
+                                    </Typography>
+                                </Box>
+                                <Box sx={{display: "flex", flexDirection: "column", gap: {lg: "20px", md: "15px", xs: "10px"}}}>
+                                    <Ratings 
+                                        countRating={cardInfoData.infoProduct.rateCount}
+                                        ratings={cardInfoData.infoProduct.ratings}
+                                        text={t("Ratings")}    
+                                    >
+                                    </Ratings>
+                                    <Box width={{lg: "455px", md: "299.5px", xs: "144px"}}>
+                                        <Button 
+                                            endIcon={ 
+                                                <StarRoundedIcon fontSize="inherit"
+                                                sx={{
+                                                    transform: {
+                                                        lg: "scale(1)",
+                                                        md: "scale(1.15)",
+                                                        xs: "scale(1.3)"
+                                                    },
+                                                    fill:"rgb(255, 118, 64)",
+                                                    width: {
+                                                        lg: "32px",
+                                                        md: "24px",
+                                                        xs: "14.88px"
+                                                    },
+                                                    height: {
+                                                        lg: "32px",
+                                                        md: "24px",
+                                                        xs: "14.34px"
+                                                    }   
+                                                }}
+                                                />
+                                            }
+                                            sx={{
+                                                textTransform: "none",
+                                                width: "100%",
+                                                background: "#fff",
+                                                color: "#000",
+                                                borderRadius: "66px",
+                                                fontSize: {
+                                                    lg: "20px",
+                                                    md: "16px",
+                                                    xs: "12px"
+                                                }
+                                            }}
+                                        >
+                                            {t("WillRate")}
+                                        </Button>
 
+                                    </Box>
+                                </Box>
+                            </Box>
+                            {/* {Certificates / awards} */}
+                            <Box>
+                                {cardInfoData.infoProduct.certificates && 
+                                    <Box sx={{display: {md: "block", xs: "none"}}}>
+                                        <Typography sx={{
+                                            fontSize: {
+                                                lg: "32px",
+                                                md: "28px",
+                                                xs: "24px"
+                                            }
+                                        }}>
+                                            {t("Certificates")}
+                                        </Typography>
+                                        <Box sx={{display: "flex", gap:"10px"}}>
+                                            {cardInfoData.infoProduct.certificates.map((item, index)=> (
+                                                <Box
+                                                    key={index} 
+                                                    component={"img"}
+                                                    sx={{
+                                                        width: "90px",
+                                                        height: "90px"
+                                                    }}
+                                                    src={item}
+                                                />
+                                            ))}
+                                        </Box>
+                                        
+                                    </Box>
+                                }
+                                {cardInfoData.infoProduct.oilAwards && 
+                                    <Box>
+                                        <Box>
+                                            <Typography>{t("Awards")}</Typography>
+                                            <ButtonNextBeak team={false} color="#FFFFFF99" nextBack={true}></ButtonNextBeak>
+                                        </Box>
+                                    </Box>
+                                }
+                            </Box>
+                        </Box>
+                    </Box> 
                 </Box>
                 {/*block For you*/}
                 <Box sx={{

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import type IButtonNextBeak from "./interface/IButtonNextBeak"
-import Next from "../assets/svg/next.svg"
-import Beak from "../assets/svg/beak.svg"
+import Next from "../assets/svg/next"
+import Beak from "../assets/svg/beak"
 
 function ButtonNextBeak(data: IButtonNextBeak){
     return(
@@ -19,15 +19,14 @@ function ButtonNextBeak(data: IButtonNextBeak){
                 xs: "30px"
             },
             borderRadius: "100%",
-            border: data.team ? "1px solid #00000033" : "2px solid #fff",
+            border: data.color? `2px solid ${data.color}` : data.team ? "1px solid #00000033" : "2px solid #fff",
             cursor: "pointer",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",                        
         }}>
-        <Box
-            component={"img"}
-            src={data.nextBack ? Next : Beak}
+        <Box colorFill={data.color ? data.color : (data.team ? "#000" : "#fff")} 
+            component={data.nextBack ? Next : Beak}
             sx={{ 
                 width: {
                     lg: "22.13px",
@@ -40,7 +39,8 @@ function ButtonNextBeak(data: IButtonNextBeak){
                     xs: "7.5px"
                 },
 
-                filter: data.team ? 'brightness(0)' : 'brightness(0) invert(1)',
+                filter: data.color ? "none" : (data.team ? 'brightness(0)' : 'brightness(0) invert(1)'),
+
             }}
             />  
         </Box>

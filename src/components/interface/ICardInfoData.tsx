@@ -9,7 +9,18 @@ export default interface ICardInfoData{
         starCount: number;
         countRating: number;
         src?: string;
-    }
+    },
+    infoProduct:{
+        averagePriceUSD: number;
+        volume: { value: number, unit: string },
+        ratings: { rating: number, unit?: string};
+        rateCount: number;
+        certificates?: string[],
+        oilAwards?: {
+            src: string;
+            title: string;
+        } []
+    },
     map:{
         x: number;
         y: number;
