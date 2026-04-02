@@ -35,7 +35,7 @@ function Product(){
                         backgroundColor: "#fff",
                     }}>    
                         <Box sx={{position: "relative",
-                            zIndex: 4, 
+                            zIndex: 11, 
                             padding: {
                                 lg: "86px 60px 134px",
                                 md: "53px 42px 74px",
@@ -99,7 +99,7 @@ function Product(){
                         </Box>
                         <Box sx={{
                                 display: "flex",
-                                zIndex: 3,
+                                zIndex: 10,
                                 overflowX: "clip",
                                 position: "absolute", 
                                 right: 0,
@@ -300,8 +300,13 @@ function Product(){
                                     xs: {
                                         md: "310px"    
                                     }
+                                },
+                                width:{
+                                    lg: "450px",
+                                    md: "450px"
                                 }
                             }}>
+                                {/* {cetificate} */}
                                 {cardInfoData.infoProduct.certificates && 
                                     <Box sx={{mb: "76px",display: {md: "block", xs: "none"}}}>
                                         <Typography sx={{
@@ -329,6 +334,7 @@ function Product(){
                                         
                                     </Box>
                                 }
+                                {/* {awards} */}
                                 {cardInfoData.infoProduct.oilAwards && 
                                     <Box>
                                         <Box sx={{mb: "5px",display: "flex", alignItems: "center", justifyContent: "space-between"}}>
