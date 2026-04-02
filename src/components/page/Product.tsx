@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import Botl from "../../assets/studBotl.png"
 import ProductBtn from "../ProductBtn";
@@ -157,7 +157,7 @@ function Product(){
                             <CircleBtn src={Balance} backg={"#A1ABFF4D"}></CircleBtn>
                             <CircleBtn src={Hert} backg={"#A1ABFF4D"}></CircleBtn>
                         </Box>
-                        <Box sx={{display: "flex", justifyContent: "space-between", flexDirection: {md: "row", xs:"column"}}}>
+                        <Box sx={{display: "flex", justifyContent: "space-between", rowGap:"20px", columnGap:"100px", flexDirection: {md: "row", xs:"column"}}}>
                             {/* {price and rate} */}
                             <Box 
                                 sx={{
@@ -258,7 +258,7 @@ function Product(){
                             {/* {Certificates / awards} */}
                             <Box>
                                 {cardInfoData.infoProduct.certificates && 
-                                    <Box sx={{display: {md: "block", xs: "none"}}}>
+                                    <Box sx={{mb: "76px",display: {md: "block", xs: "none"}}}>
                                         <Typography sx={{
                                             fontSize: {
                                                 lg: "32px",
@@ -286,10 +286,67 @@ function Product(){
                                 }
                                 {cardInfoData.infoProduct.oilAwards && 
                                     <Box>
-                                        <Box>
-                                            <Typography>{t("Awards")}</Typography>
-                                            <ButtonNextBeak team={false} color="#FFFFFF99" nextBack={true}></ButtonNextBeak>
+                                        <Box sx={{mb: "5px",display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: {
+                                                        lg: "32px",
+                                                        md: "28px",
+                                                        xs: "24px"
+                                                    }
+                                                }}
+                                            >
+                                                {t("Awards")}
+                                            </Typography>
+                                            <ButtonNextBeak width={{lg: 47, md: 38.5, xs:30}} team={false} color="#FFFFFF99" nextBack={true}></ButtonNextBeak>
                                         </Box>
+                                        <Grid 
+                                            container
+                                            spacing={1} 
+                                            sx={{
+                                                gap: {lg: "0", xs: "2px"},
+                                                justifyContent: "space-between",
+                                                flexWrap: "wrap",
+                                                width: {lg: "457px"}
+                                            }}>
+                                            {cardInfoData.infoProduct.oilAwards.map((item, index)=>(
+                                                    <Grid size={6}
+                                                        key={index}
+                                                        sx={{
+                                                            display: "flex",
+                                                            justifyContent: index % 2 !== 0 ? "flex-end" : "flex-start",
+                                                            alignItems: "center",
+                                                            gap: "10px",
+                                                            mb: 2,
+                                                        }}
+                                                    >
+                                                        <Box 
+                                                            src={item.src}
+                                                            component={"img"}
+                                                            sx={{width: {lg: "75px", md: "58.5px", xs: "42px"}}}
+                                                        />
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize:{
+                                                                    lg: "16px",
+                                                                    md: "14px",
+                                                                    xs: "12px"
+                                                                },
+                                                                fontWeight: 500,
+                                                                lineHeight: 1.2,
+                                                                maxWidth: {
+                                                                    lg: "110px",
+                                                                    md: "95px",
+                                                                    xs: "80px"
+                                                                }  
+                                                            }}
+                                                        >
+                                                            {item.title}
+                                                        </Typography>
+                                                    </Grid>
+                                                ))
+                                            }
+                                        </Grid>
                                     </Box>
                                 }
                             </Box>
@@ -359,7 +416,7 @@ function Product(){
                                 </Typography>
                             </Box>
                             <Box sx={{display: "flex", alignItems: "center"}}>
-                                <ButtonNextBeak nextBack={true} team={false}/>
+                                <ButtonNextBeak width={{lg: 59, md:51, xs:43}} nextBack={true} team={false}/>
                             </Box>
                         </Box>
                         <Box>

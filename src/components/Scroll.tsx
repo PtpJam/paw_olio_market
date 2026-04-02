@@ -61,8 +61,8 @@ function Scroll({scroll} : Props){
                     </Typography>
                 }
                 <Box sx={{ display: "flex", gap: "10px", alignItems: "end"}}>
-                    <ButtonNextBeak nextBack={false} team={scroll.team} onClick={scrollPrev}/>
-                    <ButtonNextBeak nextBack={true} team={scroll.team} onClick={scrollNext}/>
+                    <ButtonNextBeak width={{lg: 59, md:51, xs:43}} nextBack={false} team={scroll.team} onClick={scrollPrev}/>
+                    <ButtonNextBeak width={{lg: 59, md:51, xs:43}} nextBack={true} team={scroll.team} onClick={scrollNext}/>
                 </Box>   
                        
             </Box>

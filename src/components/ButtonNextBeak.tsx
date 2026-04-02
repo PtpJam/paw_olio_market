@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import type IButtonNextBeak from "./interface/IButtonNextBeak"
-import Next from "./Button/beak"
+import Next from "./Button/next"
 import Beak from "./Button/beak"
 
 function ButtonNextBeak(data: IButtonNextBeak){
@@ -9,14 +9,14 @@ function ButtonNextBeak(data: IButtonNextBeak){
             onClick={data.onClick} 
             sx={{
             width: {
-                lg: "59px",
-                md: "44.5px",
-                xs: "30px"
+                lg: `${data.width.lg}px`,
+                md: `${data.width.md}px`,
+                xs: `${data.width.xs}px`
             },
             height: {
-                lg: "59px",
-                md: "44.5px",
-                xs: "30px"
+                lg: `${data.width.lg}px`,
+                md: `${data.width.md}px`,
+                xs: `${data.width.xs}px`
             },
             borderRadius: "100%",
             border: data.color? `2px solid ${data.color}` : data.team ? "1px solid #00000033" : "2px solid #fff",
@@ -36,11 +36,8 @@ function ButtonNextBeak(data: IButtonNextBeak){
                 height:{
                     lg: "25.06px",
                     md: "16.25px",
-                    xs: "7.5px"
+                    xs: "16px"
                 },
-
-                filter: data.color ? "none" : (data.team ? 'brightness(0)' : 'brightness(0) invert(1)'),
-
             }}
             />  
         </Box>
