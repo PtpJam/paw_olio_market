@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import type IButtonNextBeak from "./interface/IButtonNextBeak"
-import Next from "./Button/next"
-import Beak from "./Button/beak"
+import Next from "./Buttons/next"
+import Beak from "./Buttons/beak"
 
 function ButtonNextBeak(data: IButtonNextBeak){
     return(

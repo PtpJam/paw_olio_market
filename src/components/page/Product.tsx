@@ -15,6 +15,8 @@ import Balance from "../../assets/svg/balans.svg";
 import Sofa from "../../assets/svg/sofa.svg";
 import Ratings from "../Ratings";
 import Price from "../../assets/price.png"
+import Man from "../../assets/svg/man.svg"
+import Detali from "../Detali";
 
 function Product(){
     const {t} = useTranslation("product")
@@ -75,6 +77,7 @@ function Product(){
                                         textTransform: "uppercase",
                                         color: "#000",
                                         mixBlendMode: "difference",
+                                        textShadow: "0px 0px 15px rgba(255, 255, 255, 0.8)", 
                                     }}  
                                 >
                                     {cardInfoData.name}
@@ -90,7 +93,7 @@ function Product(){
                                         textAlign: {
                                             md: "end",
                                             xs: "start"
-                                        }
+                                        },
                                     }}
                                 >
                                     {cardInfoData.info.companyName}
@@ -403,6 +406,48 @@ function Product(){
                             </Box>
                         </Box>
                     </Box> 
+                </Box>
+                {/* {Important details} */}
+                <Box sx={{
+                    padding: {
+                        lg: "156px 34px 62px 62px",
+                        md: "80px 30px 50px 50px",
+                        xs: "20px 21px"
+                    }
+                }}>
+                    <Grid container spacing={2}>
+                        <Grid size={{sm: 9, xs:7 }}>
+                            <Typography sx={{
+                                fontSize:{
+                                    lg: "40px",
+                                    md: "32px",
+                                    xs: "24px"
+                                },
+                                mb: {
+                                    lg: "40px",
+                                    md: "25px",
+                                    xs: "10px"
+                                }
+                            }}>
+                                {t("ImpDetal")}
+                            </Typography>
+                            <Grid container columnSpacing={{lg: 20, md: 3}} rowSpacing={{lg: 5, xs: 1}}>
+                                {cardInfoData.ImpDetal.map((item, index) => (
+                                    <Grid size={{md: 6, xs: 12}} key={index} sx={{display: "flex", alignItems: "center"}}>
+                                        <Detali description={item.description} src={item.src}></Detali>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Grid>
+                        <Grid size={{sm: 3, xs:5 }} sx={{display: "flex", alignItems: "flex-end", justifyContent: "flex-end"}}>
+                            <Box 
+                                component={"img"}
+                                src={Man}
+                                sx={{
+                                    height:{lg: "431px", md: "334px",xs:"237px"}
+                                }}/>
+                        </Grid>
+                    </Grid>
                 </Box>
                 {/*block For you*/}
                 <Box sx={{

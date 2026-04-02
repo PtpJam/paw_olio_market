@@ -10,6 +10,10 @@ export default interface ICardInfoData{
         countRating: number;
         src?: string;
     },
+    ImpDetal: {
+        src: string;
+        description: string;
+    } [],
     infoProduct:{
         averagePriceUSD: number;
         volume: { value: number, unit: string },
