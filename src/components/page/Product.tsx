@@ -14,6 +14,7 @@ import Hert from "../../assets/svg/hert.svg"
 import Balance from "../../assets/svg/balans.svg";
 import Sofa from "../../assets/svg/sofa.svg";
 import Ratings from "../Ratings";
+import Price from "../../assets/price.png"
 
 function Product(){
     const {t} = useTranslation("product")
@@ -142,7 +143,7 @@ function Product(){
 
                     padding: {
                         lg: "30px 101px",
-                        md: "25px 60px",
+                        md: "25px 20px",
                         xs: "20px"
                     }
                 }}>
@@ -157,10 +158,17 @@ function Product(){
                             <CircleBtn src={Balance} backg={"#A1ABFF4D"}></CircleBtn>
                             <CircleBtn src={Hert} backg={"#A1ABFF4D"}></CircleBtn>
                         </Box>
-                        <Box sx={{display: "flex", justifyContent: "space-between", rowGap:"20px", columnGap:"100px", flexDirection: {md: "row", xs:"column"}}}>
+                        <Box sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                rowGap:"20px",
+                                columnGap:"100px",
+                                flexDirection: {md: "row", xs:"column"},
+                                 position: "relative"}}>
                             {/* {price and rate} */}
                             <Box 
                                 sx={{
+                                    zIndex: 11,
                                     display: "flex",
                                     flexDirection: {md: "column", xs: "row"},
                                     gap:'52px',
@@ -175,20 +183,23 @@ function Product(){
                                     >
                                     <Box
                                         sx={{
-                                            background: "#A1ABFF",
+                                            background: `url(${Price})`,
+                                            backgroundSize: "cover",
+                                            backgroundRepeat: "no-repeat",
+                                            backgroundPosition: "center",
+
                                             padding: "23px 41.43px 24.43px 27px",
                                             display: "flex",
                                             width: "fit-content",
                                             alignItems: "center",
                                             boxSizing: "border-box",
                                             borderRadius: '12px', 
-                                            border: "1px solid white",
                                             height: {
                                                 lg: "85.43px",
                                                 md: "66.465px",
                                                 xs: "47.5px"
                                             },      
-                                        }}>
+                                        }} >
                                         <Typography
                                             sx={{
                                                 fontSize:{
@@ -254,9 +265,43 @@ function Product(){
 
                                     </Box>
                                 </Box>
+                            
                             </Box>
+                            {/* {Botl img} */}
+                            <Box zIndex={10}
+                                component={"img"} 
+                                src={cardInfoData?.src || Botl}
+                                sx={{
+                                    height: {
+                                        lg: "900px",
+                                        md: "800px",
+                                    },
+                                    display:{
+                                        md: "block",
+                                        xs: "none"
+                                    },
+                                    position: "absolute",
+                                    left: "50%",
+                                    transform: "translateX(-50%)",
+                                    bottom: {
+                                        lg: "-150px",
+                                        md: "-150px",
+                                    },
+                                    right: 0,
+                                }}
+                            />
                             {/* {Certificates / awards} */}
-                            <Box>
+                            <Box zIndex={11} sx={{
+                                maxWidth: {
+                                    lg: "400px",
+                                    md: "330px"
+                                },
+                                minWidth:{
+                                    xs: {
+                                        md: "310px"    
+                                    }
+                                }
+                            }}>
                                 {cardInfoData.infoProduct.certificates && 
                                     <Box sx={{mb: "76px",display: {md: "block", xs: "none"}}}>
                                         <Typography sx={{
