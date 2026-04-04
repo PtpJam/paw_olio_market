@@ -11,5 +11,10 @@
     "Ratings": "ratings",
     "Certificates": "Certificates",
     "Awards": "This oil has awards",
-    "ImpDetal": "Important details"
+    "ImpDetal": "Important details",
+    "NoInfo": "No information",
+    "Add": "+ Add",
+    "Feedback": "Based on the feedback of {{users}} users",
+    "Show": "Show",
+    "Reviews": "Based on {{reviews}} reviews"
 }
