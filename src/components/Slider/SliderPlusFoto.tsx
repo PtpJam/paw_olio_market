@@ -67,7 +67,7 @@ function SliderPlusFoto(data : ISliderPlusPhoto){
                     xs: "42.6px"
                 },  
                 display: "flex",
-                alignItems: data.slider ? "flex-end" : "center",
+                alignItems: "center",
                 '& > *': { width: '100%' }}}>
             {data.slider ?
                 <SliderProduct point={data.slider.point} textStart={data.slider.textStart} textEnd={data.slider.textEnd} type={data.slider.type} ></SliderProduct>

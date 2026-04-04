@@ -31,7 +31,8 @@ function SliderProduct({textStart, textEnd, point, type} : ISliderProduct){
                     pb: 0,
                     '&.Mui-disabled': {
                         color: '#D9D9D9',
-                        height: "9px"
+                        height: "9px",
+                        padding: 0
                     },
                     '& .MuiSlider-thumb.Mui-disabled': {
                         background: (type === 0 || type === 1) ? "block" :  `url("${Drop}")`,

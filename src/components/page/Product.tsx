@@ -491,7 +491,7 @@ function Product(){
                         <Grid size={{md: 6, xs: 12}}>
                             <SliderProductBlockNoImg {...SliderProductData}/>
                         </Grid>
-                        <Grid size={{md: 6}} sx={{display: {md: "block", xs: "none"}}}>
+                        <Grid size={{md: 6, xs: 12}} sx={{display: {md: "block", xs: "none"}}}>
                             <InstalApp/>                            
                         </Grid>
                     </Grid>
