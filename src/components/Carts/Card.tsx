@@ -1,15 +1,15 @@
 import { Box, Rating, Typography } from "@mui/material";
-import type ICard from "./interface/ICard";
+import type ICard from "../interface/ICard";
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import Comentary from "../assets/svg/cometary.svg"
-import Planet from "../assets/svg/planet.svg"
-import Cart from "../assets/svg/shopping-cart.svg"
-import Hert from "../assets/svg/hert.svg"
-import Balance from "../assets/svg/balans.svg";
+import Comentary from "../../assets/svg/cometary.svg"
+import Planet from "../../assets/svg/planet.svg"
+import Cart from "../../assets/svg/shopping-cart.svg"
+import Hert from "../../assets/svg/hert.svg"
+import Balance from "../../assets/svg/balans.svg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import ReactCountryFlag from "react-country-flag"
-import CircleBtn from "./CircleBtn";
+import CircleBtn from "../Buttons/CircleBtn";
 
 function Card(_card : ICard){
     // flex: "1 1 320px",

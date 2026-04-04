@@ -1,6 +1,6 @@
 import { Box, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
-import pointerUpSmall from "../assets/svg/pointerUpSmall.svg"
-import pointerUp from "../assets/svg/pointerUp.svg"
+import pointerUpSmall from "../../assets/svg/pointerUpSmall.svg"
+import pointerUp from "../../assets/svg/pointerUp.svg"
 
 export interface NewsProps {
     text: string;

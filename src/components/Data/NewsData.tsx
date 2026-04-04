@@ -1,6 +1,6 @@
 import China from '../../assets/china.png';
 import Farm from '../../assets/farm.png';
-import { type NewsProps } from "../News";
+import { type NewsProps } from "../Carts/News";
 
 const itemsNews : NewsProps[] = [
     {

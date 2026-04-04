@@ -5,9 +5,9 @@ import ScrollBar from "../Scroll";
 import ReclamBlock from "../Reclam";
 import TabPanel from "../TabPanel";
 import type ICard from "../interface/ICard";
-import sideBarData from "../sideBarData";
+import sideBarData from "../Data/sideBarData";
 import SideBar from "../SideBar";
-import Card from "../Card";
+import Card from "../Carts/Card";
 import Down from "../../assets/svg/downIco.svg"
 import Filter from '../../assets/svg/filter.svg';
 import React from 'react';

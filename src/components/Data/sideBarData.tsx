@@ -1,4 +1,4 @@
-import type ISideBar from "./interface/ISideBar";
+import type ISideBar from "../interface/ISideBar";
 
 const sideBar: ISideBar = {
     minPrice: 0,

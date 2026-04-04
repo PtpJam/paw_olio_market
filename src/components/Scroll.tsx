@@ -2,12 +2,12 @@ import { Box, Typography } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 
-import News, { type NewsProps } from "./News";
+import News, { type NewsProps } from "./Carts/News";
 import type CardProps  from "./interface/ICard";
-import Card from "./Card";
-import MegaCard from "./MegaCard";
+import Card from "./Carts/Card";
+import MegaCard from "./Carts/MegaCard";
 import type IMegaCard from "./interface/IMegaCard";
-import ButtonNextBeak from "./ButtonNextBeak";
+import ButtonNextBeak from "./Buttons/ButtonNextBeak";
 
 
 interface Iscroll{

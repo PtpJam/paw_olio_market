@@ -1,7 +1,6 @@
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-// 1. Створюємо інтерфейс для елемента масиву
 interface ListEntry {
   title: string;
   description: string;

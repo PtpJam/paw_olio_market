@@ -1,15 +1,15 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import Botl from "../../assets/studBotl.png"
-import ProductBtn from "../ProductBtn";
+import ProductBtn from "../Buttons/ProductBtn";
 import ScrollBar from "../Scroll"
 import cards from "../Data/CardDataDeScroll"
 import cardInfoData from "../Data/CardInfoData"
 import { Map, Marker } from "pigeon-maps"
-import ButtonNextBeak from "../ButtonNextBeak";
+import ButtonNextBeak from "../Buttons/ButtonNextBeak";
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import ReactCountryFlag from "react-country-flag";
-import CircleBtn from "../CircleBtn";
+import CircleBtn from "../Buttons/CircleBtn";
 import Hert from "../../assets/svg/hert.svg"
 import Balance from "../../assets/svg/balans.svg";
 import Sofa from "../../assets/svg/sofa.svg";
@@ -17,6 +17,25 @@ import Ratings from "../Ratings";
 import Price from "../../assets/price.png"
 import Man from "../../assets/svg/man.svg"
 import Detali from "../Detali";
+import SliderProductBlock from "../Slider/SliderProductBlock";
+import type ISliderProductBlock from "../interface/ISliderProductBlock";
+import DataSliderPlusFoto from "../Data/SliderPlusFotoData"
+import SliderProductBlockNoImg from "../Slider/SliderProductBlockNoImg";
+import SliderProductData from "../Data/SliderProductBlockNoImgData";
+import InstalApp from "../Carts/InstalApp";
+
+const data : ISliderProductBlock[] =[
+    {
+        title: "Aromas",
+        countFeedback: 429,
+        param: [DataSliderPlusFoto[0], DataSliderPlusFoto[1], DataSliderPlusFoto[2]]
+    },
+    {
+        title: "Tastes",
+        countFeedback: 315,
+        param: [DataSliderPlusFoto[3], DataSliderPlusFoto[4], DataSliderPlusFoto[5]]
+    }
+]
 
 function Product(){
     const {t} = useTranslation("product")
@@ -459,6 +478,30 @@ function Product(){
                     }
                 }}>
                     <ScrollBar scroll={{team: false, title: t("ForYou"), type: "product", items: cards }}></ScrollBar>
+                </Box>
+                {/* analis */}
+                <Box sx={{
+                    padding: {
+                        lg: "39px 32px 39px 101px",
+                        md: "30px 40px",
+                        xs: "20px"
+                    }
+                }}>
+                    <Grid container mb={"45px"} columnSpacing={{lg: "69px", md: "69px", xs: 0}} rowSpacing={"20px"}>
+                        <Grid size={{md: 6, xs: 12}}>
+                            <SliderProductBlockNoImg {...SliderProductData}/>
+                        </Grid>
+                        <Grid size={{md: 6}} sx={{display: {md: "block", xs: "none"}}}>
+                            <InstalApp/>                            
+                        </Grid>
+                    </Grid>
+                    <Grid container columnSpacing={{lg: "69px", md: "69px", xs: 0}} rowSpacing={"20px"}>
+                        {data.map((item, index) =>(
+                            <Grid size={{md: 6, xs: 12}} key={index}>
+                                <SliderProductBlock {...item}></SliderProductBlock>
+                            </Grid>
+                        ))}
+                    </Grid>
                 </Box>
                 {/* block info company */}
                 <Box sx={{
