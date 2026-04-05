@@ -16,5 +16,7 @@
     "Add": "+ Add",
     "Feedback": "Based on the feedback of {{users}} users",
     "Show": "Show",
-    "Reviews": "Based on {{reviews}} reviews"
+    "Reviews": "Based on {{reviews}} reviews",
+    "CombinatDishes": "Combination with dishes",
+    "AlsoCombines": "Also combines with"
 }

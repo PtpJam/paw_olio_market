@@ -22,7 +22,7 @@ function Header(){
 
     const [mode, setMode] = useState('main'); // 'main' | 'search' | 'lang'
     const languages = [
-        { label: "Eng", code: "en" },
+        { label: "ENG", code: "en" },
         { label: "УКР", code: "uk" },
         { label: "РУ", code: "ru" },
         { label: "DEU", code: "de" },
@@ -205,7 +205,7 @@ function Header(){
                             <Box className="search-button">
                                 <Box component={"img"} src={Search}/>
                             </Box>
-                            <input type="text" placeholder="Search"/>
+                            <input type="text" placeholder={t("search")}/>
                         </label>
                     </Box>
                     )

@@ -23,6 +23,16 @@ import DataSliderPlusFoto from "../Data/SliderPlusFotoData"
 import SliderProductBlockNoImg from "../Slider/SliderProductBlockNoImg";
 import SliderProductData from "../Data/SliderProductBlockNoImgData";
 import InstalApp from "../Carts/InstalApp";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+// @ts-ignore
+import 'swiper/css';
+// @ts-ignore
+import 'swiper/css/pagination';
+import combination from "../../assets/combination.png"
+import SearchBox from "../SearchBox";
+import combData from "../Data/CombData";
+import CombBlock from "../CombBlock";
 
 const data : ISliderProductBlock[] =[
     {
@@ -36,6 +46,7 @@ const data : ISliderProductBlock[] =[
         param: [DataSliderPlusFoto[3], DataSliderPlusFoto[4], DataSliderPlusFoto[5]]
     }
 ]
+const comb : string[] = [combination, combination, combination]
 
 function Product(){
     const {t} = useTranslation("product")
@@ -503,6 +514,135 @@ function Product(){
                         ))}
                     </Grid>
                 </Box>
+                {/* {carusel} */}
+                <Box
+                    sx={{
+                        padding:{
+                            lg: "69.15px 67px",
+                            md: "44.57px 46.75px",
+                            xs: "20px 26.5px"
+                        },
+                        background: "#000000",
+                        color: "#fff"
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            fontSize: {
+                                lg: "40px",
+                                md: "32px",
+                                xs: '24px'
+                            },
+                            mb: {
+                                lg: "20px",
+                                md: "15px",
+                                xs: "10px",
+
+                            }
+                        }}
+                    >
+                        {t("CombinatDishes")}
+                    </Typography>
+
+                    <Grid container columnSpacing={"60px"} rowSpacing={"20px"}>
+                        <Grid size={{md: 6, xs:12}}>
+                            <Box
+                                component={Swiper}
+                                modules={[Pagination, Autoplay]}
+                                spaceBetween={30}
+                                slidesPerView={1}
+                                pagination={{ clickable: true }}
+                                autoplay={{ delay: 10000 }}
+                                sx={{
+                                    height: {
+                                        lg: "308.97px",
+                                        md: "235.95px",
+                                        xs: "162.94px"
+                                    },
+                                    "--swiper-pagination-color": "#56C1E9",
+                                    "--swiper-pagination-bullet-inactive-color": "#D9D9D9",
+                                    "--swiper-pagination-bullet-inactive-opacity": "1",
+                                    "--swiper-pagination-bullet-size": {
+                                        lg: "12px",
+                                        md: "9.17px",
+                                        xs: "6.34px"
+                                    },
+                                    "--swiper-pagination-bullet-horizontal-gap": {
+                                        lg: "8px",
+                                        md: "6.11px",
+                                        xs: "4.22px"
+                                    },
+                                    pb: {
+                                        lg: "56.36px",
+                                        md: "43.04px",
+                                        xs: "29.72px"
+                                    },
+                                }}
+                            >
+                                {comb.map((item, index) => (
+                                    <SwiperSlide>
+                                        <Box 
+                                            key={index}
+                                            component={"img"}
+                                            src={item} 
+                                            sx={{
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'cover',
+                                                display: 'block',
+                                                borderRadius: "20px"
+                                            }}
+                                        />     
+                                    </SwiperSlide>
+                                ))}
+                            </Box>
+                        </Grid>
+                        <Grid 
+                            size={{md: 4, xs:12}}
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: {
+                                    lg: "30px",
+                                    md: "20px",
+                                    xs: "10px"
+                                }
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize:{
+                                        lg: "32px",
+                                        md: "24px",
+                                        xs: "16px"
+                                    },
+                                }}
+                            >
+                                {t("AlsoCombines")}
+                            </Typography>
+                            <Box sx={{display: "flex", columnGap: "10px", rowGap: "9px", flexWrap: "wrap"}}>
+                                {combData.map((item, index) => (
+                                    <CombBlock {...item} key={index}/>
+                                ))}
+                            </Box>
+                            <Box>
+                                <SearchBox/>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Box>
+                {/* {Feedbacks} */}
+                <Box
+                    sx={{
+                        padding: {
+                            lg: "55px 67.5px",
+                            md: "37.5px 42.5px",
+                            xs: "20px 17.5px"
+                        }
+                    }}
+                >
+                </Box>
+
                 {/* block info company */}
                 <Box sx={{
                     background: "#000",
