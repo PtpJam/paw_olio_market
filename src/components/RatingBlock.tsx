@@ -18,7 +18,7 @@ function RatingBlock(data : IRatingBlock){
                 {ratingKeys.map((key, index) => {
 
                  return( 
-                    <Box sx={{display: "flex", alignItems: "center", height: "16px"}}>
+                    <Box sx={{display: "flex", alignItems: "center", height: "16px"}} key={index}>
                         <Box>
                             <Rating
                                 name="text-feedback"

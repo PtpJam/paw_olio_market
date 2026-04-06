@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import { createContext} from 'react';
 import { Route, Routes } from 'react-router';
 import Product from './components/page/Product';
+import AllFeedbeak from './components/page/AllFeedbeak';
 
 
 interface MenuContextType {
@@ -28,6 +29,7 @@ function App() {
               <Route path='/dishes' element={<div>132</div>} />
               <Route path='/dietary_supplements' element={<div>132</div>} />
               <Route path='/product/:id' element={<Product/>} />
+              <Route path='/product/:id/feedback' element={<AllFeedbeak/>} />
           </Routes>
         </main>
         <Footer></Footer>

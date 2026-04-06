@@ -673,7 +673,6 @@ function Product(){
 
                     </Grid>
                 </Box>
-
                 {/* block info company */}
                 <Box sx={{
                     background: "#000",

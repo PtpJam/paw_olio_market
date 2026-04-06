@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next"
 import TabPanel from "./TabPanel";
 import FeedbeakData from "./Data/FeedbeakData";
 import Feedback from "./Carts/Feedback";
+import { Link, useParams } from "react-router";
+import Beak from "./Buttons/beak";
 
 interface FeedbackBlockProps {
   all: boolean;
@@ -19,24 +21,61 @@ function FeedbackBlock({all}: FeedbackBlockProps){
         setValue(newValue);
     };
 
+    const { id } = useParams<{ id: string }>();
+
     return(
         <Box>
             <Box sx={{
                     display: "flex",
                     flexDirection: {md: "row", xs: "column"},
-
                     alignItems: {md: "center", xs: "start"},
-                    gap: {lg: "45px", xs: '10px'},
+                    gap: {lg: "20px",md: "27.5px", xs: '10px'},
                 }}>
-                <Typography sx={{
-                    fontSize: {
-                        lg: "40px",
-                        md: "32px",
-                        xs: "24px"
-                    }
-                }}>
-                    {t("Feedbacks")}
-                </Typography>
+                {!all ?
+                    <Typography sx={{
+                        fontSize: {
+                            lg: "40px",
+                            md: "32px",
+                            xs: "24px"
+                        },
+                    }}>
+                        {t("Feedbacks")}
+                    </Typography>
+                    : 
+                    <Box
+                        component={Link}
+                        to={`/product/${id}`}
+                        sx={{
+                            textDecoration: "none",
+                            color: "#000",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: {lg: "10.67px", xs: "10px"}
+                        }}
+                    >
+                        <Beak sx={{
+                            width: {
+                                lg: "18.31px",
+                                md: "15.15px",
+                                xs: "12px"
+                            },
+                            height: {
+                                lg: "30.52px",
+                                md: "25.26px",
+                                xs: "20px"
+                            },
+                        }} />
+                        <Typography sx={{
+                            fontSize: {
+                                lg: "40px",
+                                md: "32px",
+                                xs: "24px"
+                            }
+                        }}>
+                            {t("Feedbacks")}
+                        </Typography>
+                    </Box>
+                }
                 <Tabs
                     variant="scrollable"
                     scrollButtons={false}
@@ -60,7 +99,6 @@ function FeedbackBlock({all}: FeedbackBlockProps){
                             },
                         },
                         width: "100%",
-
                     }}
                 >
                     {tabsLabels.map((label, index) => (
@@ -135,7 +173,7 @@ function FeedbackBlock({all}: FeedbackBlockProps){
                     <Box sx={{display: "flex", flexDirection: "column", gap: "20px"}}>
                         {FeedbeakData.map((item, index) => {
                             if (!all && index >= 3) {return null}  
-                            return <Feedback key={index} {...item} />
+                            return <Feedback key={index+10} {...item} />
                             
                         })}
                     </Box>
@@ -144,7 +182,7 @@ function FeedbackBlock({all}: FeedbackBlockProps){
                     <Box sx={{display: "flex", flexDirection: "column", gap: "20px"}}>
                         {FeedbeakData.map((item, index) => {
                             if (!all && index >= 3) {return null}  
-                            return <Feedback key={index} {...item} />
+                            return <Feedback key={index+20} {...item} />
                             
                         })}
                     </Box>
@@ -153,7 +191,7 @@ function FeedbackBlock({all}: FeedbackBlockProps){
                     <Box sx={{display: "flex", flexDirection: "column", gap: "20px"}}>
                         {FeedbeakData.map((item, index) => {
                             if (!all && index >= 3) {return null}  
-                            return <Feedback key={index} {...item} />
+                            return <Feedback key={index+30} {...item} />
                             
                         })}
                     </Box>
@@ -162,22 +200,27 @@ function FeedbackBlock({all}: FeedbackBlockProps){
                     <Box sx={{display: "flex", flexDirection: "column", gap: "20px"}}>
                         {FeedbeakData.map((item, index) => {
                             if (!all && index >= 3) {return null}  
-                            return <Feedback key={index} {...item} />
+                            return <Feedback key={index+40} {...item} />
                             
                         })}
                     </Box>
                 </TabPanel>
             </Box>
             {!all && 
-                <Box sx={{
-                    mt: {lg: "20px", md: "15px", xs: "10px"},
-                    display: "flex",
-                    justifyContent: {
-                        md: "end",
-                        xs: "start"
-                    }
-                }}>
+                <Box
+                    sx={{
+                        mt: {lg: "20px", md: "15px", xs: "10px"},
+                        display: "flex",
+                        justifyContent: {
+                            md: "end",
+                            xs: "start"
+                        },
+                        textDecoration: "none"
+                    }}
+                >
                     <Button 
+                        component={Link}
+                        to={"feedback"} 
                         variant="contained"
                         sx={{
                             bgcolor: "#000",
@@ -187,7 +230,8 @@ function FeedbackBlock({all}: FeedbackBlockProps){
                                 md: "13px 25px",
                                 sx: "13.5px 25px"
                             },
-                            height: "39px"
+                            height: "39px",
+                            textTransform: "none"
                         }}
                     >
                         {t("All")}

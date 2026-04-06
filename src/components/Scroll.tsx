@@ -46,7 +46,7 @@ function Scroll({scroll} : Props){
         <Box sx={{display: "flex", flexDirection: "column", gap: "20px"}}>
             <Box sx={{
                 display: "flex",
-                justifyContent: scroll.title ? "space-between" : "flex-end"    
+                justifyContent: scroll.title ? "space-between" : "flex-end",
             }}>
                 {scroll.title && 
                     <Typography sx={{
