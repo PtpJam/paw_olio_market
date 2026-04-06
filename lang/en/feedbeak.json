@@ -1,3 +1,15 @@
 {
-    "Answer": "Answer"
+    "Answer": "Answer",
+    "tabs": {
+        "AboutProdu": "About producer",
+        "AboutOils": "About oils",
+        "Popular": "Popular",
+        "New": "New",
+        "Friends": "Friends"
+    },
+    "Feedbacks": "Feedbacks",
+    "Add" : "+ Add feedback",
+    "Average": "Average",
+    "Rating": "rating",
+    "All": "All feedbacks"
 }
