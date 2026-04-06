@@ -1,11 +1,6 @@
 import { Box, Rating, Typography } from "@mui/material";
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-
-interface IRatings{
-    countRating: number,
-    ratings: { rating: number, unit?: string};
-    text: string
-}
+import type IRatings from "./interface/IRatings";
 
 function Ratings(rating : IRatings){
     return(
@@ -21,7 +16,7 @@ function Ratings(rating : IRatings){
                     {rating.countRating}
                 </Typography>
             </Box>
-            <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+            <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", gap: "5px"}}>
                 <Rating
                     name="text-feedback"
                     value={rating.countRating}
@@ -47,13 +42,15 @@ function Ratings(rating : IRatings){
                                 width: "14.88px",
                                 maxHeight: "14.34px",
                                 transform: "scale(1.3)"
-
                             }} 
                         />
                     }
+                    sx={{
+                        gap: "3px"
+                    }}
                 />
-                <Typography sx={{fontSize: "12px"}}>
-                    {rating.ratings.rating} {rating.ratings.unit} {rating.text}
+                <Typography sx={{fontSize: {lg: "12px", md: "10px", xs: "8px"}}}>
+                    {rating.ratings.rating}{rating.ratings.unit} {rating.text}
                 </Typography>
             </Box>
         </Box>

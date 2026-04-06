@@ -38,7 +38,7 @@ const cardInfoData : ICardInfoData = {
         },
         {
             src: olives,
-            description: "You haven't tried this kind  of oil yet. Check it out!"
+            description: "You haven't tried this kind of oil yet. Check it out!"
         },
     ],
     infoProduct:{

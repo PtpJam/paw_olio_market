@@ -33,8 +33,9 @@ import combination from "../../assets/combination.png"
 import SearchBox from "../SearchBox";
 import combData from "../Data/CombData";
 import CombBlock from "../CombBlock";
-import FeedbeakData from "../Data/FeedbeakData";
-import Feedback from "../Carts/Feedback";
+import FeedbackBlock from "../FeedbackBlock";
+import RatingBlock from "../RatingBlock";
+import RatingBlockData from "../Data/RatingBlockData";
 
 const data : ISliderProductBlock[] =[
     {
@@ -652,11 +653,23 @@ function Product(){
                         }
                     }}
                 >
-                    <Grid container columnSpacing={"50px"}>
-                        <Grid size={{md: 8, xs: 12}}>
-                            <Feedback {...FeedbeakData[0]}/>
+                    <Grid container columnSpacing={"50px"} rowSpacing={"20px"}>
+                        <Grid size={{lg: 8, md: 12, xs: 12}}>
+                            <FeedbackBlock all={false} />
                         </Grid>
-                        <Grid size={{md: 4, xs: 12}}>123</Grid>
+                        <Grid 
+                            size={{lg: 4, md: 12, xs: 12}}
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gap: "40px"
+                            }}
+                        >
+                            <RatingBlock {...RatingBlockData[0]}/>
+                            <RatingBlock {...RatingBlockData[1]}/>
+                        </Grid>
 
                     </Grid>
                 </Box>
