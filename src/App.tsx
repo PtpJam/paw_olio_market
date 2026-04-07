@@ -10,6 +10,7 @@ import { Route, Routes } from 'react-router';
 import Product from './components/page/Product';
 import AllFeedbeak from './components/page/AllFeedbeak';
 import Sommelier from './components/page/Sommelier';
+import AboutOil from './components/page/AboutOil';
 
 
 interface MenuContextType {
@@ -32,6 +33,7 @@ function App() {
               <Route path='/product/:id' element={<Product/>} />
               <Route path='/product/:id/feedback' element={<AllFeedbeak/>} />
               <Route path='/product/:id/sommelier' element={<Sommelier/>} />
+              <Route path='/product/:id/about' element={<AboutOil/>} />
           </Routes>
         </main>
         <Footer></Footer>
