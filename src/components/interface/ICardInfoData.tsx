@@ -28,5 +28,6 @@ export default interface ICardInfoData{
     map:{
         x: number;
         y: number;
-    }
+    },
+    sommiler: string[]
 }

@@ -2,12 +2,13 @@ import { Box, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ProductBtn from "../Buttons/ProductBtn";
 import cardInfoData from "../Data/CardInfoData";
+import Botl from "../../assets/studBotl.png"
 
 function Sommelier(){
     const {t} = useTranslation("product")
     
     return(
-        <Box>
+        <Box sx={{width:"100%"}}>
             <Box sx={{
                 padding: {
                     lg: "86px 62px",
@@ -44,13 +45,18 @@ function Sommelier(){
                 },
                 bgcolor: "#000"
             }}>
-                <Grid container>
-                    <Grid size={{lg: 9, xs: 11}}>
+                <Grid container spacing={"20px"} >
+                    <Grid size={{lg: 9, xs: 9}}>
                         <Typography
                             sx={{
                                 fontSize: {
                                     lg: "85px",
                                     md: "54.5px",
+                                    xs: "20px"
+                                },
+                                mb: {
+                                    lg: "15px",
+                                    md: "17.5px",
                                     xs: "20px"
                                 },
                                 color: "#A1ABFF",
@@ -59,6 +65,47 @@ function Sommelier(){
                         >
                             {cardInfoData.name}
                         </Typography>
+                        <Grid container sx={{color: "#fff"}} columnSpacing={"52px"} rowSpacing={"20px"}>
+                            {cardInfoData.sommiler.map((item) => (
+                                <Grid size={{md: 6, xs: 12}}>
+                                    <Typography sx={{
+                                        fontSize:{
+                                            lg: "20px",
+                                            md: "16px",
+                                            xs: "12px"
+                                        },
+                                        textAlign: "justify"
+                                    }}>
+                                        {item}
+                                    </Typography>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Grid>
+                    <Grid size={{lg: 3, xs: 3}}
+                        sx={{
+                            background: `url(${cardInfoData?.src || Botl}) center/cover`,
+                            backgroundSize: {
+                                md: '60vw cover',
+                                xs: "50vw 100%"
+                            }, 
+                            backgroundRepeat: "no-repeat",
+                            mt: {
+                                lg: '-30.5vh',
+                                md: '-19.5vh',
+                                sm: "-18vh",
+                                xs: "-9vh"
+                            },
+                            mb:{
+                                lg: '-7.8vw',
+                                md: '-9.8vh',
+                                sm: "-5vh",
+                                xs: "16vh"
+                            },
+                            overflow: 'visible',   
+                            zIndex: 10,  
+                            
+                        }}>
                     </Grid>
                 </Grid>
             </Box>
