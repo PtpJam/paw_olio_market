@@ -62,6 +62,7 @@ const cardInfoData : ICardInfoData = {
             }
         ]
     },
+    
     map: {
         x: 37.635,
         y: 12.720
@@ -69,6 +70,7 @@ const cardInfoData : ICardInfoData = {
     sommiler: [
         "Extra Virgin Olive Oil Planeta Val di Mazara is a Sicilian olive oil, 500 ml, made from the Nocellara del Belice, Cerasuola, and Biancolilla varieties, hand-harvested. The oil has a rich golden-green color. Its aroma offers fresh notes of grass, green apple, and artichoke, with a subtle hint of tomato leaf.",
         "The taste reveals a harmonious balance of mild bitterness and spiciness with a long-lasting finish and a touch of almond. This oil is perfect for salads, grilled fish, or simply with crusty bread."
-    ]
+    ],
+    addInfo: "Extra Virgin Olive Oil Planeta Val di Mazara — a premium olive oil from Sicily, produced by the family company Planeta, known for its wines and oils. It is made from three local olive varieties: Nocellara del Belice, Biancolilla, and Cerasuola, giving it a rich and balanced flavor. The olives are hand-picked and cold-pressed immediately after harvesting to preserve their natural aromas and beneficial properties."
 }
 export default cardInfoData;

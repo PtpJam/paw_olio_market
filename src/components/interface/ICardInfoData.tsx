@@ -29,5 +29,6 @@ export default interface ICardInfoData{
         x: number;
         y: number;
     },
-    sommiler: string[]
+    sommiler: string[],
+    addInfo: string;
 }
