@@ -10,7 +10,7 @@ import { Link } from "react-router";
 import ReactCountryFlag from "react-country-flag"
 import CircleBtn from "../Buttons/CircleBtn";
 import type IProductCard from "../interface/IProductCard";
-import { imgPath } from "../api/path";
+import { imgPath } from "../api/Path";
 
 function Card(_card : IProductCard){
     // flex: "1 1 320px",

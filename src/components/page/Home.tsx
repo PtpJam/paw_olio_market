@@ -23,7 +23,6 @@ import ScrollBar from '../Scroll';
 
 import itemsMegaCard from "../Data/MegaCardData"
 import itemsNews from "../Data/NewsData"
-import cards from "../Data/CardData"
 import OilText from "../OilText";
 import Tree from "../../assets/tree.png";
 import Olives from "../../assets/olives.png";

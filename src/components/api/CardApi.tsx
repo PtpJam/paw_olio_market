@@ -1,4 +1,4 @@
-import {path} from "./path"
+import {path} from "./Path"
 import type IProductCard from "../interface/IProductCard";
 
 
@@ -7,7 +7,7 @@ export async function ProductsData(scroll: boolean){
         const respons = await fetch(`${path}gpt-products-popular`)
         const data = await respons.json();
         const items = data.products;
-        
+
         const products: IProductCard[] = items.map((item : any) => ({
             ...item,
             scroll: scroll,

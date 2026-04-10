@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import Botl from "../../assets/studBotl.png"
 import ProductBtn from "../Buttons/ProductBtn";
 import ScrollBar from "../Scroll"
-import cards from "../Data/CardDataDeScroll"
 import cardInfoData from "../Data/CardInfoData"
 import { Map, Marker } from "pigeon-maps"
 import ButtonNextBeak from "../Buttons/ButtonNextBeak";
@@ -36,9 +35,10 @@ import CombBlock from "../CombBlock";
 import FeedbackBlock from "../FeedbackBlock";
 import RatingBlock from "../RatingBlock";
 import RatingBlockData from "../Data/RatingBlockData";
-import { useEffect } from "react";
-import { ProductData, ProductsData } from "../api/CardApi";
-import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { ProductsData } from "../api/CardApi";
+// import { useParams } from "react-router";
+import type IProductCard from "../interface/IProductCard";
 
 const data : ISliderProductBlock[] =[
     {
@@ -56,12 +56,24 @@ const comb : string[] = [combination, combination, combination]
 
 function Product(){
     const {t} = useTranslation("product")
-    const { id } = useParams();
+    // const { id } = useParams();
 
+    // useEffect(() => {
+    //     //if(id)
+    //       //  ProductData(id)
+    // })
+
+    const [cardGet, cardSet] = useState<IProductCard[]>([]);
+    
     useEffect(() => {
-        //if(id)
-          //  ProductData(id)
-    })
+        const fetchData = async() => {
+            const data = await ProductsData(false);
+            if(data){
+                cardSet(data)
+            }
+        }
+        fetchData()
+    }, [])
 
     return(
         <>
@@ -500,7 +512,7 @@ function Product(){
                         xs: "20px 12.5px 20.5px"
                     }
                 }}>
-                    <ScrollBar scroll={{team: false, title: t("ForYou"), type: "product", items: cards }}></ScrollBar>
+                    <ScrollBar scroll={{team: false, title: t("ForYou"), type: "product", items: cardGet }}></ScrollBar>
                 </Box>
                 {/* analis */}
                 <Box sx={{
@@ -918,7 +930,7 @@ function Product(){
                         xs: "20px 12.5px 71.9px"
                     }
                 }}>
-                    <ScrollBar scroll={{team: true, title: t("ForYou"), type: "product", items: cards }}></ScrollBar>
+                    <ScrollBar scroll={{team: true, title: t("ForYou"), type: "product", items: cardGet }}></ScrollBar>
                 </Box>
             </Box>
         </>

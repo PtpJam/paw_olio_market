@@ -5,11 +5,6 @@ import Master from "../assets/svg/logos_mastercard.svg"
 import Aple from "../assets/svg/logos_apple-pay.svg"
 import Google from "../assets/svg/logos_google-pay.svg"
 
-import ApleStore from "../assets/svg/appStore.svg"
-import GooglePlay from "../assets/svg/googlePlay.svg"
-import ApleStoreText from "../assets/svg/appStoreText.svg"
-import GooglePlayText from "../assets/svg/googlePlayText.svg"
-
 import YouTube from "../assets/svg/icomoon-free_youtube.svg"
 import TickTok from "../assets/svg/mingcute_tiktok-fill.svg"
 import Instagram from "../assets/svg/formkit_instagram.svg"

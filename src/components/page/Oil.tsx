@@ -7,7 +7,7 @@ import TabPanel from "../TabPanel";
 import type ICard from "../interface/ICard";
 import sideBarData from "../Data/sideBarData";
 import SideBar from "../SideBar";
-import Card from "../Carts/Card";
+// import Card from "../Carts/Card";
 import Down from "../../assets/svg/downIco.svg"
 import Filter from '../../assets/svg/filter.svg';
 import React from 'react';
@@ -165,9 +165,9 @@ function Oil(){
                           justifyContent: 'space-around'
                         }      
                         }}>
-                          {pageItems.map((card, index) => (
+                          {pageItems.map((_card, index) => (
                             <React.Fragment key={index}>
-                              <Card key={index} {...card} />
+                              {/* <Card key={index} {...card} /> */}
                               {(index === 11 && currentPage === 1) && (
                                 <ReclamBlock/>
                               )}

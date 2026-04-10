@@ -2,12 +2,26 @@ import { Box, Divider, Grid } from "@mui/material"
 import RatingBlock from "../RatingBlock"
 import RatingBlockData from "../Data/RatingBlockData"
 import FeedbackBlock from "../FeedbackBlock"
-import cards from "../Data/CardDataDeScroll"
 import { useTranslation } from "react-i18next"
 import ScrollBar from "../Scroll"
+import { useEffect, useState } from "react"
+import type IProductCard from "../interface/IProductCard"
+import { ProductsData } from "../api/CardApi"
 
 function AllFeedbeak(){
     const {t} = useTranslation("feedbeak");
+
+    const [cardGet, cardSet] = useState<IProductCard[]>([]);
+    
+    useEffect(() => {
+        const fetchData = async() => {
+            const data = await ProductsData(false);
+            if(data){
+                cardSet(data)
+            }
+        }
+        fetchData()
+    }, [])
 
     return(
         <Box>
@@ -47,7 +61,7 @@ function AllFeedbeak(){
                         xs: "20px 7px 40px"
                     }
                 }}>
-                    <ScrollBar scroll={{team: true, title: t("Recommendations"), type: "product", items: cards }}></ScrollBar>
+                    <ScrollBar scroll={{team: true, title: t("Recommendations"), type: "product", items: cardGet}}></ScrollBar>
             </Box>
         </Box>
 
