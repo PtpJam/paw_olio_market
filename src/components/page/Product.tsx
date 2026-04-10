@@ -36,6 +36,9 @@ import CombBlock from "../CombBlock";
 import FeedbackBlock from "../FeedbackBlock";
 import RatingBlock from "../RatingBlock";
 import RatingBlockData from "../Data/RatingBlockData";
+import { useEffect } from "react";
+import { ProductData, ProductsData } from "../api/CardApi";
+import { useParams } from "react-router";
 
 const data : ISliderProductBlock[] =[
     {
@@ -53,6 +56,12 @@ const comb : string[] = [combination, combination, combination]
 
 function Product(){
     const {t} = useTranslation("product")
+    const { id } = useParams();
+
+    useEffect(() => {
+        //if(id)
+          //  ProductData(id)
+    })
 
     return(
         <>

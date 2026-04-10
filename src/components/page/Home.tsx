@@ -30,6 +30,10 @@ import Olives from "../../assets/olives.png";
 import Logo from "../../assets/logo.png";
 import Drop from "../../assets/svg/drop.svg";
 import BotlOli from "../../assets/botlOil.png";
+import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import type IProductCard from "../interface/IProductCard";
+import { ProductsData } from "../api/CardApi";
 
 const icons = [Oil, Scroll, ListIco, Food, Nutritionist, Detailed]
 const iconsСhoose = [Time, Quality, Book, Info]
@@ -37,13 +41,24 @@ const iconsIphone = [PlayMarket, Scanner, Pay, Rate]
 
 
 function Home(){
-    
     const {t} = useTranslation("home");
     const features = t('features', { returnObjects: true });
     const choose = t('chooseInfo', { returnObjects: true });
     const useInfo = t('useInfo', { returnObjects: true });
     
     const widths = 4;
+    
+    const [cardGet, cardSet] = useState<IProductCard[]>([]);
+    
+    useEffect(() => {
+        const fetchData = async() => {
+            const data = await ProductsData(true);
+            if(data){
+                cardSet(data)
+            }
+        }
+        fetchData()
+    }, [])
 
     return(
         <>
@@ -414,8 +429,11 @@ function Home(){
                                 </Typography>
                                 {/*"Button"*/}
                                 <Chip 
+                                    component={Link}
+                                    to={"/oil"}
                                     label={t("naturcompos.button")} 
                                     sx={{
+                                        cursor: "pointer",
                                         width: {
                                             lg: "169px",
                                             xs: "177px"
@@ -1083,7 +1101,7 @@ function Home(){
                     <ScrollBar scroll={{ team: true, title: t('cosmetics'), type:"cosmetics", items: itemsMegaCard}}></ScrollBar>
                 </Box>
                 <Box>
-                    <ScrollBar scroll={{ team: true, title: t('populProd'), type:"product", items: cards, row: 2}}></ScrollBar>
+                    <ScrollBar scroll={{ team: true, title: t('populProd'), type:"product", items: cardGet, row: 2}}></ScrollBar>
                 </Box>
             </Box>
             <Box 

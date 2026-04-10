@@ -227,7 +227,7 @@ function AboutOil(){
                             xs: "100px"
                         },
                         padding: {
-                            lg: "81.5px 96px",
+                            lg: "81.5px 50px 81.5px 96px",
                             md: "50.75px 55.5px",
                             xs: "20px 15px"
                         },
@@ -237,12 +237,12 @@ function AboutOil(){
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        gap: {lg:"5px", xs: 0}
+                        gap: {lg:"5px", xs: 0},
                     }}
                 >
                     <Typography sx={{
                         display: "flex",
-                        alignItems: "center",
+                        alignItems: "start",
                         fontWeight: 400,
                         fontSize: {lg: "128px", md: "94px", xs: "60px"}
                     }}>
@@ -260,7 +260,7 @@ function AboutOil(){
                         <Box
                             component={"span"}
                             sx={{
-                                ml: { lg: "30px", md: "20px", xs: "10px" },
+                                ml: { lg: "30px", md: "10px", xs: "3px" },
                                 position: "relative",
                                 top: {lg: "30px", md: "22px", xs: "12px"},
                                 display: "inline-block",

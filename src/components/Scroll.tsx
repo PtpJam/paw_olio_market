@@ -3,18 +3,18 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 
 import News, { type NewsProps } from "./Carts/News";
-import type CardProps  from "./interface/ICard";
 import Card from "./Carts/Card";
 import MegaCard from "./Carts/MegaCard";
 import type IMegaCard from "./interface/IMegaCard";
 import ButtonNextBeak from "./Buttons/ButtonNextBeak";
+import type IProductCard from "./interface/IProductCard";
 
 
 interface Iscroll{
     team: boolean; //true - black, false - white
     title?: string;
     type: string; // news, сosmetics, product
-    items: (NewsProps | CardProps | IMegaCard)[];
+    items: (NewsProps | IProductCard | IMegaCard)[];
     row?: number; 
 }
 interface Props{
@@ -103,7 +103,7 @@ function Scroll({scroll} : Props){
                                     return <News {...item as NewsProps} ></News>;
                                 
                                 case 'product':
-                                    return <Card {...item as CardProps}></Card>;
+                                    return <Card {...item as IProductCard}></Card>;
                                 
                                 case 'cosmetics':
                                     return <MegaCard {...item as IMegaCard}></MegaCard>

@@ -16,6 +16,7 @@ import Instagram from "../assets/svg/formkit_instagram.svg"
 import FaceBook from "../assets/svg/ic_outline-facebook.svg"
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router";
+import ApleGoogleApp from "./ApleGoogleApp";
 
 interface SocialMediaItem {
   icon: string;
@@ -87,126 +88,9 @@ function Footer(){
                     <Box><img src={Aple} alt="" /></Box>
                     <Box><img src={Google} alt="" /></Box>
                 </Box>
-                <Box sx={{
-                    display:"flex",
-                    gap: 2.5,
-                    flexWrap: "wrap"
-                }}>
-                    <Box sx={{
-                        background: "#FFFFFF33",
-                        display: "flex",
-                        borderRadius: "50px",
-                        width: {
-                            lg: "210px",
-                            md: "172.5px",
-                            xs: "135px"
-                        },
-                        height: {
-                            lg: "61px",
-                            md: "49.5px",
-                            xs: "38px"
-                        },
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap:{
-                            lg: "11.33px",
-                            md: "10.65px",
-                            xs: "10px"
-                        }
-                    }}>
-                        <Box 
-                            component={"img"}
-                            src={GooglePlay}
-                            sx={{
-                                height:{
-                                    lg:"27px",
-                                    md: "24px",
-                                    xs:"21px"
-                                }
-                            }}
-                        />
-                        <Box sx={{display: "flex", flexDirection: "column", gap: "5px"}}>
-                            <Typography
-                                sx={{
-                                    fontSize: "7px",
-                                    fontWeight: 700,
-                                    lineHeight: "100%"
-                                }}
-                            >
-                                {tFooter("Download")}
-                            </Typography>
-                            <Box 
-                                component={"img"}
-                                src={GooglePlayText}
-                                sx={{
-                                    width:{
-                                        lg: "107.67px",
-                                        md: "88.835px",
-                                        xs: "70px"
-                                    },
 
-                                }}
-                            />
-                        </Box>
-                    </Box>
-                    <Box sx={{
-                        background: "#FFFFFF33",
-                        display: "flex",
-                        borderRadius: "50px",
-                        width: {
-                            lg: "210px",
-                            md: "172.5px",
-                            xs: "135px"
-                        },
-                        height: {
-                            lg: "61px",
-                            md: "49.5px",
-                            xs: "38px"
-                        },
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap:{
-                            lg: "11.33px",
-                            md: "10.65px",
-                            xs: "10px"
-                        }
-                    }}>
-                        <Box 
-                            component={"img"}
-                            src={ApleStore}
-                            sx={{
-                                height:{
-                                    lg:"27px",
-                                    md: "24px",
-                                    xs:"21px"
-                                }
-                            }}
-                        />
-                        <Box sx={{display: "flex", flexDirection: "column", gap: "5px"}}>
-                            <Typography
-                                sx={{
-                                    fontSize: "7px",
-                                    fontWeight: 700,
-                                    lineHeight: "100%"
-                                }}
-                            >
-                                {tFooter("Download")}
-                            </Typography>
-                            <Box 
-                                component={"img"}
-                                src={ApleStoreText}
-                                sx={{
-                                    width:{
-                                        lg: "107.67px",
-                                        md: "88.835px",
-                                        xs: "70px"
-                                    },
+                <ApleGoogleApp Isfooter={true}/>
 
-                                }}
-                            />
-                        </Box>
-                    </Box>
-                </Box>
             </Box>
         )
     }
@@ -222,6 +106,7 @@ function Footer(){
                     },
                     display:{sm: "block", md: "flex"},
                     justifyContent: "space-between",
+                    gap: {lg: "276px", md: "50px"}
                 }}>
                   <Box sx={{
                     display: "flex",
@@ -350,7 +235,7 @@ function Footer(){
                                 xs: "12px"
                             },
                             whiteSpace: "nowrap",
-                            color: "#FFFFFF"
+                            color: "#FFFFFF",
                         },
                         lineHeight: "100%"
                     }}>

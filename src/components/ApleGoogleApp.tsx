@@ -6,7 +6,11 @@ import GooglePlayText from "../assets/svg/googlePlayText.svg"
 import { useTranslation } from "react-i18next"
 import { Typography } from "@mui/material"
 
-function ApleGoogleApp(){
+interface Props{
+    Isfooter?: boolean 
+}
+
+function ApleGoogleApp({Isfooter} : Props){
     const { t: tFooter } = useTranslation("footer"); 
     
     return(
@@ -15,6 +19,7 @@ function ApleGoogleApp(){
             gap: {lg: "40px", md:"25px", xs:"10px"},
         }}>
             <Box sx={{
+                border: "1px solid #FFFFFF4D",
                 background: "#A1ABFF4D",
                 display: "flex",
                 borderRadius: "50px",
@@ -42,7 +47,7 @@ function ApleGoogleApp(){
                 <Box
                     component={"img"}
                     src={GooglePlay}
-                    sx={{height:"27px"}}
+                    sx={{height:{md: "27px", xs: Isfooter ? "21px" : '27px'}}}
                 />
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                     <Typography
@@ -54,10 +59,13 @@ function ApleGoogleApp(){
                     >
                         {tFooter("Download")}
                     </Typography>
-                    <Box component={"img"} src={GooglePlayText} height={"17px"}/>
+                    <Box component={"img"} src={GooglePlayText}
+                        sx={{height: {md: "19px", xs: Isfooter ? "15px" : "19px"}}}
+                    />
                 </Box>
             </Box>
             <Box sx={{
+                border: "1px solid #FFFFFF4D",
                 background: "#A1ABFF4D",
                 display: "flex",
                 borderRadius: "50px",
@@ -85,7 +93,7 @@ function ApleGoogleApp(){
                 <Box
                     component={"img"}
                     src={ApleStore}
-                    sx={{height: "29px"}}
+                    sx={{height:{md: "29px", xs: Isfooter ? "21px" : '29px'}}}
                 />
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
                     <Typography
@@ -97,7 +105,8 @@ function ApleGoogleApp(){
                     >
                         {tFooter("Download")}
                     </Typography>
-                    <Box component={"img"} src={ApleStoreText} height="17px"/>
+                    <Box component={"img"} src={ApleStoreText}
+                        sx={{height: {md: "17px", xs: Isfooter ? "14px" : "17px"}}}/>
                 </Box>
             </Box>
         </Box>
