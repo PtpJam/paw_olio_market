@@ -7,10 +7,7 @@ import Oil from './components/page/Oil';
 import Footer from './components/Footer';
 import { createContext} from 'react';
 import { Route, Routes } from 'react-router';
-import Product from './components/page/Product';
-import AllFeedbeak from './components/page/AllFeedbeak';
-import Sommelier from './components/page/Sommelier';
-import AboutOil from './components/page/AboutOil';
+import ProductInfo from './components/page/ProductInfo';
 
 
 interface MenuContextType {
@@ -30,10 +27,7 @@ function App() {
               <Route path='/cosmetics' element={<div>132</div>} />
               <Route path='/dishes' element={<div>132</div>} />
               <Route path='/dietary_supplements' element={<div>132</div>} />
-              <Route path='/product/:id' element={<Product/>} />
-              <Route path='/product/:id/feedback' element={<AllFeedbeak/>} />
-              <Route path='/product/:id/sommelier' element={<Sommelier/>} />
-              <Route path='/product/:id/about' element={<AboutOil/>} />
+              <Route path='/product/:id/*' element={<ProductInfo/>} />
           </Routes>
         </main>
         <Footer></Footer>

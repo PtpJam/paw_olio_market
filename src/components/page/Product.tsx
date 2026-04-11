@@ -36,8 +36,7 @@ import FeedbackBlock from "../FeedbackBlock";
 import RatingBlock from "../RatingBlock";
 import RatingBlockData from "../Data/RatingBlockData";
 import { useEffect, useState } from "react";
-import { ProductsData } from "../api/CardApi";
-// import { useParams } from "react-router";
+import {ProductsData } from "../api/CardApi";
 import type IProductCard from "../interface/IProductCard";
 
 const data : ISliderProductBlock[] =[
@@ -56,12 +55,6 @@ const comb : string[] = [combination, combination, combination]
 
 function Product(){
     const {t} = useTranslation("product")
-    // const { id } = useParams();
-
-    // useEffect(() => {
-    //     //if(id)
-    //       //  ProductData(id)
-    // })
 
     const [cardGet, cardSet] = useState<IProductCard[]>([]);
     

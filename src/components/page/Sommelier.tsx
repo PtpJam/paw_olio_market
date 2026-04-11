@@ -66,8 +66,8 @@ function Sommelier(){
                             {cardInfoData.name}
                         </Typography>
                         <Grid container sx={{color: "#fff"}} columnSpacing={"52px"} rowSpacing={"20px"}>
-                            {cardInfoData.sommiler.map((item) => (
-                                <Grid size={{md: 6, xs: 12}}>
+                            {cardInfoData.sommiler.map((item, index) => (
+                                <Grid size={{md: 6, xs: 12}} key={index}>
                                     <Typography sx={{
                                         fontSize:{
                                             lg: "20px",
