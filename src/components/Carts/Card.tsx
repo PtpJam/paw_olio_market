@@ -42,22 +42,23 @@ function Card(_card : IProductCard){
                     justifyContent: "space-between",
                     flexDirection: "column",
                 }}>
-
-                <Box
-                    component={Link}
-                    to={`/product/${_card._id}`}
-                    sx={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        zIndex: 1, 
-                        '&:hover': {
-                            backgroundColor: "rgba(0,0,0,0.5)" 
-                        }
-                    }}
-                />
+                {_card.isPublished &&
+                    <Box
+                        component={Link}
+                        to={`/product/${_card._id}`}
+                        sx={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            zIndex: 1, 
+                            '&:hover': {
+                                backgroundColor: "rgba(0,0,0,0.5)" 
+                            }
+                        }}
+                    />
+                }
                 <Box 
                     sx={{
                         padding:{

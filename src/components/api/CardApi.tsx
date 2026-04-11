@@ -1,5 +1,6 @@
 import {path} from "./Path"
 import type IProductCard from "../interface/IProductCard";
+import type IProduct from "../interface/IProduct";
 
 
 export async function ProductsData(scroll: boolean){
@@ -27,8 +28,9 @@ export async function ProductData(id: string){
     try{
         const respons = await fetch(`${path}gpt-products/public/${id}`)
         const data = await respons.json();
+        const dataProduct : IProduct = data; 
         
-        console.log(data);
+        console.log(dataProduct._id);
     }
     catch(e){
         console.log(e)
