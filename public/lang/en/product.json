@@ -20,5 +20,11 @@
     "CombinatDishes": "Combination with dishes",
     "AlsoCombines": "Also combines with",
     "AddInfo": "Additional information",
-    "Rait": "This is a normal acidity level for olive oil"
+
+    "Extra Virgin": "Highest quality, cold-pressed, low acidity",
+    "Virgin": "Good quality, slightly higher acidity allowed",
+    "Pure": "Blend of refined and virgin olive oils",           
+    "Light": "Highly refined, mild flavor",           
+    "Pomace": "Extracted from olive pulp residue",               
+    "Flavored/Infused": "Oil infused with herbs, spices, or other flavors" 
 }

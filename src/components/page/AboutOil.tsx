@@ -2,12 +2,14 @@ import { Box, Divider, Grid, Typography } from "@mui/material";
 import Botl from "../../assets/studBotl.png"
 import ProductBtn from "../Buttons/ProductBtn";
 import { useTranslation } from "react-i18next";
-import cardInfoData from "../Data/CardInfoData";
+//import cardInfoData from "../Data/CardInfoData";
 import aboutOilData from "../Data/AboutOilData";
 import type IAboutOil from "../interface/IAboutOil";
 import aboutOilDownData from "../Data/AboutOilDownData";
 import infoGreen from "../../assets/svg/infoGreen.svg";
 import Rait from "../../assets/rait.png";
+import type IProduct from "../interface/IProduct";
+import { imgPath } from "../api/Path";
 
 interface OilInfoBlockProps {
     data: IAboutOil[];
@@ -95,7 +97,7 @@ const OilInfoBlock = ({data} : OilInfoBlockProps) => {
     )
 }
 
-function AboutOil(){
+function AboutOil(dataProduct : IProduct){
     const {t} = useTranslation("product")
     
     return(
@@ -181,7 +183,7 @@ function AboutOil(){
                             textAlign: "justify"
                         }}
                     >
-                        {cardInfoData.addInfo}
+                        {dataProduct.description}
                     </Typography>
                 </Grid>
             </Grid>
@@ -256,7 +258,7 @@ function AboutOil(){
                             lineHeight: 1.5,
                         }}
                     >
-                        {t("Rait")}
+                        {t(dataProduct.quality!)}
                         <Box
                             component={"span"}
                             sx={{
@@ -267,11 +269,18 @@ function AboutOil(){
                                 verticalAlign: "middle",
                                 alignItems: "end",
                                 lineHeight: 0,
-                                fontWeight: 400,
-                                fontSize: {lg: "128px", md: "94px", xs: "60px"}
                             }}
                         >
-                            “
+                            <Typography sx={{
+                                position: "absolute",
+                                fontSize: {lg: "128px", md: "94px", xs: "60px"},
+                                fontWeight: 400,
+                                ml: { lg: "30px", md: "10px", xs: "3px" },
+                                display: "inline-block",
+                                verticalAlign: "middle",
+                                alignItems: "end",
+                                lineHeight: 0,
+                            }}>“</Typography>
                         </Box>
                     </Typography>
 
@@ -291,7 +300,7 @@ function AboutOil(){
                         sm: "30vw",
                         xs: "25vw"
                     },
-                    background: `url(${cardInfoData?.src || Botl}) center/cover`,
+                    background: `url(${dataProduct.image ? imgPath+dataProduct.image : Botl}) center/cover`,
                     backgroundSize:'cover cover',
                     backgroundRepeat: "no-repeat",
                     overflow: 'visible',   

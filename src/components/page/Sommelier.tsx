@@ -1,10 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ProductBtn from "../Buttons/ProductBtn";
-import cardInfoData from "../Data/CardInfoData";
+//import cardInfoData from "../Data/CardInfoData";
 import Botl from "../../assets/studBotl.png"
+import type IProduct from "../interface/IProduct";
+import { imgPath } from "../api/Path";
 
-function Sommelier(){
+function Sommelier(dataProduct : IProduct){
     const {t} = useTranslation("product")
     
     return(
@@ -63,11 +65,11 @@ function Sommelier(){
                                 textTransform: "uppercase"
                             }}
                         >
-                            {cardInfoData.name}
+                            {dataProduct.name}
                         </Typography>
                         <Grid container sx={{color: "#fff"}} columnSpacing={"52px"} rowSpacing={"20px"}>
-                            {cardInfoData.sommiler.map((item, index) => (
-                                <Grid size={{md: 6, xs: 12}} key={index}>
+                            {/* {cardInfoData.sommiler.map((item, index) => ( */}
+                                <Grid size={{md: 12, xs: 12}}>
                                     <Typography sx={{
                                         fontSize:{
                                             lg: "20px",
@@ -76,10 +78,10 @@ function Sommelier(){
                                         },
                                         textAlign: "justify"
                                     }}>
-                                        {item}
+                                        {dataProduct.sommelierAdvices}
                                     </Typography>
                                 </Grid>
-                            ))}
+                            {/* ))} */}
                         </Grid>
                     </Grid>
                     <Grid size={{lg: 3, xs: 3}}>
@@ -101,7 +103,7 @@ function Sommelier(){
                         sm: "30vw",
                         xs: "25vw"
                     },
-                    background: `url(${cardInfoData?.src || Botl}) center/cover`,
+                    background: `url(${dataProduct.image ? imgPath+dataProduct.image : Botl}) center/cover`,
                     backgroundSize:'cover cover',
                     backgroundRepeat: "no-repeat",
                     overflow: 'visible',   

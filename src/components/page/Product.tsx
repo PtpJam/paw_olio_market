@@ -24,13 +24,14 @@ import SliderProductData from "../Data/SliderProductBlockNoImgData";
 import InstalApp from "../Carts/InstalApp";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import Bread from "../../assets/svg/bread.svg"
 // @ts-ignore
 import 'swiper/css';
 // @ts-ignore
 import 'swiper/css/pagination';
 import combination from "../../assets/combination.png"
 import SearchBox from "../SearchBox";
-import combData from "../Data/CombData";
+//import combData from "../Data/CombData";
 import CombBlock from "../CombBlock";
 import FeedbackBlock from "../FeedbackBlock";
 import RatingBlock from "../RatingBlock";
@@ -38,6 +39,9 @@ import RatingBlockData from "../Data/RatingBlockData";
 import { useEffect, useState } from "react";
 import {ProductsData } from "../api/CardApi";
 import type IProductCard from "../interface/IProductCard";
+import type IProduct from "../interface/IProduct";
+import { imgPath } from "../api/Path";
+import type ICombBlock from "../interface/ICombBlock";
 
 const data : ISliderProductBlock[] =[
     {
@@ -53,7 +57,7 @@ const data : ISliderProductBlock[] =[
 ]
 const comb : string[] = [combination, combination, combination]
 
-function Product(){
+function Product(dataProduct : IProduct){
     const {t} = useTranslation("product")
 
     const [cardGet, cardSet] = useState<IProductCard[]>([]);
@@ -96,7 +100,8 @@ function Product(){
                                 lg: "20px",
                                 md: "15px",
                                 xs: "10px"
-                            }
+                            },
+                            width: "100%"
                         }}>
                             <ProductBtn active={0}></ProductBtn>
                             <Box>
@@ -127,7 +132,7 @@ function Product(){
                                         textShadow: "0px 0px 15px rgba(255, 255, 255, 0.8)", 
                                     }}  
                                 >
-                                    {cardInfoData.name}
+                                    {dataProduct.name}
                                 </Typography>
                                 <Typography
                                     sx={{
@@ -143,7 +148,7 @@ function Product(){
                                         },
                                     }}
                                 >
-                                    {cardInfoData.info.companyName}
+                                    {dataProduct.brand}
                                 </Typography>
                             </Box>
                         </Box>
@@ -171,7 +176,7 @@ function Product(){
                             }}>
                                 <Box 
                                     component="img" 
-                                    src={cardInfoData?.src || Botl} 
+                                    src={dataProduct?.image ? imgPath+dataProduct?.image : Botl} 
                                     sx={{
                                         transform: {lg: "translateX(-40%)", md: "translateX(-30%)"},
                                         display: { md: "flex", xs: "none" },
@@ -179,7 +184,7 @@ function Product(){
                                 />
                                 <Box 
                                     component="img" 
-                                    src={cardInfoData?.src || Botl} 
+                                    src={dataProduct?.image ? imgPath+dataProduct?.image : Botl}
                                     sx={{
                                         transform: {lg: "translateX(40%)", md: "translateX(30%)", xs: "translateX(98%) scale(1.5)"},
                                     }} 
@@ -240,7 +245,6 @@ function Product(){
 
                                             padding: "23px 41.43px 24.43px 27px",
                                             display: "flex",
-                                            width: "fit-content",
                                             alignItems: "center",
                                             boxSizing: "border-box",
                                             borderRadius: '12px', 
@@ -248,7 +252,8 @@ function Product(){
                                                 lg: "85.43px",
                                                 md: "66.465px",
                                                 xs: "47.5px"
-                                            },      
+                                            },     
+                                            justifyContent: "center",
                                         }} >
                                         <Typography
                                             sx={{
@@ -259,11 +264,11 @@ function Product(){
                                                 }
                                             }}
                                         >
-                                            ${cardInfoData.infoProduct.averagePriceUSD}
+                                            ${dataProduct.averagePrice}
                                         </Typography>
                                     </Box>
                                     <Typography sx={{wordBreak: "break-word", whiteSpace: "normal", fontSize:{lg: "20px", md: "16px", xs:"12px"}}}>
-                                        {t("AveragePrice")} {cardInfoData.infoProduct.volume.value} {cardInfoData.infoProduct.volume.unit}.
+                                        {t("AveragePrice")} {dataProduct.volume} {dataProduct.volume_type}.
                                     </Typography>
                                 </Box>
                                 <Box sx={{display: "flex", flexDirection: "column", gap: {lg: "20px", md: "15px", xs: "10px"}}}>
@@ -320,7 +325,7 @@ function Product(){
                             {/* {Botl img} */}
                             <Box zIndex={10}
                                 component={"img"} 
-                                src={cardInfoData?.src || Botl}
+                                src={dataProduct?.image ? imgPath+dataProduct?.image : Botl}
                                 sx={{
                                     height: {
                                         lg: "900px",
@@ -357,7 +362,7 @@ function Product(){
                                 }
                             }}>
                                 {/* {cetificate} */}
-                                {cardInfoData.infoProduct.certificates && 
+                                {(dataProduct.certificates_generated && dataProduct.certificates_generated.length > 0) && 
                                     <Box sx={{mb: "76px",display: {md: "block", xs: "none"}}}>
                                         <Typography sx={{
                                             fontSize: {
@@ -369,7 +374,7 @@ function Product(){
                                             {t("Certificates")}
                                         </Typography>
                                         <Box sx={{display: "flex", gap:"10px"}}>
-                                            {cardInfoData.infoProduct.certificates.map((item, index)=> (
+                                            {dataProduct.certificates_generated.map((item, index)=> (
                                                 <Box
                                                     key={index} 
                                                     component={"img"}
@@ -377,15 +382,15 @@ function Product(){
                                                         width: "90px",
                                                         height: "90px"
                                                     }}
-                                                    src={item}
-                                                />
+                                                    src={imgPath+item.image}
+                                                />   
                                             ))}
                                         </Box>
                                         
                                     </Box>
                                 }
                                 {/* {awards} */}
-                                {cardInfoData.infoProduct.oilAwards && 
+                                {(dataProduct.awards_generated && dataProduct.awards_generated.length > 0) && 
                                     <Box>
                                         <Box sx={{mb: "5px",display: "flex", alignItems: "center", justifyContent: "space-between"}}>
                                             <Typography
@@ -408,9 +413,10 @@ function Product(){
                                                 gap: {lg: "0", xs: "2px"},
                                                 justifyContent: "space-between",
                                                 flexWrap: "wrap",
-                                                width: {lg: "457px"}
+                                                width: {lg: "457px"},
+                                                mt: "10px"
                                             }}>
-                                            {cardInfoData.infoProduct.oilAwards.map((item, index)=>(
+                                            {dataProduct.awards_generated.map((item, index)=> (
                                                     <Grid size={6}
                                                         key={index}
                                                         sx={{
@@ -422,7 +428,7 @@ function Product(){
                                                         }}
                                                     >
                                                         <Box 
-                                                            src={item.src}
+                                                            src={imgPath+item.image}
                                                             component={"img"}
                                                             sx={{width: {lg: "75px", md: "58.5px", xs: "42px"}}}
                                                         />
@@ -442,6 +448,8 @@ function Product(){
                                                                 }  
                                                             }}
                                                         >
+                                                            {item.medal} {item.year} 
+                                                            <br />
                                                             {item.title}
                                                         </Typography>
                                                     </Grid>
@@ -638,9 +646,15 @@ function Product(){
                                 {t("AlsoCombines")}
                             </Typography>
                             <Box sx={{display: "flex", columnGap: "10px", rowGap: "9px", flexWrap: "wrap"}}>
-                                {combData.map((item, index) => (
-                                    <CombBlock {...item} key={index}/>
-                                ))}
+                                {dataProduct.foodPairings?.map((item, index) => {
+                                    const itemData : ICombBlock= {
+                                        title: item,
+                                        color: "#8A6914",
+                                        bgColor: "#FFE194",
+                                        src: Bread
+                                    }
+                                    return <CombBlock {...itemData} key={index}/>
+                                })}
                             </Box>
                             <Box>
                                 <SearchBox/>
@@ -725,7 +739,7 @@ function Product(){
                                         
                                     }}
                                     >
-                                        {cardInfoData.info.companyName}
+                                        {dataProduct.brand}
                                     </Typography>
                                 <Typography sx={{
                                     textAlign: "end",
@@ -824,11 +838,13 @@ function Product(){
                                         xs: "12px"
                                     }
                                 }}>
-                                    {cardInfoData.info.nameCountry}
+                                    {dataProduct.country} {dataProduct.region}
                                 </Typography>
                             </Box>
                             <Box sx={{display: "inline-flex", gap:"10px", whiteSpace: "nowrap"}}>
-                                <Typography>{t("OverallRating")}</Typography>
+                                <Typography sx={{display: "flex", alignItems: "center"}}>
+                                    {t("OverallRating")}
+                                </Typography>
                                 <Box 
                                     sx={{
                                         width: {

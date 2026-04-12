@@ -27,10 +27,13 @@ export async function ProductsData(scroll: boolean){
 export async function ProductData(id: string){
     try{
         const respons = await fetch(`${path}gpt-products/public/${id}`)
-        const data = await respons.json();
-        const dataProduct : IProduct = data; 
-        
-        console.log(dataProduct._id);
+        if(respons.status === 200){
+            const dataProduct : IProduct = await respons.json(); 
+            return dataProduct;
+        }
+        else {
+            return undefined
+        }
     }
     catch(e){
         console.log(e)
