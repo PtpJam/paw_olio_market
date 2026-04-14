@@ -13,8 +13,9 @@ interface SideBarProps {
     setSelected: React.Dispatch<React.SetStateAction<SelectedFilters>>;
     value: number[];
     setValue: React.Dispatch<React.SetStateAction<number[]>>;
+    setClose: React.Dispatch<React.SetStateAction<boolean>>;
 }
-function SideBar({ sideData, selected, setSelected, value, setValue }: SideBarProps){
+function SideBar({ sideData, selected, setSelected, value, setValue, setClose }: SideBarProps){
 
 
     const handleChange = (_event: Event, newValue: number[], activeThumb: number) => {
@@ -45,10 +46,10 @@ function SideBar({ sideData, selected, setSelected, value, setValue }: SideBarPr
     return(
 
         <>
-        <Box sx={{padding:"0 2.5rem 0 2.5rem"}}>
+        <Box>
             <Box display={"flex"}justifyContent={"space-between"} >
                 <Typography fontSize={18}>Filters</Typography>
-                <img src={Filter}/>
+                <Box component={"img"} src={Filter} onClick={() => setClose(false)}/>
             </Box>
             <Box>
                 <Typography color="#929292" fontSize={14}>
@@ -65,7 +66,7 @@ function SideBar({ sideData, selected, setSelected, value, setValue }: SideBarPr
                     size="small"
                     sx={
                         { 
-                            color: "#A1ABFF",
+                            color: "#73843D",
                             padding: "12px 0",
                             height: 8,
                                 '& .MuiSlider-thumb': {
@@ -105,7 +106,7 @@ function SideBar({ sideData, selected, setSelected, value, setValue }: SideBarPr
                         {item.param.map((param, indexParam) => (
                             
                             <InputLabel key={indexParam} sx={{color:"#141412", display: "flex", justifyContent: "space-between", mt: "8px", mb: "8px" }}>
-                                <Typography fontSize={14}>{param}</Typography>
+                                <Typography fontSize={14} sx={{overflow: "hidden"}}>{param}</Typography>
                                 <Checkbox
                                     checked={selected[item.name]?.includes(param) || false}
                                     onChange={() => handleToggle(item.name, param)} 

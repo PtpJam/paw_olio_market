@@ -39,3 +39,22 @@ export async function ProductData(id: string){
         console.log(e)
     }
 }
+
+interface ISort{
+    page: number,
+    limit: number
+}
+
+export async function Sort({page, limit} : ISort) {
+    try{
+        const respons = await fetch(`${path}gpt-products-filtered/query?page=${page}&limit=${limit}`)
+        const data = await respons.json(); 
+        console.log(data)
+        return data;
+        
+
+    }
+    catch(e){
+        console.log(e)
+    }
+}
