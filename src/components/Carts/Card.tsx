@@ -23,16 +23,19 @@ function Card(_card : IProductCard){
                     background: "#fff",
                     position: "relative",
                     border: "1px solid #00000033",
-                    width:{
-                        lg: "374px",
-                        md: _card.scroll ? "302px" : "272.5px",
-                        xs: _card.scroll ? "230px" : "171px"
+                    minWidth:{
+                        lg: "304px",
+                        md: _card.scroll ? "202px" : "180.5px",
+                        xs: "170px"
                     },
-                    height: {
+                    maxWidth:"100%",
+                    minHeight: {
                         lg: "366px",
                         md: "309px",
                         xs: "252px"    
                     },
+                    width: "100%",
+                    height: "100%",
                     borderRadius: {
                         lg: "35px",
                         md: _card.scroll ? "30px" : "25px",
