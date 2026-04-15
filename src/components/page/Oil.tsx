@@ -3,14 +3,12 @@ import { Box, Drawer, FormControl, Grid, MenuItem, Pagination, PaginationItem,  
 
 import ScrollBar from "../Scroll";
 import ReclamBlock from "../Reclam";
-import TabPanel from "../TabPanel";
 import type ICard from "../interface/ICard";
 import sideBarData from "../Data/sideBarData";
 import SideBar from "../SideBar";
 import Card from "../Carts/Card";
 import UpArrow from "../../assets/svg/up.svg"
 import DownArrow from "../../assets/svg/down.svg"
-
 
 import Down from "../../assets/svg/downIco.svg"
 import Filter from '../../assets/svg/filter.svg';
@@ -20,6 +18,9 @@ import itemsMegaCard from "../Data/MegaCardData"
 import { useTranslation } from 'react-i18next';
 import { Sort } from '../api/CardApi';
 import type { ISortData } from '../interface/ISort';
+import Beak from '../../assets/svg/beak.svg';
+import { useSearchParams } from 'react-router';
+import _default from '@emotion/styled';
 
 type SelectedFilters = Record<string, string[]>;
 
@@ -31,21 +32,20 @@ function Oil(){
     const [selected, setSelected] = useState<SelectedFilters>({});
     const [open, setOpen] = useState(false);
     const [value, setValue] = React.useState<number[]>([]);
-    const [totalPages, totalPagesSet] = useState(1);
-    const [currentPage, setCurrentPage] = useState(1);
     const [sorting, setSorting] = React.useState('');
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.down('md'));
 
-    const itemsPerPage = 18
-
-    const siblingCount = isMobile ? 0 : isTablet ? 1 : 4;
     const paginationSize = isMobile ? "small" : isTablet ? "medium" : "large";
-
+    
+    const [searchParams, setSearchParams] = useSearchParams();
     const handleChangePage = (_event: React.ChangeEvent<unknown>, newValue: number) => {
-        setCurrentPage(newValue);
+        pageSet(newValue);
+
+        searchParams.set("page", newValue.toString());
+        setSearchParams(searchParams);
     };
 
     const handleChangeSorting = (event: SelectChangeEvent) => {
@@ -61,11 +61,7 @@ function Oil(){
         setValue([sideBarData.minPrice, sideBarData.maxPrice])
     }, []);
     
-    useEffect(()=>{
-        const page = Math.ceil(cardGet.length / itemsPerPage)
-        totalPagesSet(page != 0 ? page : 1)
-    }, [cardGet])
-
+    
     const sideBarContent = (
         <SideBar  
           setSelected={setSelected}
@@ -77,21 +73,27 @@ function Oil(){
         />
     );
 
-
-    const [page, pageSet] = useState(1);
+    const [page, pageSet] = useState(() =>{
+        const pageParam = searchParams.get('page');
+        const parsed = Number(pageParam);
+        return (Number.isInteger(parsed) && parsed > 0) ? parsed : 1;
+    });
+    const [maxPage, maxPageSet] = useState(1);
     const [cardData, cardDataSet] = useState<ISortData>()
 
     useEffect(() => {
       const fetchData = async() => {
           const data = await Sort({page: page, limit: isMobile ? 8 : 15});
-          cardDataSet(data)  
+          cardDataSet(data);
+          maxPageSet(data.totalPages) 
+          console.log(data)
       }
       fetchData()
-    }, [isMobile])
+    }, [isMobile, page])
 
     return(
         <>
-          <Grid container spacing={2} sx={{pt: {xs: "33px"}, pr: {xs: "20px"}}}>
+          <Grid container spacing={2} sx={{pt: {xs: "33px"}, pr: {xs: "20px"}, pb: {lg: "51px", md: "66px", xs: "86px"}}}>
             <Grid 
               size={{lg: 2.2}}
               sx={{
@@ -128,7 +130,7 @@ function Oil(){
                 </Box>
                 <Box sx={{display:'flex', justifyContent:"end", alignItems:"center", gap: 1.5}}>
                   <Typography>
-                    sorting:
+                    {t("Sorting")}:
                   </Typography>
                     <FormControl sx={{ 
                       width: "120px",   
@@ -202,50 +204,58 @@ function Oil(){
 
               {/*  */}
               <Box sx={{display: 'flex', alignItems:"center"}}>
-                
-                {
-                  Array.from({ length: totalPages }, (_, i) => i).map((num) => {
-                    const start = num * itemsPerPage;
-                    const end = (start + itemsPerPage) > cardGet.length ? cardGet.length : (start + itemsPerPage);
-                    const pageItems = cardGet.slice(start, end)
-                    
-                    return (
-                      <TabPanel value={currentPage} index={num+1} key={num+1+"-panel"} >
-                        <Grid container spacing={"30px"}>
-                          {cardData?.products.map((product, index) => (
-                            <React.Fragment key={product._id}>
-                              <Grid
-                                size={{lg: 4, md: 4, xs: 6}}
-                                key={product._id}>
-                                <Card {...product} scroll={false} />
-                              </Grid>
-                              {((index === 11 && !isMobile) || (index === 5 && isMobile) && currentPage === 1) && (
-                                <ReclamBlock/>
-                              )}
-                            </React.Fragment>
-                          ))}
+                  <Grid container spacing={"30px"}>
+                    {cardData?.products?.map((product, index) => (
+                      <React.Fragment key={product._id}>
+                        <Grid
+                          size={{lg: 4, md: 4, xs: 6}}
+                          key={product._id}>
+                          <Card {...product} scroll={false} />
                         </Grid>
-                      </TabPanel>
-                      )  
-                    }
-                  )
-                }
-              
+                        {((index === 11 && !isMobile) || (index === 5 && isMobile) && page === 1) && (
+                          <ReclamBlock/>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </Grid>
               </Box>
               <Box marginTop={5} display={'flex'} justifyContent="space-between">
                 <Pagination 
+                  page={page}
                   size = {paginationSize}
-                  count={totalPages} 
-                  siblingCount={siblingCount} 
-                  onChange={handleChangePage}
+                  count={maxPage} 
+                  siblingCount={isMobile ? 0 : 2}
+                  boundaryCount={isMobile ? 1 : 1} 
+                  onChange={handleChangePage}  
                   renderItem={(item) => (
                     <PaginationItem
                       {...item}
                       slots={{ 
-                        previous: () => <Typography>&lt; Back</Typography>, 
-                        next: () => <Typography>Next &gt;</Typography> 
+                        previous: () => 
+                        <Box sx={{display: "flex", gap: "9.6px"}}>
+                          <Box component={"img"} src={Beak}/>
+                          <Typography>{t("Back")}</Typography> 
+                        </Box>, 
+                        next: () => 
+                          <Box sx={{display: "flex", gap: "9.6px"}}>
+                            <Typography>{t("Next")}</Typography>
+                            <Box 
+                                component={"img"} src={Beak}
+                                sx={{rotate: "180deg"}}
+                            />
+                          </Box> 
                       }}
                       sx={{
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        '& .MuiPagination-ul': {
+                          width: '100%',
+                          display: 'flex',
+                          flexWrap: 'nowrap',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        },
                         '& .MuiTouchRipple-root': { display: 'none' }, 
                         '&.Mui-selected': {
                           background: '#fff',
@@ -261,11 +271,11 @@ function Oil(){
                     />
                   )}
                 />
-              <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+              <Box sx={{ display: {lg: "flex", md: "none", xs: "none"}, gap: 1, alignItems: "center" }}>
                 <Typography sx={{ display: "flex", gap: 3, alignItems: "center" }}>
-                  Result per page 
-                  <Typography component="span" sx={{ fontWeight: 'bold' }}>
-                    {totalPages}
+                  {t("Result")} 
+                  <Typography component="span">
+                    {maxPage}
                   </Typography>
                 </Typography>
                 <img width={8} height={4.5} src={Down} alt="down arrow" />

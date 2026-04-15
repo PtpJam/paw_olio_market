@@ -49,10 +49,7 @@ export async function Sort({page, limit} : ISort) {
     try{
         const respons = await fetch(`${path}gpt-products-filtered/query?page=${page}&limit=${limit}`)
         const data = await respons.json(); 
-        console.log(data)
         return data;
-        
-
     }
     catch(e){
         console.log(e)
