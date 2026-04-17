@@ -1,6 +1,7 @@
 import {path} from "./Path"
 import type IProductCard from "../interface/IProductCard";
 import type IProduct from "../interface/IProduct";
+import type ISortingParams from "../interface/ISortingParams";
 
 
 export async function ProductsData(scroll: boolean){
@@ -42,12 +43,16 @@ export async function ProductData(id: string){
 
 interface ISort{
     page: number,
-    limit: number
+    limit: number,
+    sorting?: ISortingParams
 }
 
-export async function Sort({page, limit} : ISort) {
+export async function Sort({page, limit, sorting} : ISort) {
     try{
-        const respons = await fetch(`${path}gpt-products-filtered/query?page=${page}&limit=${limit}`)
+        const respons = await fetch(
+            `${path}gpt-products-filtered/query?page=${page}&limit=${limit}` +
+            (sorting?.param ? `&sort=${sorting.param}` : "")
+        )
         const data = await respons.json(); 
         return data;
     }

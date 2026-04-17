@@ -21,18 +21,31 @@ import type { ISortData } from '../interface/ISort';
 import Beak from '../../assets/svg/beak.svg';
 import { useSearchParams } from 'react-router';
 import _default from '@emotion/styled';
+import sortingParam from '../Data/SortingParamsData';
 
 type SelectedFilters = Record<string, string[]>;
 
 function Oil(){
+    const sortParam = {
+      "0": "new",
+      "1": "old",
+      "2": "expensive",
+      "3": "cheaper"
+    }
 
     const {t} = useTranslation("sortPage");
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const [cardGet, cardSet] = useState<ICard[]>([]);
     const [selected, setSelected] = useState<SelectedFilters>({});
     const [open, setOpen] = useState(false);
     const [value, setValue] = React.useState<number[]>([]);
-    const [sorting, setSorting] = React.useState('');
+    
+    const [sorting, setSorting] = React.useState(() => {
+        const sortTitle = searchParams.get('sort');
+        const sortKey = Object.keys(sortParam).find(k => sortParam[k as keyof typeof sortParam] === sortTitle ) ?? "";
+        return sortKey;
+    });
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -40,7 +53,6 @@ function Oil(){
 
     const paginationSize = isMobile ? "small" : isTablet ? "medium" : "large";
     
-    const [searchParams, setSearchParams] = useSearchParams();
     const handleChangePage = (_event: React.ChangeEvent<unknown>, newValue: number) => {
         pageSet(newValue);
 
@@ -48,8 +60,13 @@ function Oil(){
         setSearchParams(searchParams);
     };
 
+
     const handleChangeSorting = (event: SelectChangeEvent) => {
-        setSorting(event.target.value as string);
+        const key = (event.target.value as string)
+        setSorting(key);
+
+        searchParams.set("sort", sortParam[key as keyof typeof sortParam]);
+        setSearchParams(searchParams);
     };
     useEffect(() => {
         if (cardGet.length < 18) {
@@ -83,14 +100,14 @@ function Oil(){
 
     useEffect(() => {
       const fetchData = async() => {
-          const data = await Sort({page: page, limit: isMobile ? 8 : 15});
+          const data = await Sort({page: page, limit: isMobile ? 8 : 15, sorting: sortingParam[Number(sorting)]});
           cardDataSet(data);
+
           maxPageSet(data.totalPages) 
-          console.log(data)
       }
       fetchData()
-    }, [isMobile, page])
-
+    }, [isMobile, page, sorting])
+    
     return(
         <>
           <Grid container spacing={2} sx={{pt: {xs: "33px"}, pr: {xs: "20px"}, pb: {lg: "51px", md: "66px", xs: "86px"}}}>
@@ -132,10 +149,12 @@ function Oil(){
                   <Typography>
                     {t("Sorting")}:
                   </Typography>
-                    <FormControl sx={{ 
-                      width: "120px",   
-                      minWidth: "120px" 
-                    }}>          
+                    <FormControl 
+                      sx={{ 
+                        width: "120px",   
+                        minWidth: "120px" 
+                      }}
+                    >          
                       <Select
                         sx={{
                           height: "25px",

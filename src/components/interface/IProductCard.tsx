@@ -10,5 +10,6 @@ export default interface IProductCard{
 
     codeCountry?: string,
     star: number,
-    comentary: number 
+    comentary: number,
+    updatedAt: string,
 }
