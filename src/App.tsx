@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import { createContext} from 'react';
 import { Route, Routes } from 'react-router';
 import ProductInfo from './components/page/ProductInfo';
+import AboutUs from './components/page/AboutUs';
 
 
 interface MenuContextType {
@@ -28,6 +29,7 @@ function App() {
               <Route path='/dishes' element={<div>132</div>} />
               <Route path='/dietary_supplements' element={<div>132</div>} />
               <Route path='/product/:id/*' element={<ProductInfo/>} />
+              <Route path='/aboutus' element={<AboutUs/>} />
           </Routes>
         </main>
         <Footer></Footer>

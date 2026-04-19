@@ -231,10 +231,12 @@ function Footer(){
                             },
                             whiteSpace: "nowrap",
                             color: "#FFFFFF",
+                            cursor: "pointer",
+                            textDecoration: "none"
                         },
                         lineHeight: "100%"
                     }}>
-                        <Typography>{tFooter("AboutUs")}</Typography>
+                        <Typography component={Link} to={"/aboutus"}>{tFooter("AboutUs")}</Typography>
                         <Typography>{tFooter("NewsBlog")}</Typography>
                         <Typography>{tFooter("PrivacyPolicy")}</Typography>
                         <Typography>{tFooter("CurrentPolicy")}</Typography>
