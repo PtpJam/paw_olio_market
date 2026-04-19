@@ -33,7 +33,8 @@ function App() {
               <Route path='/product/:id/*' element={<ProductInfo/>} />
               <Route path='/aboutus' element={<AboutUs/>} />
               <Route path='/contacts' element={<Contacts/>} />
-              <Route path='/privacypolicy' element={<Policy translate="privacypolicy"/>}/>
+              <Route path='/privacypolicy' element={<Policy translate="privacyPolicy"/>}/>
+              <Route path='/currentpolicy' element={<Policy translate="currentPolicy"/>}/>
           </Routes>
         </main>
         <Footer></Footer>

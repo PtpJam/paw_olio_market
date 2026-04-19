@@ -32,7 +32,8 @@ function Policy({translate}: {translate: string}){
                         fontSize: {lg: "20px", md: "18px", xs: "16px"},
                         textAlign: "justify",
                         "& p": { margin: 0 },
-                        "& ul": { margin: 0, padding: 0 } 
+                        "& ul": { margin: 0, padding: 0 }, 
+                        "& ol": { pl: "20px", margin: 0,}
                     }
                 }}
             >

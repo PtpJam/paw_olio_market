@@ -2,7 +2,6 @@ import { Box, Divider, Grid, Typography } from "@mui/material";
 import Botl from "../../assets/studBotl.png"
 import ProductBtn from "../Buttons/ProductBtn";
 import { useTranslation } from "react-i18next";
-//import cardInfoData from "../Data/CardInfoData";
 import aboutOilData from "../Data/AboutOilData";
 import type IAboutOil from "../interface/IAboutOil";
 import aboutOilDownData from "../Data/AboutOilDownData";

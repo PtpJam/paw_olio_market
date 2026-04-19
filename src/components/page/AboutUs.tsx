@@ -37,7 +37,14 @@ function AboutUs(){
                 {
                     list.map((item, index) => (
                         <Stack spacing="15px" key={index}>
-                            <Typography fontWeight={700}>{item.title}</Typography>
+                            <Typography 
+                                sx={{
+                                    fontWeight: 700,
+                                    fontSize: {lg: "20px", md: "18px", xs: "16px"} 
+                                }}
+                            >
+                                {item.title}
+                            </Typography>
                             {item.description.map((description, index) => (
                                 <Box key={index+0.1}>
                                     <Typography>{description.item}</Typography>
