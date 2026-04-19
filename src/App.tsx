@@ -9,6 +9,8 @@ import { createContext} from 'react';
 import { Route, Routes } from 'react-router';
 import ProductInfo from './components/page/ProductInfo';
 import AboutUs from './components/page/AboutUs';
+import Contacts from './components/page/Contacts';
+import Policy from './components/page/Policy';
 
 
 interface MenuContextType {
@@ -30,6 +32,8 @@ function App() {
               <Route path='/dietary_supplements' element={<div>132</div>} />
               <Route path='/product/:id/*' element={<ProductInfo/>} />
               <Route path='/aboutus' element={<AboutUs/>} />
+              <Route path='/contacts' element={<Contacts/>} />
+              <Route path='/privacypolicy' element={<Policy translate="privacypolicy"/>}/>
           </Routes>
         </main>
         <Footer></Footer>

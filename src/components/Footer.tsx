@@ -238,9 +238,9 @@ function Footer(){
                     }}>
                         <Typography component={Link} to={"/aboutus"}>{tFooter("AboutUs")}</Typography>
                         <Typography>{tFooter("NewsBlog")}</Typography>
-                        <Typography>{tFooter("PrivacyPolicy")}</Typography>
+                        <Typography component={Link} to={"/privacypolicy"}>{tFooter("PrivacyPolicy")}</Typography>
                         <Typography>{tFooter("CurrentPolicy")}</Typography>
-                        <Typography>{tFooter("Contacts")}</Typography>
+                        <Typography component={Link} to={"/contacts"}>{tFooter("Contacts")}</Typography>
                         <Typography>{tFooter("TermOfSale")}</Typography>
                         <Typography>{tFooter("TermOfUse")}</Typography>
                     </Box>

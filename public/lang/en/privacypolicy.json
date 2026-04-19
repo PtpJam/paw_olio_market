@@ -1,0 +1,377 @@
+{
+    "title": "Privacy Policy",
+    "description": [
+        {
+            "title": "**Effective Date: 25.03.2025**"
+        },
+        {
+            "title": "**Data Controller**",
+            "description": [
+                {
+                    "item": [
+                        "This Privacy Policy applies to Vivoolio, a platform operated by VIVOOLIO & CO - FZCO, located at: Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai, United Arab Emirates.",
+                        "**Contact:** privacy@vivoolio.com"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**1. General Provisions and Scope**",
+            "description": [
+                {
+                    "item": ["1.1. This Privacy Policy (\"Privacy Policy\", \"Policy\") governs the collection, processing, storage, transfer, and protection of the personal data of users of the Vivoolio Marketplace web platform (\"Platform\")."]
+                },
+                {
+                    "item": ["1.2. This Policy applies exclusively to the Vivoolio web marketplace and does not extend to mobile apps, games, or other Vivoolio services, which have separate policies."]
+                },
+                {
+                    "item": ["1.3. Vivoolio Marketplace is an online marketplace through which users can purchase olive oil and related products from third-party sellers or directly from Vivoolio."]
+                },
+                {
+                    "item": ["1.4. By using the Platform, the user confirms that:"]
+                },
+                {
+                    "list": [
+                        "they have read this Policy;",
+                        "they understand the purposes and methods of data processing;",
+                        "they agree to the terms of personal data processing."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**2. Age Restrictions**",
+            "description": [
+                {
+                    "item": ["2.1. The Vivoolio Marketplace is intended exclusively for individuals aged 18 years or older, or any other minimum age established by the laws of the user's country."]
+                },
+                {
+                    "item": ["2.2. Vivoolio does not knowingly collect or process personal data from individuals under 18 years of age on the marketplace."]
+                },
+                {
+                    "item": ["2.3. If Vivoolio becomes aware that personal data from a minor has been collected in error, such data will be deleted within a reasonable time."]
+                }
+            ]
+        },
+        {
+            "title": "**3. Roles and Responsibilities**",
+            "description": [
+                {
+                    "item": ["3.1. Vivoolio"]
+                },
+                {
+                    "item": ["Vivoolio acts as the personal data controller with respect to:"],
+                    "list": [
+                        "user account data;",
+                        "transaction data;",
+                        "payment data (under the merchant of record model);",
+                        "analytics, security, marketing, and rewards program data."
+                    ]
+                },
+                {
+                    "item": ["3.2. Marketplace Sellers"]
+                },
+                {
+                    "item": ["Sellers are:"],
+                    "list": ["independent data controllers or data processors, depending on applicable law."]
+                },
+                {
+                    "item": ["Vivoolio does not control or bear responsibility for sellers' data processing outside of fulfilling a specific order."]
+                },
+                {
+                    "item": ["3.3. Payment Providers and Banks"],
+                    "list": ["Payment systems, banks, and financial institutions are independent data controllers for financial and regulatory processing."]
+                }
+            ]
+        },
+        {
+            "title": "**4. Categories of Data Subjects**",
+            "description": [
+                {
+                    "item": ["Vivoolio processes the personal data of the following categories of individuals:"],
+                    "list": [
+                        "registered buyers;",
+                        "unregistered buyers (guests);",
+                        "marketplace sellers;",
+                        "representatives and employees of sellers;",
+                        "users contacting customer support;",
+                        "website visitors who do not place an order."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**5. Sources of Personal Data**",
+            "description": [
+                {
+                    "item": ["Personal data may be collected:"],
+                    "list": [
+                        "directly from the user;",
+                        "automatically during website use;",
+                        "From marketplace sellers;",
+                        "From payment providers;",
+                        "From delivery services;",
+                        "From analytics and advertising partners;",
+                        "From government agencies upon legal request."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**6. Categories of Personal Data**",
+            "description": [
+                {
+                    "item": ["Vivoolio may process the following categories of data:"],
+                    "list": [
+                        "Identification data (first name, last name);",
+                        "Contact information (email, phone number);",
+                        "Account information;",
+                        "Delivery address;",
+                        "Order and transaction data;",
+                        "Payment identifiers;",
+                        "Refund and chargeback data;",
+                        "Support communication data;",
+                        "Reviews and ratings;",
+                        "Device and log data;",
+                        "IP address and approximate location;",
+                        "Marketing identifiers;",
+                        "Antifraud and risk assessment data;",
+                        "Reward program data (Olive Coins)."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**7. Purposes of Personal Data Processing**",
+            "description": [
+                {
+                    "item": ["Personal data is processed for the following purposes:"],
+                    "list": [
+                        "Account registration and management;",
+                        "Processing and fulfilling orders;",
+                        "Accepting and processing payments;",
+                        "Acting as a merchant of record;",
+                        "Transferring data to sellers for order fulfillment;",
+                        "Organizing delivery;",
+                        "Processing returns and disputes;",
+                        "Accumulating and using Olive Coins;",
+                        "Preventing fraud and abuse;",
+                        "Complying with tax and financial legislation;",
+                        "Analyzing and improving service quality;",
+                        "Content personalization;",
+                        "Marketing communications (subject to consent);",
+                        "Protecting the rights and legitimate interests of Vivoolio."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**8. Legal grounds for processing**",
+            "description": [
+                {
+                    "item": ["Personal data is processed on the following grounds:"],
+                    "list": [
+                        "Contract performance;",
+                        "Compliance with legal obligations;",
+                        "Vivoolio's legitimate interests;",
+                        "User consent (if required by law)."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**User consent (if required by law).**",
+            "description": [
+                {
+                    "item": ["9.1. Vivoolio accepts payments from buyers as a merchant of record/payment agent."]
+                },
+                {
+                    "item": ["9.2. Vivoolio may process:"]
+                },
+                {
+                    "list": [
+                        "Transaction identifiers;",
+                        "Amounts;",
+                        "Currency;",
+                        "Payment statuses;",
+                        "Refund and chargeback data."
+                    ]
+                },
+                {
+                    "item": ["9.3. Vivoolio does not store full bank card details."]
+                },
+                {
+                    "item": ["9.4. Financial data may be stored for the periods established by tax and financial legislation."]
+                }
+            ]
+        },
+        {
+            "title": "**10. Transfer of Data to Sellers and Delivery**",
+            "description": [
+                {
+                    "item": ["10.1. To fulfill an order, Vivoolio transfers to the seller:"]
+                },
+                {
+                    "list": [
+                        "buyer's name;",
+                        "delivery address;",
+                        "contact details;",
+                        "data;",
+                        "order details."
+                    ]
+                },
+                {
+                    "item": ["10.2. For delivery purposes, data may be transferred to logistics and courier services."]
+                },
+                {
+                    "item": ["10.3. Sellers and carriers are obligated to use the data solely for order fulfillment."]
+                }
+            ]
+        },
+        {
+            "title": "**11. Olive Coins and Loyalty Programs**",
+            "description": [
+                {
+                    "item": ["11.1. Vivoolio processes data related to bonus programs, including:"],
+                    "list": [
+                        "accrual history;",
+                        "bonus use;",
+                        "expiration dates."
+                    ]
+                },
+                {
+                    "item": ["11.2. Olive Coins:"],
+                    "list": [
+                        "are not cash;",
+                        "cannot be exchanged for cash;",
+                        "can only be used as partial payment for certain items;",
+                        "have a 12-month expiration date;",
+                        "may be voided in the event of returns, disputes, or abuse."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**12. Analytics, Cookies, and Advertising**",
+            "description": [
+                {
+                    "item": ["12.1. Vivoolio uses cookies, SDKs, and similar technologies."]
+                },
+                {
+                    "item": ["12.2. They are used to:"],
+                    "list": [
+                        "ensure the operation of the website;",
+                        "Analytics;",
+                        "Marketing and remarketing;",
+                        "Fraud protection."
+                    ]
+                },
+                {
+                    "item": ["12.3. The user can manage cookies through browser settings or the website interface."]
+                }
+            ]
+        },
+        {
+            "title": "13. Automated Decisions and Profiling",
+            "description": [
+                {
+                    "item": ["13.1. Vivoolio may use automated tools to analyze user behavior."]
+                },
+                {
+                    "item": ["13.2. Such decisions do not have legally significant consequences for the user."]
+                }
+            ]
+        },
+        {
+            "title": "**14. International Data Transfer**",
+            "description": [
+                {
+                    "item": ["14.1. Vivoolio operates globally."]
+                },
+                {
+                    "item": ["14.2. Personal data may be transferred outside the user's country in compliance with applicable laws and through the use of legitimate data protection mechanisms."]
+                }
+            ]
+        },
+        {
+            "title": "**15. Data Retention Periods**",
+            "description": [
+                {
+                    "item": ["15.1. Personal data is stored:"],
+                    "list": [
+                        "for the duration of the account;",
+                        "after account deletion — in an archive for legal and regulatory purposes;",
+                        "in anonymized form — for analytics."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**16. User Rights**",
+            "description": [
+                {
+                    "item": ["The user has the right to:"]
+                },
+                {
+                    "list": [
+                        "access data;",
+                        "correction;",
+                        "Deletion;",
+                        "Restriction of processing;",
+                        "Data portability;",
+                        "Withdrawal of consent;",
+                        "Filing a complaint with the regulator."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**17. Data Security**",
+            "description": [
+                {
+                    "item": ["Vivoolio implements technical and organizational measures to protect personal data."]
+                }
+            ]
+        },
+        {
+            "title": "**18. Data Breach Notification**",
+            "description": [
+                {
+                    "item": ["In the event of a security breach, Vivoolio notifies users and regulators within the timeframes established by law (including 72 hours under the GDPR, if applicable)."]
+                }
+            ]
+        },
+        {
+            "title": "**19. Government Requests and Law Enforcement**",
+            "description": [
+                {
+                    "item": ["Vivoolio may disclose personal data:"],
+                    "list": [
+                        "upon a legally binding court order;",
+                        "at the request of government authorities;",
+                        "to protect its rights and legitimate interests."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "**20. Business Reorganization and Transfer**",
+            "description": [
+                {
+                    "item": ["In the event of a merger, sale, reorganization, or transfer of a business, personal data may be transferred to the legal successor, subject to compliance with the law."]
+                }
+            ]
+        },
+        {
+            "title": "**21. Policy Changes**",
+            "description": [
+                {
+                    "item": [
+                        "For questions regarding the processing of personal data, the user may contact:",
+                        "support@vivoolio.com"
+                    ]
+                }
+            ]
+        }
+    ]
+}

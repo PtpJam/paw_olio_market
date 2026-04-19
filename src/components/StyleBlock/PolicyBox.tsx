@@ -1,13 +1,12 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack} from "@mui/material";
 import type { ReactNode } from "react";
 
 interface Props {
     children?: ReactNode;
-    title?: string;
     src?: string;    
 }
 
-function PolicyBox({children, title, src} : Props){
+function PolicyBox({children, src} : Props){
     return(
         <Grid 
             container
@@ -21,18 +20,7 @@ function PolicyBox({children, title, src} : Props){
         >
             <Grid 
                 size={{lg: 7, md: 8, xs: 12}}>
-                <Stack spacing="20px"> 
-                    {title &&
-                        <Typography
-                            sx={{
-                                fontSize: {lg: "36px !important", md: "30px !important", xs: "24px !important"} ,
-                                fontWeight: 700,
-                                textAlign: "justify"
-                            }}
-                        >
-                            {title}
-                        </Typography>
-                    }
+                <Stack spacing="20px">
                     {children}
                 </Stack> 
             </Grid>
