@@ -32,14 +32,16 @@ function Policy({translate}: {translate: string}){
                         fontSize: {lg: "20px", md: "18px", xs: "16px"},
                         textAlign: "justify",
                         "& p": { margin: 0 },
-                        "& ul": { margin: 0, padding: 0 }, 
-                        "& ol": { pl: "20px", margin: 0,}
+                        "& ul": { m: 0, p: 0 }, 
+                        "& ol": { m: 0, p: 0, listStylePosition: "inside" }
                     }
                 }}
             >
                 {listTranslate.map((desc, index) =>
                     <Stack spacing={"20px"} key={index}>
-                        <Markdown>{desc.title}</Markdown>
+                        <Box sx={{fontWeight: 700, fontSize: {lg: "20px", md: "18px", xs: "16px"}}}>
+                            <Markdown>{desc.title}</Markdown>
+                        </Box>
                         <Stack spacing={"20px"}>
                             {desc.description?.map((textList, textId) => (
                                 <Box key={textId}>

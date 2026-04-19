@@ -33,8 +33,10 @@ function App() {
               <Route path='/product/:id/*' element={<ProductInfo/>} />
               <Route path='/aboutus' element={<AboutUs/>} />
               <Route path='/contacts' element={<Contacts/>} />
-              <Route path='/privacypolicy' element={<Policy translate="privacyPolicy"/>}/>
-              <Route path='/currentpolicy' element={<Policy translate="currentPolicy"/>}/>
+              <Route path='/privacypolicy' element={<Policy key="privacy" translate="privacyPolicy"/>}/>
+              <Route path='/currentpolicy' element={<Policy key="current" translate="currentPolicy"/>}/>
+              <Route path='/termsofuse' element={<Policy key="termsOfUse" translate="termOfUse"/>}/>
+              <Route path='/termsofsale' element={<Policy key="termsOfSale" translate="termOfSale"/>}/>
           </Routes>
         </main>
         <Footer></Footer>

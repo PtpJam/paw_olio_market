@@ -241,8 +241,8 @@ function Footer(){
                         <Typography component={Link} to={"/privacypolicy"}>{tFooter("PrivacyPolicy")}</Typography>
                         <Typography component={Link} to={"/currentpolicy"}>{tFooter("CurrentPolicy")}</Typography>
                         <Typography component={Link} to={"/contacts"}>{tFooter("Contacts")}</Typography>
-                        <Typography>{tFooter("TermOfSale")}</Typography>
-                        <Typography>{tFooter("TermOfUse")}</Typography>
+                        <Typography component={Link} to={"/termsofsale"}>{tFooter("TermOfSale")}</Typography>
+                        <Typography component={Link} to={"/termsofuse"}>{tFooter("TermOfUse")}</Typography>
                     </Box>
                     {(isSm || isXs) && PayAndDoun()}
                     <Box sx={{display: "flex", justifyContent:"space-between"}}>
