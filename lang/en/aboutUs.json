@@ -1,0 +1,70 @@
+{
+    "title": "About VivoOlio",
+    "list": [
+        {
+            "title": "We make quality transparent",
+            "description": [
+                {
+                    "item": "Olive oil is called \"liquid gold,\" but finding the true treasure among thousands of labels is becoming increasingly difficult. The market is vast, and quality guarantees are often blurred."
+                },
+                {
+                    "item": "VivoOlio was born to set a new standard." 
+                },
+                {
+                    "item": "We created the first global digital ecosystem that unites cutting-edge technology, gastronomic culture, and health. Our goal is not just to sell a bottle of oil, but to create an environment where everyone—from farmer to consumer—has access to honest information and the best products."
+                }
+            ]
+        },
+        {
+            "title": "More than just oil",
+            "description": [
+                {
+                    "item": "We believe that a healthy olive oil culture requires the right environment. That's why VivoOlio is a comprehensive marketplace for a healthy lifestyle."
+                },
+                {
+                    "item": "Here you'll find everything you need to immerse yourself in the world of \"liquid gold\":",
+                    "list": [
+                        "The world's best oils: Award-winning, laboratory-tested, and community-approved.",
+                        "Related products: Professional tasting glasses, accessories for proper storage and dosing.",
+                        "Health and beauty: Olive-based dietary supplements and nutritional support products."
+                    ] 
+                }
+            ]
+        },
+        {
+            "title": "An ecosystem uniting professionals",
+            "description": [
+                {
+                    "item": "VivoOlio is the intersection of all market players. We build bridges where there were once walls."
+                },
+                {
+                    "item": "Our platform creates opportunities for everyone:",
+                    "list": [
+                        "For manufacturers and distributors: Direct access to the international market, demand analytics, and the ability to confirm brand status through reviews and ratings.",
+                        "For restaurateurs: Finding reliable suppliers of premium products that will highlight the status of your establishment and the taste of your dishes.",
+                        "For experts and sommeliers: Tools for conducting professional tastings, certification, and audience training.",
+                        "For nutritionists and dietitians: A database of proven products with detailed chemical compositions for creating ideal meal plans.",
+                        "For contest organizers: A platform for publicizing and promoting events to millions of users."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Technology at the service of taste",
+            "description":[
+                {
+                    "item": "VivoOlio is your intelligent digital assistant. We transform difficult choices into confident decisions. Smart algorithms and a label scanner help you evaluate a product's health benefits in seconds, while game mechanics and a bonus program make health-consciousness engaging. We replace shelf-shop hesitation with knowledge."
+                },
+                {
+                    "item": "Our mission is to create a global benchmark for olive oil culture."
+                },
+                {
+                    "item": "We are building a world where quality is backed by data and healthy products are accessible to everyone."
+                },
+                {
+                    "item": "VivoOlio: An olive oil expert in your pocket."
+                }
+            ]
+        }
+    ]
+}
