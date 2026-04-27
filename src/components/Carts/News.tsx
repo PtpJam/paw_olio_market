@@ -1,42 +1,49 @@
 import { Box, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
 import pointerUpSmall from "../../assets/svg/pointerUpSmall.svg"
 import pointerUp from "../../assets/svg/pointerUp.svg"
+import { Link } from "react-router";
 
 export interface NewsProps {
     text: string;
     src: string;
+    id?: string;
 }
 
-function News({text, src} : NewsProps){
+function News({text, src, id} : NewsProps){
     const theme = useTheme();
     const isLg = useMediaQuery(theme.breakpoints.up('lg'));
     
     return(
-        <Box sx={{
-            backgroundImage: `url(${src})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            borderRadius: "32px",
-            padding: {
-                lg: "39px",
-                xs: "17px 18px 35px 20px"
-            },
-            width:{
-                lg: "576px",
-                md: "457.5px",
-                xs: "339px"
-            },
-            height:{
-                lg: "394px",
-                md: "388,5px",
-                xs: "383px"
-            },
-            boxSizing: "border-box",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between"
-        }}>
+        <Box 
+            component={id ? Link : 'div'} 
+            to={id ? `/newsblog/${id}` : undefined}
+            sx={{
+                textDecoration: "none",
+                backgroundImage: `url(${src})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                borderRadius: "32px",
+                padding: {
+                    lg: "39px",
+                    xs: "17px 18px 35px 20px"
+                },
+                width:{
+                    lg: "576px",
+                    md: "457.5px",
+                    xs: "339px"
+                },
+                height:{
+                    lg: "394px",
+                    md: "388,5px",
+                    xs: "383px"
+                },
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between"
+            }}
+        >
             <Box sx={
                 {
                     display: "flex",

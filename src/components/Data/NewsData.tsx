@@ -5,15 +5,18 @@ import { type NewsProps } from "../Carts/News";
 const itemsNews : NewsProps[] = [
     {
         text: "EU Moves to Streamline Farm Rules and Help Farmers Compete",
-        src: Farm
+        src: Farm,
+        id: "123"
     },
     {
         text: "China’s Olive Oil Sector Alleviates Poverty but Struggles to Compete",
-        src: China
+        src: China,
+        id: "123"
     },
     {
         text: "EU Moves to Streamline Farm Rules and Help Farmers Compete",
-        src: Farm
+        src: Farm,
+        id: "123"
     },
     {
         text: "China’s Olive Oil Sector Alleviates Poverty but Struggles to Compete",
