@@ -3,7 +3,6 @@ import { Box, Drawer, FormControl, Grid, MenuItem, Pagination, PaginationItem,  
 
 import ScrollBar from "../Scroll";
 import ReclamBlock from "../Reclam";
-import type ICard from "../interface/ICard";
 import sideBarData from "../Data/sideBarData";
 import SideBar from "../SideBar";
 import Card from "../Carts/Card";
@@ -13,7 +12,6 @@ import DownArrow from "../../assets/svg/down.svg"
 import Down from "../../assets/svg/downIco.svg"
 import Filter from '../../assets/svg/filter.svg';
 import React from 'react';
-import cards from "../Data/CardDataDeScroll"
 import itemsMegaCard from "../Data/MegaCardData"
 import { useTranslation } from 'react-i18next';
 import { Sort } from '../api/CardApi';
@@ -36,10 +34,10 @@ function Oil(){
     const {t} = useTranslation("sortPage");
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const [cardGet, cardSet] = useState<ICard[]>([]);
     const [selected, setSelected] = useState<SelectedFilters>({});
     const [open, setOpen] = useState(false);
-    const [value, setValue] = React.useState<number[]>([]);
+    const [priceRange, setPriceRange] = React.useState<number[]>([]);
+    const [priceRangeStatick, setPriceRangeStatick] = React.useState<number[]>([]);
     
     const [sorting, setSorting] = React.useState(() => {
         const sortTitle = searchParams.get('sort');
@@ -68,24 +66,15 @@ function Oil(){
         searchParams.set("sort", sortParam[key as keyof typeof sortParam]);
         setSearchParams(searchParams);
     };
-    useEffect(() => {
-        if (cardGet.length < 18) {
-            
-            for (let index = 0; index < 10; index++) {
-            cardSet((prev) => [...prev, ...cards]);          
-            }
-        }
-        setValue([sideBarData.minPrice, sideBarData.maxPrice])
-    }, []);
-    
-    
+        
     const sideBarContent = (
         <SideBar  
+          statickRange={priceRangeStatick}
           setSelected={setSelected}
           selected={selected}
           sideData={sideBarData}
-          value={value}
-          setValue={setValue}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
           setClose={setOpen}
         />
     );
@@ -100,14 +89,28 @@ function Oil(){
 
     useEffect(() => {
       const fetchData = async() => {
-          const data = await Sort({page: page, limit: isMobile ? 8 : 15, sorting: sortingParam[Number(sorting)]});
+          const data = await Sort({
+            page: page,
+            limit: isMobile ? 8 : 15,
+            sorting: sorting == "" ? undefined : sortingParam[Number(sorting)],
+            brands: selected["Brand"] 
+          });
+          console.log(selected["Brand"])
           cardDataSet(data);
 
           maxPageSet(data.totalPages) 
-      }
+                    
+        }
       fetchData()
-    }, [isMobile, page, sorting])
+    }, [isMobile, page, sorting, selected])
     
+    useEffect(() => {
+      const minPrice = Math.min(...cardData?.products.map(p => p.averagePrice) || [0]);
+      const maxPrice = Math.max(...cardData?.products.map(p => p.averagePrice) || [0]);
+      setPriceRange([minPrice, maxPrice])
+      setPriceRangeStatick([minPrice, maxPrice])
+    }, [cardData])
+
     return(
         <>
           <Grid container spacing={2} sx={{pt: {xs: "33px"}, pr: {xs: "20px"}, pb: {lg: "51px", md: "66px", xs: "86px"}}}>

@@ -42,17 +42,30 @@ export async function ProductData(id: string){
 }
 
 interface ISort{
-    page: number,
-    limit: number,
-    sorting?: ISortingParams
+    page: number;
+    limit: number;
+    sorting?: ISortingParams;
+    regions?: string[];
+    countries?: string[];
+    brands?: string[]
 }
-
-export async function Sort({page, limit, sorting} : ISort) {
+//8 25 50 100
+export async function Sort({page, limit, sorting, /*regions, countries, brands*/} : ISort) {
     try{
+        const params = new URLSearchParams();
+
+        //["Italy", "Spain"].forEach(c => params.append("countries[]", c));
+        //["OroBailen"].forEach(c => params.append("brands[]", c));
+        //brands?.forEach(c => params.append("brands[]", c));
+
         const respons = await fetch(
             `${path}gpt-products-filtered/query?page=${page}&limit=${limit}` +
-            (sorting?.param ? `&sort=${sorting.param}` : "")
+            (sorting?.param ? `&sort=${sorting.param}` : "") +
+           `&${params}`
         )
+        if(respons.status == 404){
+            return undefined;
+        }
         const data = await respons.json(); 
         return data;
     }
@@ -60,3 +73,11 @@ export async function Sort({page, limit, sorting} : ISort) {
         console.log(e)
     }
 }
+        // const respons = await fetch(
+        //     `${path}gpt-products-filtered/query?page=${page}&limit=${limit}` +
+        //     (sorting?.param ? `&sort=${sorting.param}` : "") +
+        //     `${brands?.map((item) => `&brands=${item}`)}`
+        // )
+        // if(respons.status == 404){
+        //     return undefined;
+        // }

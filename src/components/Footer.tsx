@@ -237,7 +237,7 @@ function Footer(){
                         lineHeight: "100%"
                     }}>
                         <Typography component={Link} to={"/aboutus"}>{tFooter("AboutUs")}</Typography>
-                        <Typography>{tFooter("NewsBlog")}</Typography>
+                        <Typography component={Link} to={"/newsblog"}>{tFooter("NewsBlog")}</Typography>
                         <Typography component={Link} to={"/privacypolicy"}>{tFooter("PrivacyPolicy")}</Typography>
                         <Typography component={Link} to={"/currentpolicy"}>{tFooter("CurrentPolicy")}</Typography>
                         <Typography component={Link} to={"/contacts"}>{tFooter("Contacts")}</Typography>

@@ -18,32 +18,39 @@ function ApleGoogleApp({Isfooter} : Props){
             display:"flex",
             gap: {lg: "40px", md:"25px", xs:"10px"},
         }}>
-            <Box sx={{
-                border: "1px solid #FFFFFF4D",
-                background: "#A1ABFF4D",
-                display: "flex",
-                borderRadius: "50px",
-                width: {
-                    lg: "173px",
-                    md: "150.5px",
-                    xs: "100%"
-                },
-                height: {
-                    lg: "50px",
-                    md: "49.5px",
-                    xs: "39px"
-                },
-                justifyContent: "center",
-                alignItems: "center",
-                padding: {
-                    xs: "1px 10px"
-                },
-                gap: {
-                    lg: "11.33px",
-                    md: "10.65px",
-                    xs: "10px"
-                }
-            }}>
+            <Box 
+                component={"a"}
+                target="_blank"
+                href="https://play.google.com/store/apps/details?id=com.vivoolio.platform&hl=uk"
+                sx={{
+                    textDecoration: "none",
+                    color: "#fff",
+                    border: "1px solid #FFFFFF4D",
+                    background: "#A1ABFF4D",
+                    display: "flex",
+                    borderRadius: "50px",
+                    width: {
+                        lg: "173px",
+                        md: "150.5px",
+                        xs: "100%"
+                    },
+                    height: {
+                        lg: "50px",
+                        md: "49.5px",
+                        xs: "39px"
+                    },
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: {
+                        xs: "1px 10px"
+                    },
+                    gap: {
+                        lg: "11.33px",
+                        md: "10.65px",
+                        xs: "10px"
+                    }
+                }}
+            >
                 <Box
                     component={"img"}
                     src={GooglePlay}
@@ -64,32 +71,39 @@ function ApleGoogleApp({Isfooter} : Props){
                     />
                 </Box>
             </Box>
-            <Box sx={{
-                border: "1px solid #FFFFFF4D",
-                background: "#A1ABFF4D",
-                display: "flex",
-                borderRadius: "50px",
-                width: {
-                    lg: "173px",
-                    md: "150.5px",
-                    xs: "100%"
-                },
-                height: {
-                    lg: "50px",
-                    md: "49.5px",
-                    xs: "39px"
-                },
-                justifyContent: "center",
-                alignItems: "center",
-                padding: {
-                    xs: "1px 10px"
-                },
-                gap: {
-                    lg: "11.33px",
-                    md: "10.65px",
-                    xs: "10px"
-                }
-            }}>
+                <Box
+                    component={"a"}
+                    target="_blank"
+                    href="https://apps.apple.com/ua/app/vivoolio/id6667120224?l=uk"
+                    sx={{
+                        textDecoration: "none",
+                        color: "#fff",
+                        border: "1px solid #FFFFFF4D",
+                        background: "#A1ABFF4D",
+                        display: "flex",
+                        borderRadius: "50px",
+                        width: {
+                            lg: "173px",
+                            md: "150.5px",
+                            xs: "100%"
+                        },
+                        height: {
+                            lg: "50px",
+                            md: "49.5px",
+                            xs: "39px"
+                        },
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: {
+                            xs: "1px 10px"
+                        },
+                        gap: {
+                            lg: "11.33px",
+                            md: "10.65px",
+                            xs: "10px"
+                        }
+                    }}
+                >
                 <Box
                     component={"img"}
                     src={ApleStore}

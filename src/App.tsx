@@ -11,6 +11,7 @@ import ProductInfo from './components/page/ProductInfo';
 import AboutUs from './components/page/AboutUs';
 import Contacts from './components/page/Contacts';
 import Policy from './components/page/Policy';
+import NewsBlog from './components/page/NewsBlog';
 
 
 interface MenuContextType {
@@ -33,6 +34,7 @@ function App() {
               <Route path='/product/:id/*' element={<ProductInfo/>} />
               <Route path='/aboutus' element={<AboutUs/>} />
               <Route path='/contacts' element={<Contacts/>} />
+              <Route path='/newsblog/*' element={<NewsBlog/>} />
               <Route path='/privacypolicy' element={<Policy key="privacy" translate="privacyPolicy"/>}/>
               <Route path='/currentpolicy' element={<Policy key="current" translate="currentPolicy"/>}/>
               <Route path='/termsofuse' element={<Policy key="termsOfUse" translate="termOfUse"/>}/>

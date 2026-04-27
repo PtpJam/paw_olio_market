@@ -196,7 +196,7 @@ function Card(_card : IProductCard){
                                                         
                                                     }}
                                                 >
-                                                    {_card.country + ", " + _card.region}
+                                                    {_card.country + (_card.region ? ", " + _card.region : "")}
                                                 </Typography>
                                             </> : 
                                             <>

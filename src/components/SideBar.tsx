@@ -1,31 +1,27 @@
 import { Box, Checkbox, Divider, InputLabel, Slider, Typography } from "@mui/material";
 import Filter from "../assets/svg/filter.svg" 
-import React from "react";
 import type ISideBar from "./interface/ISideBar";
 import CheckBox from "../assets/svg/checkBox.svg";
 import CheckBoxActive from "../assets/svg/checkBoxActive.svg";
 
 type SelectedFilters = Record<string, string[]>;
 
-interface SideBarProps {
+interface SideBarProps 
+{
+    statickRange: number[];
     sideData: ISideBar;
     selected: SelectedFilters;
     setSelected: React.Dispatch<React.SetStateAction<SelectedFilters>>;
-    value: number[];
-    setValue: React.Dispatch<React.SetStateAction<number[]>>;
+    priceRange: number[];
+    setPriceRange: React.Dispatch<React.SetStateAction<number[]>>;
     setClose: React.Dispatch<React.SetStateAction<boolean>>;
 }
-function SideBar({ sideData, selected, setSelected, value, setValue, setClose }: SideBarProps){
+function SideBar({statickRange, sideData, selected, setSelected, priceRange, setPriceRange, setClose }: SideBarProps){
 
 
-    const handleChange = (_event: Event, newValue: number[], activeThumb: number) => {
-        if (activeThumb === 0) {
-            setValue([Math.min(newValue[0], value[1] - sideData.minPrice), value[1]]);
-        } else {
-            setValue([value[0], Math.max(newValue[1], value[0] + sideData.minPrice)]);
-        }
+    const handleChange = (_event: Event, newValue: number[]) => {
+        setPriceRange(newValue);
     };
-
     const handleToggle = (category: string, value: string) => {
         setSelected((prev) => {
             const currentCategoryValues = prev[category] || [];
@@ -40,9 +36,9 @@ function SideBar({ sideData, selected, setSelected, value, setValue, setClose }:
             ...prev,
             [category]: nextValues,
             };
-            
         });
     };
+
     return(
 
         <>
@@ -58,11 +54,11 @@ function SideBar({ sideData, selected, setSelected, value, setValue, setClose }:
                 <Box>
                 <Slider 
                     getAriaLabel={() => 'Minimum distance'}
-                    value={value}
+                    value={priceRange}
                     onChange={handleChange}
                     disableSwap
-                    min={sideData.minPrice}
-                    max={sideData.maxPrice}
+                    min={statickRange[0]}
+                    max={statickRange[1]}
                     size="small"
                     sx={
                         { 
@@ -92,8 +88,8 @@ function SideBar({ sideData, selected, setSelected, value, setValue, setClose }:
 
                 />
                 <Box display={"flex"} justifyContent={"space-between"}>
-                    <Typography>{value[0]}$</Typography>
-                    <Typography>{value[1]}$</Typography>
+                    <Typography>{priceRange[0]}$</Typography>
+                    <Typography>{priceRange[1]}$</Typography>
                 </Box>
                 </Box>
                 <Divider sx={{margin: "15px 0"}}></Divider>
@@ -110,8 +106,8 @@ function SideBar({ sideData, selected, setSelected, value, setValue, setClose }:
                                 <Checkbox
                                     checked={selected[item.name]?.includes(param) || false}
                                     onChange={() => handleToggle(item.name, param)} 
-                                    icon={<img src={CheckBox} />}
-                                    checkedIcon={<img src={CheckBoxActive} />}
+                                    icon={<Box component={"img"} src={CheckBox} />}
+                                    checkedIcon={<Box component={"img"} src={CheckBoxActive} />}
                                     sx={{
                                         padding: 0,
                                         borderRadius: "40px",

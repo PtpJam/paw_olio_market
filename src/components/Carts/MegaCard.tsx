@@ -3,11 +3,81 @@ import pointerUp from "../../assets/svg/pointerUp.svg"
 import pointerUpSmall from "../../assets/svg/pointerUpSmall.svg";
 import type ICard from "../interface/IMegaCard"
 
-
 function MegaCard(card : ICard) {
     const theme = useTheme();
     const isLg = useMediaQuery(theme.breakpoints.up('lg'));
-    
+
+    const firstChipStyle = {
+        fontSize: {
+            lg: "20px",
+            md: "17px",
+            xs: "14px"
+        },
+        backgroundColor: 'transparent',
+        position: 'relative',
+        color: '#fff', 
+        width:{
+            lg: "189px",
+            md: "133px",
+            xs: "77px"
+        },
+        height:{
+            lg: "48px",
+            md: "38.5px",
+            xs: "29px"
+        },
+        borderRadius: '50px',
+
+        '&::before': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: card.btnColor ? card.btnColor : "#0000",
+            mixBlendMode: 'difference',
+            borderRadius: '50px',
+            zIndex: 0,
+        },
+
+        '& .MuiChip-label': {
+            position: 'relative',
+            zIndex: 1,
+        },
+    };
+
+    const otherChipStyle = {
+        display: {
+            lg: "flex",
+            md: "flex",
+            xs: "none"
+        },
+        fontSize: {
+            lg: "20px",
+            md: "17px",
+            xs: "14px"
+        },
+        mixBlendMode: 'difference',
+        backgroundColor: "none",
+        color: card.btnColor ? card.btnColor : "#0000", 
+        border: `1px solid ${card.btnColor ? card.btnColor : "#0000"}`,
+        minWidth: {
+            lg: "109px",
+            md: "85px",
+            xs: "41px"
+        },
+        maxWidth:{
+            lg: "163px",
+            md: "148px",
+            xs: "51px"
+        },
+        height:{
+            lg: "48px",
+            md: "38.5px",
+            xs: "29px"
+        },
+        borderRadius: '50px',
+    };
+
+
     return (
         <Box sx={{
             display: "flex",
@@ -26,7 +96,7 @@ function MegaCard(card : ICard) {
                 md: "15px 30px 30px 30px",
                 xs: "10px 11px 10px 11px",
             },
-            width: { 
+            minWidth: { 
                 lg: "576px",
                 md: "403px",
                 xs: "230px",
@@ -36,112 +106,35 @@ function MegaCard(card : ICard) {
                 md: "276.5px",
                 xs: "170px"
             }, 
-            background: `
-                url(${card.src}), 
+            background: ` 
                 linear-gradient(0deg, 
-                rgba(161, 171, 255, 0.8) 0%,
+                ${card.colorGrad ? card.colorGrad : "rgba(161, 171, 255, 0.8) 0%"},
                 rgba(85, 92, 152, 0.45) 25%,  
                 rgba(161, 171, 255, 0) 60%
                 ), 
+                url(${card.src}),
                 #000000
             `,
-            backgroundSize: '65%, cover', 
-            backgroundPosition: 'bottom, center',
+            backgroundSize: `${card.size? "cover, cover" : "100%, 65%"}`, 
+            backgroundPosition: `${card.size? "center, center" : "bottom, center"} `,
             backgroundRepeat: 'no-repeat',
             }}
             >
             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-                <Chip 
-                    label="Organic" 
-                    sx={{ 
-                        fontSize: {
-                            lg: "20px",
-                            md: "17px",
-                            sx: "14px"
-                        },
-                        mixBlendMode: 'difference',
-                        backgroundColor: "#A1ABFF",
-                        color: '#fff', 
-                        width:{
-                            lg: "189px",
-                            md: "133px",
-                            xs: "77px"
-                        },
-                        height:{
-                            lg: "48px",
-                            md: "38.5px",
-                            xs: "29px"
-                        },
-                        borderRadius: '50px',
-                    }} 
-                />
-                <Chip 
-                    label="Gluten-Free" 
-                    sx={{ 
-                        display: {
-                            lg: "flex",
-                            md: "flex",
-                            xs: "none"
-                        },
-                        fontSize: {
-                            lg: "20px",
-                            md: "17px",
-                            sx: "14px"
-                        },
-                        mixBlendMode: 'difference',
-                        backgroundColor: "none",
-                        color: '#A1ABFF', 
-                        border: "1px solid #A1ABFF",
-                        width:{
-                            lg: "163px",
-                            md: "148px",
-                            xs: "51px"
-                        },
-                        height:{
-                            lg: "48px",
-                            md: "38.5px",
-                            xs: "29px"
-                        },
-                        borderRadius: '50px',
-                    }} 
-                />
-                <Chip 
-                    label="Vegan" 
-                    sx={{ 
-                        display: {
-                            lg: "flex",
-                            md: "flex",
-                            xs: "none"
-                        },
-                        fontSize: {
-                            lg: "20px",
-                            md: "17px",
-                            sx: "14px"
-                        },
-                        mixBlendMode: 'difference',
-                        backgroundColor: "none",
-                        color: '#A1ABFF', 
-                        border: "1px solid #A1ABFF",
-                        width:{
-                            lg: "109px",
-                            md: "85px",
-                            xs: "41px"
-                        },
-                        height:{
-                            lg: "48px",
-                            md: "38.5px",
-                            xs: "29px"
-                        },
-                        borderRadius: '50px',
-                    }} 
-                />
+                {card.chip?.map((item, index) => (
+                    
+                    <Chip 
+                        label={item} 
+                        sx={index === 0 ? firstChipStyle : otherChipStyle} 
+                    />
+                ))}
              </Box>
 
-            <Box sx={{ mt: 'auto', maxWidth: "100%" }}>
+            <Box sx={{ mt: 'auto', maxWidth: "760px" }}>
                 <Box sx={{display: "flex", justifyContent: "space-between", alignItems:"center"}}>
                     <Typography  sx={{ 
                         fontSize: { 
-                            lg: '48px',   
+                            lg: '40px',   
                             md: '32px',
                             xs: '16px'
                         },
@@ -166,18 +159,15 @@ function MegaCard(card : ICard) {
                                 md: "58px",
                                 xs: "37px"
                             },
-                            backgroundColor: '#A1ABFF', 
+                            backgroundColor: '#fff', 
                             zIndex: 2,
-                            '&:hover': { backgroundColor: '#b2b9ff' }
+                            '&:hover': { backgroundColor: '#fff' }
                         }}
                     >
                         <Box 
                             component={"img"}
                             src={isLg ? pointerUp : pointerUpSmall}
                             alt="up"
-                            sx={{ 
-                                filter: "brightness(0) invert(1)",
-                            }}
                         /> 
                     </IconButton>
                 </Box>
