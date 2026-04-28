@@ -1,5 +1,4 @@
 import { Box, Button, Divider, Typography } from "@mui/material"
-import articleData from "../Data/ArticleData"
 import MoreHorizIcon from '../../assets/svg/MoreHorizIcon.svg';
 import Arrow from '../../assets/svg/Arrow.svg';
 import { useTranslation } from "react-i18next";
@@ -9,8 +8,9 @@ import Like from '../../assets/svg/Like.svg';
 import LikeActive from '../../assets/svg/LikeActive.svg';
 import Comentary from "../../assets/svg/Comments_Icon.svg"
 import { Link } from "react-router";
+import type IArticle from "../interface/IArticle";
 
-function Article(){
+function Article(articleData : IArticle){
     const { t } = useTranslation("article");
     const [emblaRef] = useEmblaCarousel({
         align: "start",
@@ -132,7 +132,7 @@ function Article(){
                     >
                         {t("Read")}
                     </Button>
-                    <Box ref={emblaRef} sx={{ overflow: "hidden", pt: "11px"}}>
+                    <Box ref={emblaRef} sx={{ overflow: "hidden", pt: "11px"}} className="inner-scroll-container">
                         <Box sx={{ display: "flex", gap: {lg: "20px", md: "12.5", xs: "5px"} }}>
                             {articleData.foto.map((url, index) => (
                                 <Box

@@ -8,13 +8,15 @@ import MegaCard from "./Carts/MegaCard";
 import type IMegaCard from "./interface/IMegaCard";
 import ButtonNextBeak from "./Buttons/ButtonNextBeak";
 import type IProductCard from "./interface/IProductCard";
+import type IArticle from "./interface/IArticle";
+import Article from "./Carts/Article";
 
 
 interface Iscroll{
     team: boolean; //true - black, false - white
     title?: string;
-    type: string; // news, сosmetics, product
-    items: (NewsProps | IProductCard | IMegaCard)[];
+    type: "news" | "cosmetics" | "product" | "article"; 
+    items: (NewsProps | IProductCard | IMegaCard | IArticle)[];
     row?: number; 
 }
 interface Props{
@@ -31,6 +33,12 @@ function Scroll({scroll} : Props){
             '(max-width: 899px)': { 
                 slidesToScroll: (scroll.row && scroll.row > 1) ? 2 : 1 
             }
+        },
+        watchDrag: (_, event) => {
+            const target = event.target as HTMLElement | null;
+            const isInnerScroll = target?.closest('.inner-scroll-container');
+            
+            return !isInnerScroll;
         }
     });
 
@@ -68,7 +76,7 @@ function Scroll({scroll} : Props){
             </Box>
 
         <Box sx={{ position: "relative" }}>
-            <Box ref={emblaRef} sx={{ overflow: "hidden" }}>
+            <Box ref={emblaRef} sx={{ overflow: "hidden"}}>
                 <Box 
                   sx={{
                     display: "flex",
@@ -107,7 +115,10 @@ function Scroll({scroll} : Props){
                                 
                                 case 'cosmetics':
                                     return <MegaCard {...item as IMegaCard}></MegaCard>
-                                
+                                case "article":
+                                    return <Box sx={{maxWidth: {lg: "648px", md: "406.5px", xs: "168px"}}}>
+                                                <Article {...item as IArticle}></Article>
+                                            </Box>
                                 default:
                                     return null;
                             }

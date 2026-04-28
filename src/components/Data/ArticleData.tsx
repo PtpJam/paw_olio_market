@@ -16,3 +16,12 @@ const articleData : IArticle = {
     active: false
 }
 export default articleData
+
+export const articleDataArr : IArticle[] = [
+    articleData, 
+    articleData,
+    articleData,
+    articleData,
+    articleData,
+    articleData
+]

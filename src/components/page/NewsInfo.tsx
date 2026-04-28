@@ -9,6 +9,8 @@ import Instagram from "../../assets/svg/socialMedia/Instagram.svg";
 import X from "../../assets/svg/socialMedia/X.svg";
 import Snapchat from "../../assets/svg/socialMedia/Snapchat.svg";
 import Article from "../Carts/Article";
+import Scroll from "../Scroll";
+import { articleDataArr } from "../Data/ArticleData";
 
 const socialMedia : string[] = [WeChat, Facebook, Instagram, X, Snapchat]
 
@@ -147,7 +149,7 @@ function NewsInfo(){
                     padding: {lg: "0 63px 34.78px 61px", md: "0 42.5px 30.89p 44px", xs: "0 22px 27px"}
                 }}
             >
-                <Article></Article>
+                <Scroll scroll={{ team: true, type:"article", items: articleDataArr}}></Scroll>
             </Box>
         </Box>
     )
