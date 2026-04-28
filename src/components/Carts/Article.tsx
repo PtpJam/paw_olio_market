@@ -224,7 +224,7 @@ function Article(articleData : IArticle){
                 </Box>
                 <Box 
                     component={Link}
-                    to={`/articles/${articleData.id}/feedback`}
+                    to={`/articles/${articleData.id}/comments`}
                     sx={{
                         textDecoration: "none",
                         display: "flex",

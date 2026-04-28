@@ -1,14 +1,13 @@
 import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
 import data from "../Data/NewsInfoData"
 import Beak from "../Buttons/beak"
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import WeChat from "../../assets/svg/socialMedia/WeChat.svg";
 import Facebook from "../../assets/svg/socialMedia/Facebook.svg";
 import Instagram from "../../assets/svg/socialMedia/Instagram.svg";
 import X from "../../assets/svg/socialMedia/X.svg";
 import Snapchat from "../../assets/svg/socialMedia/Snapchat.svg";
-import Article from "../Carts/Article";
 import Scroll from "../Scroll";
 import { articleDataArr } from "../Data/ArticleData";
 
@@ -124,6 +123,8 @@ function NewsInfo(){
                             {t("Updated")} {data.update}
                         </Typography>
                         <Button
+                            component={Link}
+                            to={"comments"}
                             variant="contained"
                             sx={{
                                 mt: "auto",
