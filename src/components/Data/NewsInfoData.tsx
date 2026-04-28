@@ -5,7 +5,7 @@ const newsInfoData : INewsInfo = {
     by: "Natalia Luca",
     data: "Jan 3, 2025",
     time: "5:22 PM",
-    update: "Updated Nov. 17, 2025 20:01",
+    update: "Nov. 17, 2025 20:01",
     description: [
         {
             items: [
