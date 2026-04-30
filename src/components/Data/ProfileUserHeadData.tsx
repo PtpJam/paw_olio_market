@@ -9,7 +9,7 @@ const profileUserHeadData : IProfileUserHead = {
     name: "Natalia Luca",
     award: tire,
     country: "Ukraine",
-    countrySort: "UA",
+    countryCode: "UA",
     followers: 2470,
     following: 870,
     rankIn: 6

@@ -4,7 +4,7 @@ export default interface IProfileUserHead{
     name: string;
     award: string;
     country: string;
-    countrySort: string,
+    countryCode: string,
     followers: number;
     following: number;
     rankIn: number
