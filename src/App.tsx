@@ -14,6 +14,7 @@ import Policy from './components/page/Policy';
 import NewsBlog from './components/page/NewsBlog';
 import NewsInfo from './components/page/NewsInfo';
 import Comments from './components/page/Comments';
+import ProfileUser from './components/page/ProfileUser';
 
 
 interface MenuContextType {
@@ -44,6 +45,7 @@ function App() {
               <Route path='/currentpolicy' element={<Policy key="current" translate="currentPolicy"/>}/>
               <Route path='/termsofuse' element={<Policy key="termsOfUse" translate="termOfUse"/>}/>
               <Route path='/termsofsale' element={<Policy key="termsOfSale" translate="termOfSale"/>}/>
+              <Route path='/user/:id' element={<ProfileUser/>}/>
           </Routes>
         </main>
         <Footer></Footer>
