@@ -1,5 +1,6 @@
 export default interface IArticle{
     id: string;
+    userId: string;
     avatar: string;
     name: string;
     time: string;

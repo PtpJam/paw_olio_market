@@ -58,7 +58,17 @@ function Article(articleData : IArticle){
 
                 <Box sx={{ flexGrow: 1, minWidth: 0 }}>
                     <Box sx={{display: "flex", justifyContent: "space-between", mb: "20px"}}>
-                        <Box sx={{display: "flex", gap: {lg: "15px", md: "12.5", xs: "10px"}, alignItems: "center"}}>
+                        <Box 
+                            component={Link}
+                            to={`/user/${articleData.userId}`}
+                            sx={{
+                                textDecoration: "none",
+                                color: "black",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: {lg: "15px", md: "12.5", xs: "10px"}
+                            }}
+                        >
                             <Box 
                                 component={"img"}
                                 src={articleData.avatar}

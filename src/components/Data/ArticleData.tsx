@@ -5,6 +5,7 @@ import Oil from "../../assets/Data/oil.png";
 
 const articleData : IArticle = {
     id: "12345",
+    userId: "12345",
     avatar: User,
     name: "Natalia Luca",
     time: "Jan 3, 2025",
