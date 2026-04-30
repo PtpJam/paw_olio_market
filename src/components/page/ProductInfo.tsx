@@ -10,16 +10,16 @@ import type IProduct from "../interface/IProduct"
 function ProductInfo(){
     const { id } = useParams();
     const [dataGet, dataSet] = useState<IProduct>()
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     
     useEffect(() => {
         const featchData = async() => {
             if(id){
                 const data : IProduct | undefined = await ProductData(id);            
-                if(!data){
-                    navigate('/'); 
-                    return;
-                }
+                // if(!data){
+                //     navigate('/'); 
+                //     return;
+                // }
 
                 dataSet(data)
             }

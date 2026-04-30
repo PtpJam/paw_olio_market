@@ -8,6 +8,8 @@ interface Awards_generated {
 
 export default interface IProduct{
     _id?: string,
+    manufacturerId?: string;
+
     name?: string,
     image?: string,
     brand?: string,

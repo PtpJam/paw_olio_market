@@ -15,6 +15,7 @@ import NewsBlog from './components/page/NewsBlog';
 import NewsInfo from './components/page/NewsInfo';
 import Comments from './components/page/Comments';
 import ProfileUser from './components/page/ProfileUser';
+import ManufacturerProfile from './components/page/ManufacturerProfile';
 
 
 interface MenuContextType {
@@ -46,6 +47,7 @@ function App() {
               <Route path='/termsofuse' element={<Policy key="termsOfUse" translate="termOfUse"/>}/>
               <Route path='/termsofsale' element={<Policy key="termsOfSale" translate="termOfSale"/>}/>
               <Route path='/user/:id' element={<ProfileUser/>}/>
+              <Route path='/manufacturer/:id' element={<ManufacturerProfile/>} />
           </Routes>
         </main>
         <Footer></Footer>

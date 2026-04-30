@@ -42,6 +42,7 @@ import type IProductCard from "../interface/IProductCard";
 import type IProduct from "../interface/IProduct";
 import { imgPath } from "../api/Path";
 import type ICombBlock from "../interface/ICombBlock";
+import { Link } from "react-router";
 
 const data : ISliderProductBlock[] =[
     {
@@ -752,7 +753,7 @@ function Product(dataProduct : IProduct){
                                     {t("Manufacturer")}
                                 </Typography>
                             </Box>
-                            <Box sx={{display: "flex", alignItems: "center"}}>
+                            <Box sx={{display: "flex", alignItems: "center"}} component={Link} to={`/manufacturer/${dataProduct.manufactrerInfo}`}>
                                 <ButtonNextBeak width={{lg: 59, md:51, xs:43}} nextBack={true} team={false}/>
                             </Box>
                         </Box>
