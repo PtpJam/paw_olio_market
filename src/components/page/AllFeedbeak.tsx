@@ -8,7 +8,11 @@ import { useEffect, useState } from "react"
 import type IProductCard from "../interface/IProductCard"
 import { ProductsData } from "../api/CardApi"
 
-function AllFeedbeak(){
+interface Props{
+    navigatiot?: boolean;
+}
+
+function AllFeedbeak({navigatiot} : Props){
     const {t} = useTranslation("feedbeak");
 
     const [cardGet, cardSet] = useState<IProductCard[]>([]);
@@ -36,7 +40,7 @@ function AllFeedbeak(){
             >
                 <Grid container columnSpacing={"50px"} rowSpacing={"20px"}>
                     <Grid size={{lg: 8.3, md: 12, xs: 12}}>
-                        <FeedbackBlock all={true} />
+                        <FeedbackBlock all={true} navigation={true}/>
                     </Grid>
                     <Grid 
                         size={{lg: 3.7, md: 12, xs: 12}}

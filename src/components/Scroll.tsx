@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 
@@ -10,13 +10,15 @@ import ButtonNextBeak from "./Buttons/ButtonNextBeak";
 import type IProductCard from "./interface/IProductCard";
 import type IArticle from "./interface/IArticle";
 import Article from "./Carts/Article";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 
 interface Iscroll{
     team: boolean; //true - black, false - white
     title?: string;
-    type: "news" | "cosmetics" | "product" | "article"; 
-    items: (NewsProps | IProductCard | IMegaCard | IArticle)[];
+    type: "news" | "cosmetics" | "product" | "article" | "galery"; 
+    items: (NewsProps | IProductCard | IMegaCard | IArticle | string)[]; //string - galery []
     row?: number; 
 }
 interface Props{
@@ -25,6 +27,8 @@ interface Props{
 
 
 function Scroll({scroll} : Props){
+    const {t} = useTranslation("scroll")
+
     const [emblaRef, emblaApi] = useEmblaCarousel({
         align: "start",
         containScroll: "trimSnaps",
@@ -75,66 +79,97 @@ function Scroll({scroll} : Props){
                        
             </Box>
 
-        <Box sx={{ position: "relative" }}>
-            <Box ref={emblaRef} sx={{ overflow: "hidden"}}>
-                <Box 
-                  sx={{
-                    display: "flex",
-                    flexDirection: {
-                        lg: "row",
-                        md: "row",
-                        xs: (scroll.row && scroll.row > 1) ? "column" : "row"
-                    },
-                    flexWrap: {
-                        lg: "nowrap",
-                        md: "nowrap",
-                        xs: (scroll.row && scroll.row > 1) ? "wrap" : "nowrap"
-                    },
+            <Box sx={{ position: "relative" }}>
+                <Box ref={emblaRef} sx={{ overflow: "hidden"}}>
+                    <Box 
+                    sx={{
+                        display: "flex",
+                        flexDirection: {
+                            lg: "row",
+                            md: "row",
+                            xs: (scroll.row && scroll.row > 1) ? "column" : "row"
+                        },
+                        flexWrap: {
+                            lg: "nowrap",
+                            md: "nowrap",
+                            xs: (scroll.row && scroll.row > 1) ? "wrap" : "nowrap"
+                        },
 
-                    height: {
-                        lg: "auto",
-                        md: "auto",
-                        xs: (scroll.row && scroll.row > 1) ? "515px" : "auto" 
-                    },
-                    gap: {
-                        lg: "10px",
-                        md: "7.5px",
-                        xs: "5px"
-                    },
+                        height: {
+                            lg: "auto",
+                            md: "auto",
+                            xs: (scroll.row && scroll.row > 1) ? "515px" : "auto" 
+                        },
+                        gap: {    
+                            lg: scroll.type === "galery" ? "20px" : "10px",
+                            md: scroll.type === "galery" ? "15.25px" :"7.5px",
+                            xs: scroll.type === "galery" ? "10.5px" : "5px"
+                        },
 
-      
-                }}>
-                    {scroll.items.map((item, index) => {
-                        const renderCard = () => {
-                            switch (scroll.type) {
-                                case 'news':
-                                    return <News {...item as NewsProps} ></News>;
-                                
-                                case 'product':
-                                    return <Card {...item as IProductCard}></Card>;
-                                
-                                case 'cosmetics':
-                                    return <MegaCard {...item as IMegaCard}></MegaCard>
-                                case "article":
-                                    return <Box sx={{maxWidth: {lg: "648px", md: "406.5px", xs: "168px"}}}>
-                                                <Article {...item as IArticle}></Article>
-                                            </Box>
-                                default:
-                                    return null;
-                            }
-                        };
+        
+                    }}>
+                        {scroll.items.map((item, index) => {
+                            const renderCard = () => {
+                                switch (scroll.type) {
+                                    case 'news':
+                                        return <News {...item as NewsProps} ></News>;
+                                    
+                                    case 'product':
+                                        return <Card {...item as IProductCard}></Card>;
+                                    
+                                    case 'cosmetics':
+                                        return <MegaCard {...item as IMegaCard}></MegaCard>
+                                    case "article":
+                                        return <Box sx={{maxWidth: {lg: "648px", md: "406.5px", xs: "168px"}}}>
+                                                    <Article {...item as IArticle}></Article>
+                                                </Box>
+                                    case "galery":
+                                        return <Box 
+                                                    component={"img"} 
+                                                    src={item as string}
+                                                    sx={{
+                                                        borderRadius: "10px",
+                                                        objectFit: 'cover',
+                                                        objectPosition: 'center',
+                                                        width: {lg: "184px", md: "147.5px", xs: "111px"},
+                                                        height: {lg: "184px", md: "147.5px", xs: "111px"}
+                                                    }}
+                                                />
+                                    default:
+                                        return null;
+                                }
+                            };
 
-                        return (
-                            <Box 
-                                key={index + scroll.type}
-                            >
-                                {renderCard()}
-                            </Box>
-                        );
-                    })}
+                            return (
+                                <Box 
+                                    key={index + scroll.type}
+                                >
+                                    {renderCard()}
+                                </Box>
+                            );
+                        })}
+                    </Box>
                 </Box>
             </Box>
-        </Box>
+            {
+                scroll.type == "galery" &&
+                <Box sx={{display: "flex", justifyContent: "end"}} > 
+                    <Button
+                        component={Link}
+                        to={"galery"}
+                        variant="contained"
+                        sx={{
+                            minWidth: "179px",
+                            height: "39px",
+                            bgcolor: "#000",
+                            textTransform: "none",
+                            borderRadius: "82px"
+                        }}
+                    >
+                        {t("AllPhotos")}
+                    </Button>
+                </Box>
+            }
         </Box>
     )
 }

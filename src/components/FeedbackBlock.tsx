@@ -4,14 +4,14 @@ import { useTranslation } from "react-i18next"
 import TabPanel from "./TabPanel";
 import FeedbeakData from "./Data/FeedbeakData";
 import Feedback from "./Carts/Feedback";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import Beak from "./Buttons/beak";
-
 interface FeedbackBlockProps {
   all: boolean;
+  navigation?: boolean;
 }
 
-function FeedbackBlock({all}: FeedbackBlockProps){
+function FeedbackBlock({all, navigation}: FeedbackBlockProps){
     const {t} = useTranslation("feedbeak");
     const tabsLabels = Object.values(t('tabs', { returnObjects: true }) as Record<string, string>);
 
@@ -23,6 +23,8 @@ function FeedbackBlock({all}: FeedbackBlockProps){
 
     const { id } = useParams<{ id: string }>();
 
+    const navigate = useNavigate();
+    
     return(
         <Box>
             <Box sx={{
@@ -43,8 +45,9 @@ function FeedbackBlock({all}: FeedbackBlockProps){
                     </Typography>
                     : 
                     <Box
-                        component={Link}
-                        to={`/product/${id}`}
+                        component={navigation ? Box : Link}
+                        to={navigation ? undefined : `/product/${id}`}
+                        onClick={() => {navigation && navigate(-1);}}
                         sx={{
                             textDecoration: "none",
                             color: "#000",

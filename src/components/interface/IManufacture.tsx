@@ -3,5 +3,7 @@ export default interface IManuFacture {
     ProducesOils: {
         color: string;
         text: string;
-    }[]
+    }[],
+    Video?: string;
+    Galery?: string[];
 }

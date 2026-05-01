@@ -16,6 +16,7 @@ import NewsInfo from './components/page/NewsInfo';
 import Comments from './components/page/Comments';
 import ProfileUser from './components/page/ProfileUser';
 import ManufacturerProfile from './components/page/ManufacturerProfile';
+import AllFeedbeak from './components/page/AllFeedbeak';
 
 
 interface MenuContextType {
@@ -48,6 +49,7 @@ function App() {
               <Route path='/termsofsale' element={<Policy key="termsOfSale" translate="termOfSale"/>}/>
               <Route path='/user/:id' element={<ProfileUser/>}/>
               <Route path='/manufacturer/:id' element={<ManufacturerProfile/>} />
+              <Route path='/manufacturer/:id/feedback' element={<AllFeedbeak key="manufacturerComments"/>}/>
           </Routes>
         </main>
         <Footer></Footer>

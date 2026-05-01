@@ -98,10 +98,10 @@ function ManufacturerProfile(){
                 </Box>
                 {/* {product} */}
                 <Box>
-                    <Scroll scroll={{ team: true, title: t('Products'), type:"product", items: cardGet, row: 2}}></Scroll>
+                    <Scroll scroll={{ team: true, title: t('Products'), type:"product", items: cardGet}}></Scroll>
                 </Box>
                 {/* {posts} */}
-                <Box>
+                <Box pb={"20px"}>
                     <Typography sx={styleTitle} pb={"20px"}>
                         {t("Posts")}
                     </Typography>
@@ -114,11 +114,30 @@ function ManufacturerProfile(){
                         </Grid>
                     </Grid>
                 </Box>
+                {/* video */}
+                {manufacturerData.Video &&
+                    <Box sx={{borderRadius: "10px"}}>
+                        <Box 
+                            sx={{
+                                width: "100%",
+                            }}
+                            component={"img"}
+                            src={manufacturerData.Video} 
+                        />
+                    </Box>
+                }
+                {/* {galary} */}
+                {
+                    manufacturerData.Galery &&
+                    <Box>
+                        <Scroll scroll={{items: manufacturerData.Galery, team: true, type: "galery" }}></Scroll>
+                    </Box>
+                }
                 {/* {feedbeak} */}
                 <Box>
                     <Grid container columnSpacing={"50px"} rowSpacing={"20px"}>
                         <Grid size={{lg: 8, md: 12, xs: 12}}>
-                            <FeedbackBlock all={false} />
+                            <FeedbackBlock all={false} navigation={true}/>
                         </Grid>
                         <Grid 
                             size={{lg: 4, md: 12, xs: 12}}
