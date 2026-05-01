@@ -3,7 +3,7 @@ import User from "../../assets/Data/avatarUser.jpg";
 import Botl from "../../assets/Data/oilBotl.jpg";
 import Oil from "../../assets/Data/oil.png";
 
-const articleData : IArticle = {
+export const articleData : IArticle = {
     id: "12345",
     userId: "12345",
     avatar: User,
@@ -16,7 +16,6 @@ const articleData : IArticle = {
     comments: 7,
     active: false
 }
-export default articleData
 
 export const articleDataArr : IArticle[] = [
     articleData, 

@@ -1,4 +1,4 @@
-import {Route, Routes, useNavigate, useParams } from "react-router"
+import {Route, Routes, /*useNavigate,*/ useParams } from "react-router"
 import Product from "./Product"
 import AllFeedbeak from "./AllFeedbeak"
 import Sommelier from "./Sommelier"
