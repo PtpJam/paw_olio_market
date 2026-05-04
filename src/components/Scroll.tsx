@@ -12,23 +12,26 @@ import type IArticle from "./interface/IArticle";
 import Article from "./Carts/Article";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import type IAward from "./interface/IAward";
+import AwardBlock from "./AwardBlock";
 
 
 interface Iscroll{
     team: boolean; //true - black, false - white
     title?: string;
-    type: "news" | "cosmetics" | "product" | "article" | "galery"; 
-    items: (NewsProps | IProductCard | IMegaCard | IArticle | string)[]; //string - galery []
+    type: "news" | "cosmetics" | "product" | "article" | "galery" | "award" | "certificate"; 
+    items: (NewsProps | IProductCard | IMegaCard | IArticle | string | IAward)[]; //string - galery []
     row?: number; 
 }
 interface Props{
     scroll: Iscroll;
 }
 
+type ScrollType = "galery" | "award" | "certificate";
 
 function Scroll({scroll} : Props){
     const {t} = useTranslation("scroll")
-
+    
     const [emblaRef, emblaApi] = useEmblaCarousel({
         align: "start",
         containScroll: "trimSnaps",
@@ -54,6 +57,34 @@ function Scroll({scroll} : Props){
         emblaApi?.scrollPrev();
     }, [emblaApi]);
     
+    const gapMap: Record<ScrollType | "default", {
+        lg: string;
+        md: string;
+        xs: string;
+    }>  = {
+        galery: {
+            lg: "20px",
+            md: "15.25px",
+            xs: "10.5px",
+        },
+        award: {
+            lg: "20px",
+            md: "20px",
+            xs: "20px",
+        },
+        certificate: {
+            lg: "20px",
+            md: "20px",
+            xs: "20px",
+        },
+        default: {
+            lg: "10px",
+            md: "7.5px",
+            xs: "5px",
+        }
+    };
+    const gap = gapMap[scroll.type as keyof typeof gapMap] ?? gapMap.default;
+
     return(
         <Box sx={{display: "flex", flexDirection: "column", gap: "20px"}}>
             <Box sx={{
@@ -100,11 +131,7 @@ function Scroll({scroll} : Props){
                             md: "auto",
                             xs: (scroll.row && scroll.row > 1) ? "515px" : "auto" 
                         },
-                        gap: {    
-                            lg: scroll.type === "galery" ? "20px" : "10px",
-                            md: scroll.type === "galery" ? "15.25px" :"7.5px",
-                            xs: scroll.type === "galery" ? "10.5px" : "5px"
-                        },
+                        gap: gap
 
         
                     }}>
@@ -135,6 +162,16 @@ function Scroll({scroll} : Props){
                                                         height: {lg: "184px", md: "147.5px", xs: "111px"}
                                                     }}
                                                 />
+                                    case "award": 
+                                        return <Box sx={{width: {lg: "216px", md: "168.5px", xs: "121px"}}}> 
+                                                <AwardBlock award="award" data={item as IAward}>
+                                                </AwardBlock>
+                                            </Box>
+                                    case "certificate": 
+                                        return <Box sx={{width: {lg: "216px", md: "168.5px", xs: "121px"}}}> 
+                                                <AwardBlock award="certificate" data={item as IAward}>
+                                                </AwardBlock>
+                                            </Box>
                                     default:
                                         return null;
                                 }

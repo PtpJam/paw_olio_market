@@ -8,11 +8,7 @@ import { useEffect, useState } from "react"
 import type IProductCard from "../interface/IProductCard"
 import { ProductsData } from "../api/CardApi"
 
-interface Props{
-    navigatiot?: boolean;
-}
-
-function AllFeedbeak({navigatiot} : Props){
+function AllFeedbeak(){
     const {t} = useTranslation("feedbeak");
 
     const [cardGet, cardSet] = useState<IProductCard[]>([]);
